@@ -112,6 +112,9 @@
         "padding_bottom": 12
       }
     },
+    "main-product-benefits":{
+      "type":"main-product-benefits",
+    },
     "image-with-text": {
       "type": "image-with-text",
       "blocks": {
@@ -209,6 +212,7 @@
   },
   "order": [
     "main",
+    "main-product-benefits",
     "image-with-text",
     "multicolumn",
     "related-products"

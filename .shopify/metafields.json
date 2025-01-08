@@ -1,0 +1,837 @@
+{
+  "article": [],
+  "blog": [],
+  "brand": [],
+  "collection": [],
+  "company": [],
+  "company_location": [],
+  "location": [],
+  "market": [],
+  "order": [],
+  "page": [],
+  "product": [
+    {
+      "key": "dhm_promos",
+      "namespace": "custom",
+      "name": "DHM Promos - List",
+      "description": "",
+      "type": {
+        "name": "list.single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_promos_risk_free_trial",
+      "namespace": "custom",
+      "name": "DHM Promos - Free Trial",
+      "description": "Length in Days... 15, 30, etc.",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_promos_warranty",
+      "namespace": "custom",
+      "name": "DHM Promos - Warranty",
+      "description": "Length... 30 Days, 90 Days, 6 Months, 2 Years, etc.",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_promos_free_gift",
+      "namespace": "custom",
+      "name": "DHM Promos - Free Gift",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_promos_parts",
+      "namespace": "custom",
+      "name": "DHM Promos - Parts Link",
+      "description": "Full HTML Link",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_shared_sound_level",
+      "namespace": "custom",
+      "name": "DHM Shared - Sound Level",
+      "description": "5 dBA, 10 dBA, 25 dBA",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_shared_altitude",
+      "namespace": "custom",
+      "name": "DHM Shared - Altitude",
+      "description": "5,000 Feet, 10,000 Feet, etc.",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_shared_filter_types",
+      "namespace": "custom",
+      "name": "DHM Shared - Filter Types",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_shared_alerts",
+      "namespace": "custom",
+      "name": "DHM Shared - Alerts",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_general_hcpcs",
+      "namespace": "custom",
+      "name": "DHM Gen - HCPCS",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_general_in_the_box",
+      "namespace": "custom",
+      "name": "DHM Gen - In The Box",
+      "description": "For Complex Products Only",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_general_intended_use",
+      "namespace": "custom",
+      "name": "DHM Gen - Intended Use",
+      "description": "Copied from Manufacturer for Complex Products Only",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_general_rx_required",
+      "namespace": "custom",
+      "name": "DHM Gen - RX Required",
+      "description": "True = RX Required",
+      "type": {
+        "name": "boolean",
+        "category": "TRUE_FALSE"
+      }
+    },
+    {
+      "key": "dhm_general_country",
+      "namespace": "custom",
+      "name": "DHM Gen - Country",
+      "description": "",
+      "type": {
+        "name": "list.single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_general_compatibility",
+      "namespace": "custom",
+      "name": "DHM Gen - Compatibility",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_general_notes",
+      "namespace": "custom",
+      "name": "DHM Gen - Notes",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_physical_activator",
+      "namespace": "custom",
+      "name": "DHM Phys - Activator",
+      "description": "True = Activated",
+      "type": {
+        "name": "boolean",
+        "category": "TRUE_FALSE"
+      }
+    },
+    {
+      "key": "dhm_physical_sizes",
+      "namespace": "custom",
+      "name": "DHM Sizes - List",
+      "description": "Select All That Apply",
+      "type": {
+        "name": "list.single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_physical_length",
+      "namespace": "custom",
+      "name": "DHM Sizes - Length",
+      "description": "As in Length of a Tube (2 Feet, 6 Feet, 18 Inches, etc.)",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_physical_dimension_length",
+      "namespace": "custom",
+      "name": "DHM Dimensions - Length (Depth)",
+      "description": "Number Only in Inches",
+      "type": {
+        "name": "dimension",
+        "category": "MEASUREMENT"
+      }
+    },
+    {
+      "key": "dhm_physical_dimension_width",
+      "namespace": "custom",
+      "name": "DHM Dimensions - Width",
+      "description": "Number Only in Inches",
+      "type": {
+        "name": "dimension",
+        "category": "MEASUREMENT"
+      }
+    },
+    {
+      "key": "dhm_physical_dimension_height",
+      "namespace": "custom",
+      "name": "DHM Dimensions - Height",
+      "description": "Number Only in Inches",
+      "type": {
+        "name": "dimension",
+        "category": "MEASUREMENT"
+      }
+    },
+    {
+      "key": "dhm_physical_inner_diameter",
+      "namespace": "custom",
+      "name": "DHM Sizes - Inner Diameter",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_physical_weight",
+      "namespace": "custom",
+      "name": "DHM Phys - Weight",
+      "description": "Product Weight (Number Only) in Pounds",
+      "type": {
+        "name": "weight",
+        "category": "MEASUREMENT"
+      }
+    },
+    {
+      "key": "dhm_physical_materials",
+      "namespace": "custom",
+      "name": "DHM Phys - Materials",
+      "description": "Select All That Are Appropriate",
+      "type": {
+        "name": "list.single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_physical_ingredients",
+      "namespace": "custom",
+      "name": "DHM Phys - Ingredients",
+      "description": "Comma separated list of ingredients with a period at the end.",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_sleep_mask_type",
+      "namespace": "custom",
+      "name": "DHM Sleep - Mask Type (Activator)",
+      "description": "",
+      "type": {
+        "name": "list.single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_sleep_mask_pressure_range",
+      "namespace": "custom",
+      "name": "DHM Sleep - Mask Pressure Range",
+      "description": "",
+      "type": {
+        "name": "list.single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_sleep_mask_sizing_guide",
+      "namespace": "custom",
+      "name": "DHM Sleep - Mask Sizing Guide",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_sleep_machine_pressure_range",
+      "namespace": "custom",
+      "name": "DHM Sleep - Machine Pressure Range",
+      "description": "",
+      "type": {
+        "name": "list.single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_sleep_machine_modes",
+      "namespace": "custom",
+      "name": "DHM Sleep - Machine Modes (Activator)",
+      "description": "",
+      "type": {
+        "name": "list.single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_sleep_machine_comfort_tech",
+      "namespace": "custom",
+      "name": "DHM Sleep - Machine Comfort Tech",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_sleep_machine_tubing_compatibility",
+      "namespace": "custom",
+      "name": "DHM Sleep - Machine Tubing Compatibility",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_sleep_machine_rainout_reduction",
+      "namespace": "custom",
+      "name": "DHM Sleep - Machine Rainout Reduction",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_sleep_machine_ramp",
+      "namespace": "custom",
+      "name": "DHM Sleep - Machine Ramp",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_sleep_machine_leak_compensation",
+      "namespace": "custom",
+      "name": "DHM Sleep - Machine Leak Compensation",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_sleep_machine_event_detection_response",
+      "namespace": "custom",
+      "name": "DHM Sleep - Machine Event Detection & Response",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_sleep_machine_auto_on_off",
+      "namespace": "custom",
+      "name": "DHM Sleep - Machine Auto On Off",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_sleep_machine_oxygen_compatibility",
+      "namespace": "custom",
+      "name": "DHM Sleep - Machine Oxygen Compatibility",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_oxygen_cannula_prong_style",
+      "namespace": "custom",
+      "name": "DHM Cannula - Prong Style (Activator)",
+      "description": "",
+      "type": {
+        "name": "list.single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_oxygen_cannula_max_flow",
+      "namespace": "custom",
+      "name": "DHM Cannula - Max Flow",
+      "description": "5 LPM, 6 LPM, 10 LPM, 15 LPM, etc.",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_oxygen_cannula_tubing_style",
+      "namespace": "custom",
+      "name": "DHM Cannula - Tubing Style",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_oxygen_cannula_faceplate_width",
+      "namespace": "custom",
+      "name": "DHM Cannula - Faceplate Width",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_oxygen_cannula_prong_length",
+      "namespace": "custom",
+      "name": "DHM Cannula - Prong Length",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_oxygen_cannula_prong_width",
+      "namespace": "custom",
+      "name": "DHM Cannula - Prong Width",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_oxygen_machine_type",
+      "namespace": "custom",
+      "name": "DHM Concentrator - Type (Activator)",
+      "description": "Select All That Apply",
+      "type": {
+        "name": "list.single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_oxygen_machine_continuous_range",
+      "namespace": "custom",
+      "name": "DHM Concentrator - Continuous Range",
+      "description": "1-5 LPM, 1-10 LPM, etc.",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_oxygen_machine_warmup_time",
+      "namespace": "custom",
+      "name": "DHM Concentrator - Warmup Time",
+      "description": "2 Minutes, 4 Minutes, etc.",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_oxygen_machine_concentration",
+      "namespace": "custom",
+      "name": "DHM Concentrator - Concentration",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_oxygen_machine_bolus",
+      "namespace": "custom",
+      "name": "DHM Concentrator - Bolus Size",
+      "description": "Size of Pulse Bolus (Not Used for Continuous Flow)",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_oxygen_machine_opi",
+      "namespace": "custom",
+      "name": "DHM Concentrator - OPI",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_shared_data_included",
+      "namespace": "custom",
+      "name": "DHM Data - Included (Activator)",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_shared_data_storage",
+      "namespace": "custom",
+      "name": "DHM Data - Storage",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_shared_data_viewing",
+      "namespace": "custom",
+      "name": "DHM Data - Viewing Options",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_humidifier_activator",
+      "namespace": "custom",
+      "name": "DHM Hum - Activator",
+      "description": "",
+      "type": {
+        "name": "boolean",
+        "category": "TRUE_FALSE"
+      }
+    },
+    {
+      "key": "dhm_humidifier_compatibility",
+      "namespace": "custom",
+      "name": "DHM Hum - Compatibility",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_humidifier_settings",
+      "namespace": "custom",
+      "name": "DHM Hum - Settings",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_humidifier_type",
+      "namespace": "custom",
+      "name": "DHM Hum - Type",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_humidifier_chamber_capacity",
+      "namespace": "custom",
+      "name": "DHM Hum - Chamber Capacity",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_power_ac_range",
+      "namespace": "custom",
+      "name": "DHM AC - Range (Activator)",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_power_ac_length",
+      "namespace": "custom",
+      "name": "DHM AC - Cord Length",
+      "description": "4.5 Feet, 6 Feet, etc.",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_power_ac_weight",
+      "namespace": "custom",
+      "name": "DHM AC - Cord Weight",
+      "description": "8 Ounces, 12 Ounces, etc.",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_power_ac_brick_dimensions",
+      "namespace": "custom",
+      "name": "DHM AC - Brick Dimensions",
+      "description": "L x W x H Inches",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_power_dc_input",
+      "namespace": "custom",
+      "name": "DHM DC - Input (Activator)",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_power_dc_length",
+      "namespace": "custom",
+      "name": "DHM DC - Cord Length",
+      "description": "4.5 Feet, 6 Feet, etc.",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_power_dc_weight",
+      "namespace": "custom",
+      "name": "DHM DC - Cord Weight",
+      "description": "8 Ounces, 12 Ounces",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_power_ac_consumption",
+      "namespace": "custom",
+      "name": "DHM AC - Consumption",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_power_dc_consumption",
+      "namespace": "custom",
+      "name": "DHM DC - Consumption",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_power_dc_brick_dimensions",
+      "namespace": "custom",
+      "name": "DHM DC - Brick Dimensions",
+      "description": "L x W x H Inches",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_power_battery_type",
+      "namespace": "custom",
+      "name": "DHM Battery - Type (Activator)",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_power_battery_capacity",
+      "namespace": "custom",
+      "name": "DHM Battery - Capacity",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_power_battery_life_cycles",
+      "namespace": "custom",
+      "name": "DHM Battery - Life Cycles",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_power_battery_recharge_time",
+      "namespace": "custom",
+      "name": "DHM Battery - Recharge Time",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_power_battery_run_time",
+      "namespace": "custom",
+      "name": "DHM Battery - Run Time",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_power_battery_dimensions",
+      "namespace": "custom",
+      "name": "DHM Battery - Dimensions",
+      "description": "L x W x H Inches",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_power_battery_weight",
+      "namespace": "custom",
+      "name": "DHM Battery - Weight",
+      "description": "8 Ounces, 12 Ounces, 1 Pound, 1.5 Pounds, etc.",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_power_battery_shipping_notice",
+      "namespace": "custom",
+      "name": "DHM Battery - Shipping Notice",
+      "description": "True = Show Notice",
+      "type": {
+        "name": "boolean",
+        "category": "TRUE_FALSE"
+      }
+    },
+    {
+      "key": "dhm_general_product_model",
+      "namespace": "custom",
+      "name": "DHM Gen - Product Model",
+      "description": "",
+      "type": {
+        "name": "list.single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_oxygen_machine_pulse_range",
+      "namespace": "custom",
+      "name": "DHM Concentrator - Pulse Range",
+      "description": "1-5, 1-4, 1-9, etc.",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_oxygen_cannula_prong_separation",
+      "namespace": "custom",
+      "name": "DHM Cannula - Prong Separation",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    }
+  ],
+  "variant": [
+    {
+      "key": "mpn",
+      "namespace": "shopify--facts",
+      "name": "MPN",
+      "description": "Manufacturer Part Number",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "upc",
+      "namespace": "facts",
+      "name": "UPC",
+      "description": "Universal Product Code",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    }
+  ],
+  "shop": []
+}
