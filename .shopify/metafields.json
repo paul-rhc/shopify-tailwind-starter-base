@@ -809,6 +809,16 @@
         "name": "single_line_text_field",
         "category": "TEXT"
       }
+    },
+    {
+      "key": "mask-type",
+      "namespace": "shopify",
+      "name": "Mask type",
+      "description": "Specifies the design of masks, typically for respiratory care; e.g. oral, nasal",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
     }
   ],
   "variant": [
