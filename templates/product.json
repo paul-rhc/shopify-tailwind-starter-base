@@ -115,6 +115,9 @@
     "main-product-benefits":{
       "type":"main-product-benefits",
     },
+    "main-product-details":{
+      "type":"main-product-details",
+    },
     "image-with-text": {
       "type": "image-with-text",
       "blocks": {
@@ -213,6 +216,7 @@
   "order": [
     "main",
     "main-product-benefits",
+    "main-product-details",
     "image-with-text",
     "multicolumn",
     "related-products"
