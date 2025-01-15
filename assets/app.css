@@ -1003,6 +1003,11 @@ video {
   background-color: rgb(134 239 172 / var(--tw-bg-opacity));
 }
 
+.twcss-bg-slate-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(100 116 139 / var(--tw-bg-opacity));
+}
+
 .twcss-object-contain {
   -o-object-fit: contain;
   object-fit: contain;
@@ -1019,6 +1024,10 @@ video {
 
 .twcss-p-10 {
   padding: 2.5rem;
+}
+
+.twcss-p-20 {
+  padding: 5rem;
 }
 
 .twcss-px-3 {
@@ -1103,6 +1112,14 @@ video {
 
 .twcss-pt-10 {
   padding-top: 2.5rem;
+}
+
+.twcss-pt-6 {
+  padding-top: 1.5rem;
+}
+
+.twcss-text-center {
+  text-align: center;
 }
 
 .twcss-text-3xl {
