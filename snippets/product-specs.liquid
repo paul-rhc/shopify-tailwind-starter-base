@@ -1,0 +1,74 @@
+<div class="twcss-px-4 sm:twcss-px-6 lg:twcss-px-8">
+  <div class="sm:twcss-flex sm:twcss-items-center">
+    <div class="sm:twcss-flex-auto">
+      <h1 class="twcss-text-base twcss-font-semibold twcss-text-gray-900">{{product.title}}</h1>
+ </div>
+  </div>
+  <div class="twcss--mx-4 twcss-mt-8 sm:twcss--mx-0">
+    <table class="twcss-min-w-full twcss-divide-y twcss-divide-gray-300">
+      <thead>
+        <tr>
+          <th scope="col" class="twcss-py-3.5 twcss-pl-4 twcss-pr-3 twcss-text-left twcss-text-xl twcss-font-semibold twcss-text-gray-900 sm:twcss-pl-0">General Specifications</th>
+          <th scope="col" class="twcss-hidden twcss-px-3 twcss-py-3.5 twcss-text-left twcss-text-xl twcss-font-semibold twcss-text-gray-900 lg:twcss-table-cell">&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody class="twcss-divide-y twcss-divide-gray-200 twcss-bg-white">
+        {% if product.metafields["custom"]["dhm_general_product_model"] != blank %}
+          {% assign prod_model_search = product.metafields["custom"]["dhm_general_product_model"] %}
+          
+          {%- assign search_words = prod_model_search |  metafield_text | split: ' ' -%}
+          {% if search_words contains 'and' %}
+            the word "and" is here
+          {% endif %}
+          {% for word in search_words -%}
+           word: {{ word }}
+          {%- endfor %}
+          <br/><br>
+          {% assign new_search = search_words | join: '+' %}
+          <br>Query:<br/>
+          {{new_search}}
+          <br/><br>
+          <a href="/search?q={{new_search}}">Search Models</a>
+
+        <tr>
+          <td class="twcss-w-full twcss-max-w-0 twcss-py-4 twcss-pl-4 twcss-pr-3 twcss-text-xl twcss-font-medium twcss-text-gray-900 sm:twcss-w-auto sm:twcss-max-w-none sm:twcss-pl-0">
+            Product Model
+            <dl class="twcss-font-normal lg:twcss-hidden">
+              <dt class="twcss-sr-only">Product Model</dt>
+              <dd class="twcss-mt-1 twcss-truncate twcss-text-gray-700">{{product.metafields["custom"]["dhm_general_product_model"] | metafield_text}}</dd>
+            </dl>
+          </td>
+          <td class="twcss-hidden twcss-px-3 twcss-py-4 twcss-text-xl twcss-text-gray-500 lg:twcss-table-cell">{{product.metafields["custom"]["dhm_general_product_model"] | metafield_text}}</td>
+        </tr>
+      {% endif %}
+        <!-- HCPCS -->
+        {% if product.metafields["custom"]["dhm_general_hcpcs"] != blank %}
+          <tr>
+            <td class="twcss-w-full twcss-max-w-0 twcss-py-4 twcss-pl-4 twcss-pr-3 twcss-text-xl twcss-font-medium twcss-text-gray-900 sm:twcss-w-auto sm:twcss-max-w-none sm:twcss-pl-0">
+              HCPCS Code
+              <dl class="twcss-font-normal lg:twcss-hidden">
+                <dt class="twcss-sr-only">HCPCS Code</dt>
+                <dd class="twcss-mt-1 twcss-truncate twcss-text-gray-700">{{product.metafields["custom"]["dhm_general_hcpcs"] }}</dd>
+              </dl>
+            </td>
+            <td class="twcss-hidden twcss-px-3 twcss-py-4 twcss-text-xl twcss-text-gray-500 lg:twcss-table-cell">{{product.metafields["custom"]["dhm_general_hcpcs"]  }}</td>
+          </tr>
+        {% endif %}
+
+        <!-- Country -->
+        {% if product.metafields["custom"]["dhm_general_country"] != blank %}
+          <tr>
+            <td class="twcss-w-full twcss-max-w-0 twcss-py-4 twcss-pl-4 twcss-pr-3 twcss-text-xl twcss-font-medium twcss-text-gray-900 sm:twcss-w-auto sm:twcss-max-w-none sm:twcss-pl-0">
+              Country
+              <dl class="twcss-font-normal lg:twcss-hidden">
+                <dt class="twcss-sr-only">Country</dt>
+                <dd class="twcss-mt-1 twcss-truncate twcss-text-gray-700">{{product.metafields["custom"]["dhm_general_country"] |  metafield_text}}</dd>
+              </dl>
+            </td>
+            <td class="twcss-hidden twcss-px-3 twcss-py-4 twcss-text-xl twcss-text-gray-500 lg:twcss-table-cell">{{product.metafields["custom"]["dhm_general_country"] |  metafield_text  }}</td>
+          </tr>
+        {% endif %}
+      </tbody>
+    </table>
+  </div>
+</div>
