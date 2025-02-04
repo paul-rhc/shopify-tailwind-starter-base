@@ -696,8 +696,7 @@ video {
 .twcss-flex-none {
   flex: none;
 }
-
-.twcss-shrink-0 {
+.shrink-0 {
   flex-shrink: 0;
 }
 
