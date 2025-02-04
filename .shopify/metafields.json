@@ -271,32 +271,12 @@
       }
     },
     {
-      "key": "dhm_sleep_mask_pressure_range",
-      "namespace": "custom",
-      "name": "DHM Sleep - Mask Pressure Range",
-      "description": "",
-      "type": {
-        "name": "list.single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
       "key": "dhm_sleep_mask_sizing_guide",
       "namespace": "custom",
       "name": "DHM Sleep - Mask Sizing Guide",
       "description": "",
       "type": {
         "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "dhm_sleep_machine_pressure_range",
-      "namespace": "custom",
-      "name": "DHM Sleep - Machine Pressure Range",
-      "description": "",
-      "type": {
-        "name": "list.single_line_text_field",
         "category": "TEXT"
       }
     },
@@ -314,16 +294,6 @@
       "key": "dhm_sleep_machine_comfort_tech",
       "namespace": "custom",
       "name": "DHM Sleep - Machine Comfort Tech",
-      "description": "",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "dhm_sleep_machine_tubing_compatibility",
-      "namespace": "custom",
-      "name": "DHM Sleep - Machine Tubing Compatibility",
       "description": "",
       "type": {
         "name": "single_line_text_field",
@@ -817,6 +787,196 @@
       "description": "",
       "type": {
         "name": "list.single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "queries",
+      "namespace": "shopify--discovery--product_search_boost",
+      "name": "Search product boosts",
+      "description": "List of search queries for which a product gets higher rank in search results",
+      "type": {
+        "name": "list.single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "related_products",
+      "namespace": "shopify--discovery--product_recommendation",
+      "name": "Related products",
+      "description": "List of related products",
+      "type": {
+        "name": "list.product_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "related_products_display",
+      "namespace": "shopify--discovery--product_recommendation",
+      "name": "Related products settings",
+      "description": "Determines how related products are displayed along with algorithmic product recommendations",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "complementary_products",
+      "namespace": "shopify--discovery--product_recommendation",
+      "name": "Complementary products",
+      "description": "List of complementary products",
+      "type": {
+        "name": "list.product_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "dhm_promos_faa",
+      "namespace": "custom",
+      "name": "DHM Promos - FAA",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_humidifier_chamber_type",
+      "namespace": "custom",
+      "name": "DHM Hum - Chamber Type",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_nebulizer_liter_flow",
+      "namespace": "custom",
+      "name": "DHM Neb - Liter Flow",
+      "description": "4.5 LPM (Average), 8.5 LPM (Maximum)",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_nebulizer_activator",
+      "namespace": "custom",
+      "name": "DHM Neb - Activator",
+      "description": "",
+      "type": {
+        "name": "boolean",
+        "category": "TRUE_FALSE"
+      }
+    },
+    {
+      "key": "dhm_nebulizer_pressure",
+      "namespace": "custom",
+      "name": "DHM Neb - Pressure",
+      "description": "Maximum 44 PSI",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_nebulizer_nebulization_rate",
+      "namespace": "custom",
+      "name": "DHM Neb - Nebulization Rate",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_nebulizer_median_diameter",
+      "namespace": "custom",
+      "name": "DHM Neb - Median Diameter",
+      "description": "5.0 Microns",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_nebulizer_modes_of_operation",
+      "namespace": "custom",
+      "name": "DHM Neb - Modes of Operation",
+      "description": "",
+      "type": {
+        "name": "list.single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_nebulizer_capacity",
+      "namespace": "custom",
+      "name": "DHM Neb - Capacity",
+      "description": "6 ML, 8 ML, etc.",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_nebulizer_treatment_time",
+      "namespace": "custom",
+      "name": "DHM Neb - Treatment Time",
+      "description": "6-8 Minutes",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_sleep_pressure_range",
+      "namespace": "custom",
+      "name": "DHM Sleep - Pressure Range",
+      "description": "",
+      "type": {
+        "name": "list.single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_sleep_machine_pressure_increments",
+      "namespace": "custom",
+      "name": "DHM Sleep - Machine Pressure Increments",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_power_dc_options",
+      "namespace": "custom",
+      "name": "DHM Power - DC Options",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_sleep_machine_tubing_compatibility",
+      "namespace": "custom",
+      "name": "DHM Sleep - Machine Tubing Compatibility",
+      "description": "",
+      "type": {
+        "name": "list.single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_shared_description",
+      "namespace": "custom",
+      "name": "DHM Shared - Description",
+      "description": "",
+      "type": {
+        "name": "multi_line_text_field",
         "category": "TEXT"
       }
     }
