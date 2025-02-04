@@ -15,20 +15,28 @@
       <tbody class="twcss-divide-y twcss-divide-gray-200 twcss-bg-white">
         {% if product.metafields["custom"]["dhm_general_product_model"] != blank %}
           {% assign prod_model_search = product.metafields["custom"]["dhm_general_product_model"] %}
-          
+          {% assign search_words_alt = prod_model_search |  split: ',' %}
+            {% for li in search_words_alt -%}
+              {% assign stripped_li = li | remove: "[" %}
+              {% assign stripped_li = li | remove: "]" %}
+              
+              new li: {{ stripped_li }}<br/>
+             {%- endfor %}
+         <br/> alt:{{ search_words_alt }} <br/>
           {%- assign search_words = prod_model_search |  metafield_text | split: ' ' -%}
           {% if search_words contains 'and' %}
-            the word "and" is here
+            {%- assign search_words = prod_model_search |  metafield_text | split: 'and' -%}
           {% endif %}
           {% for word in search_words -%}
            word: {{ word }}
           {%- endfor %}
           <br/><br>
-          {% assign new_search = search_words | join: '+' %}
+          {% assign new_search = search_words | split: ' ' %}
+          {% assign new_search = new_search | metafield_text | join: '+' %}
           <br>Query:<br/>
           {{new_search}}
           <br/><br>
-          <a href="/search?q={{new_search}}">Search Models</a>
+          <a href="/search?q={{new_search}}" class=" twcss-text-blue-700">Search Models</a>
 
         <tr>
           <td class="twcss-w-full twcss-max-w-0 twcss-py-4 twcss-pl-4 twcss-pr-3 twcss-text-xl twcss-font-medium twcss-text-gray-900 sm:twcss-w-auto sm:twcss-max-w-none sm:twcss-pl-0">

@@ -161,16 +161,6 @@
       }
     },
     {
-      "key": "dhm_general_notes",
-      "namespace": "custom",
-      "name": "DHM Gen - Notes",
-      "description": "",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
       "key": "dhm_physical_activator",
       "namespace": "custom",
       "name": "DHM Phys - Activator",
@@ -581,16 +571,6 @@
       }
     },
     {
-      "key": "dhm_humidifier_type",
-      "namespace": "custom",
-      "name": "DHM Hum - Type",
-      "description": "",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
       "key": "dhm_humidifier_chamber_capacity",
       "namespace": "custom",
       "name": "DHM Hum - Chamber Capacity",
@@ -818,6 +798,26 @@
       "type": {
         "name": "list.metaobject_reference",
         "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "dhm_general_product_type",
+      "namespace": "custom",
+      "name": "DHM Gen - Product Type",
+      "description": "",
+      "type": {
+        "name": "list.single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_oxygen_cannula_prong_profile_side",
+      "namespace": "custom",
+      "name": "DHM Cannula - Prong Profile Side",
+      "description": "",
+      "type": {
+        "name": "list.single_line_text_field",
+        "category": "TEXT"
       }
     }
   ],
