@@ -17,6 +17,32 @@
         <div class=" twcss-w-2/3 twcss-py-5 twcss-pr-10 twcss-pl-5 twcss-pt-10"> {{ product.metafields.custom.dhm_shared_description.value }}
         </div>
         <div class="twcss-w-1/3 twcss-p-5" > 
+          <div>
+          Resources Here:
+          </div>
+            <div>
+             {{ product.metafields.custom.dhm_resources_videos }} 
+            </div>
+          <div>
+            {{ product.metafields.custom.dhm_resources_pdfs }}
+
+          </div>
+           <div>
+             {{ product.metafields.custom.dhm_resources_videos | metafield_tag }} 
+            </div>
+          <div>
+            {{ product.metafields.custom.dhm_resources_pdfs | metafield_tag}}
+          </div>
+                     <div>
+             {{ product.metafields.custom.dhm_resources_videos | metafield_text }} 
+            </div>
+          <div>
+            {{ product.metafields.custom.dhm_resources_pdfs | metafield_text}}
+
+          </div>
+          <div>
+          End Resources
+          </div>
           
       {% if product.metafields["custom"]["dhm_promos_parts"] != blank %}
       {% assign part_collection = product.metafields["custom"]["dhm_promos_parts"] %}
