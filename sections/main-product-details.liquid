@@ -40,6 +40,10 @@
             {{ product.metafields.custom.dhm_resources_pdfs | metafield_text}}
 
           </div>
+          <div style="background-color:#eeeeee; border: 1px solid #cccccc;">
+{% assign video_list = product.metafields.custom.dhm_resources_videos %}
+            {{ video_list }}
+          </div>
           <div>
           End Resources
           </div>
