@@ -41,8 +41,11 @@
 
           </div>
           <div style="background-color:#eeeeee; border: 1px solid #cccccc;">
-{% assign video_list = product.metafields.custom.dhm_resources_videos %}
-            {{ video_list }}
+              {% assign video_list = product.metafields.custom.dhm_resources_videos %}
+            {% assign list_to_split = video_list | split: "," %}
+            {% for tuple in list_to_split %}
+            {{ tuple }}
+              {% endfor %}
           </div>
           <div>
           End Resources
