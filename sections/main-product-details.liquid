@@ -44,7 +44,7 @@
               {% assign video_list = product.metafields.custom.dhm_resources_videos | split: "," %}
             {% assign list_to_split = video_list | split: "_" %}
             {% for tuple in list_to_split %}
-            {{ tuple[1] }}
+            {{ tuple }}
               {% endfor %}
           </div>
           <div>
