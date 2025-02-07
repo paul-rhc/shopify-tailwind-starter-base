@@ -44,12 +44,12 @@
               {% assign video_list = product.metafields.custom.dhm_resources_videos %}
             <div style="background-color:#eeeeee;">
               {% for video_item in video_list %}
-              Video Item:{{ video_item }}<br/>
+             <br/> Video Item:{{ video_item }}
               {% endfor %}
             </div>
             {% assign list_to_split = video_list | split: "_" %}
             {% for tuple in list_to_split %}
-           Tuple: {{ tuple }}<br/>
+           <br/> Tuple: {{ tuple }}
               {% endfor %}
           </div>
           <div>
