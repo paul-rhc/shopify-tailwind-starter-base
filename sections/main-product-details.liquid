@@ -41,7 +41,7 @@
 
           </div>
           <div style="background-color:#eeeeee; border: 1px solid #cccccc;">
-              {% assign video_list = product.metafields.custom.dhm_resources_videos %}
+              {% assign video_list = product.metafields.custom.dhm_resources_videos | metafield_text | split: ", " %}
             <div style="background-color:#eeeeee;">
               {% for video_item in video_list %}
              <br/> Video Item:{{ video_item }}
