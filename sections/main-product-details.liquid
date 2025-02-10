@@ -26,7 +26,8 @@
       <ul role="list" class="divide-y divide-gray-300">
       {% for product in collections[part_collection].products  limit:5 %}
         <li class="twcss-flex twcss-gap-x-4 twcss-py-5">
-          <img class="twcss-size-32 twcss-flex-none  twcss-border" src="{{product.featured_image | img_url: 'small'}}" alt="{{product.featured_image.alt}}">
+          <img class="twcss-size-32 twcss-flex-none twcss-border" width="{{ image.width }}"
+            height="{{ image.height }}" src="{{product.featured_image | img_url: 'small'}}" alt="{{product.featured_image.alt}}">
           <div class="twcss-min-w-0">
             <p class="twcss-text-2xl twcss-font-semibold twcss-text-gray-900">
               <a href="{{product.url}}">{{product.title}}</a>

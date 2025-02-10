@@ -24,7 +24,7 @@
       "key": "dhm_promos_risk_free_trial",
       "namespace": "custom",
       "name": "DHM Promos - Free Trial",
-      "description": "Length in Days... 15, 30, etc.",
+      "description": "Chose One",
       "type": {
         "name": "single_line_text_field",
         "category": "TEXT"
@@ -34,7 +34,7 @@
       "key": "dhm_promos_warranty",
       "namespace": "custom",
       "name": "DHM Promos - Warranty",
-      "description": "Length... 30 Days, 90 Days, 6 Months, 2 Years, etc.",
+      "description": "Choose One",
       "type": {
         "name": "single_line_text_field",
         "category": "TEXT"
@@ -733,7 +733,7 @@
     {
       "key": "dhm_general_product_model",
       "namespace": "custom",
-      "name": "DHM Gen - Product Model",
+      "name": "DHM Gen - Model Sleep",
       "description": "",
       "type": {
         "name": "list.single_line_text_field",
@@ -973,10 +973,60 @@
     {
       "key": "dhm_shared_description",
       "namespace": "custom",
-      "name": "DHM Shared - Description",
+      "name": "DHM Res - Description",
       "description": "",
       "type": {
         "name": "multi_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_resources_pdfs",
+      "namespace": "custom",
+      "name": "DHM Res - PDFs",
+      "description": "title | link",
+      "type": {
+        "name": "list.single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_resources_videos",
+      "namespace": "custom",
+      "name": "DHM Res - Videos",
+      "description": "title | youtubesharething",
+      "type": {
+        "name": "list.single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "filetest",
+      "namespace": "custom",
+      "name": "filetest",
+      "description": "",
+      "type": {
+        "name": "list.file_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "dhm_general_product_model_oxygen",
+      "namespace": "custom",
+      "name": "DHM Gen - Model Oxygen",
+      "description": "",
+      "type": {
+        "name": "list.single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_general_product_model_asthma",
+      "namespace": "custom",
+      "name": "DHM Gen - Model Asthma",
+      "description": "",
+      "type": {
+        "name": "list.single_line_text_field",
         "category": "TEXT"
       }
     }
@@ -999,6 +1049,16 @@
       "description": "Universal Product Code",
       "type": {
         "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "variant_warranty",
+      "namespace": "custom",
+      "name": "Variant Warranty",
+      "description": "",
+      "type": {
+        "name": "list.single_line_text_field",
         "category": "TEXT"
       }
     }
