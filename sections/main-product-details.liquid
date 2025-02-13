@@ -2,10 +2,11 @@
   <div id="description" class="twcss-w-full twcss-mx-auto twcss-p-10 ">
   <h2 class=" twcss-text-4xl twcss-leading-relaxed">{{product.description}}</h2>
   </div>
+  
   <div id="the_acc" class="twcss-space-y-6">
     <div class="twcss-flex twcss-mx-auto twcss-mt-10 "> 
     <!-- Accordion -->
-      <div id="description_details" x-data="{ expanded: true}"  role="region" class=" twcss-w-full twcss-border twcss-border-slate-400 hover:twcss-bg-lime-700">
+      <div id="description_details" x-data="{ expanded: true}"  role="region" class=" twcss-w-full twcss-border twcss-border-slate-400 ">
         <h2 class="">
           <button @click="expanded = !expanded" class="twcss-flex twcss-items-center twcss-justify-between twcss-w-full twcss-px-8 twcss-py-8 twcss-font-bold twcss-text-2xl  twcss-bg-slate-100 ">
             <span >Product Description</span>
@@ -14,10 +15,13 @@
           </button>
         </h2>
       <div x-show="expanded" class="twcss-pb-4 twcss-pt-6 twcss-px-6 twcss-w-full twcss-flex twcss-flex-col md:twcss-flex-row" x-collapse>
-        <div class=" twcss-w-2/3 twcss-py-5 twcss-pr-10 twcss-pl-5 twcss-pt-10"> {{ product.metafields.custom.dhm_shared_description.value }}
+        <div class=" twcss-w-2/3 twcss-py-5 twcss-pr-10 twcss-pl-5 twcss-pt-10"> 
+        <div id="desc_container">
+
+          {{ product.metafields.custom.dhm_shared_description.value }}
+        </div>
         </div>
         <div class="twcss-w-1/3 twcss-p-5" > 
-          
       {% if product.metafields["custom"]["dhm_promos_parts"] != blank %}
       {% assign part_collection = product.metafields["custom"]["dhm_promos_parts"] %}
       {% assign part_collection_len = collections[part_collection].all_products_count %}
@@ -26,8 +30,8 @@
       <ul role="list" class="divide-y divide-gray-300">
       {% for product in collections[part_collection].products  limit:5 %}
         <li class="twcss-flex twcss-gap-x-4 twcss-py-5">
-          <img class="twcss-size-32 twcss-flex-none twcss-border" width="{{ image.width }}"
-            height="{{ image.height }}" src="{{product.featured_image | img_url: 'small'}}" alt="{{product.featured_image.alt}}">
+          <img class="twcss-size-32 twcss-flex-none twcss-border" width="100px"
+            height="100px" src="/cdn/shop/{{product.featured_image | image_url: 'small'}}" alt="{{product.featured_image.alt}}">
           <div class="twcss-min-w-0">
             <p class="twcss-text-2xl twcss-font-semibold twcss-text-gray-900">
               <a href="{{product.url}}">{{product.title}}</a>
@@ -52,7 +56,24 @@
       View All Parts</a>
      {% endif %}
      {% else %}
-     <h3 class="twcss-text-3xl twcss-mb-8">Related Products</h3>
+     <h3 class="twcss-text-3xl twcss-mb-8">Popular Products</h3>
+     <ul role="list" class="divide-y divide-gray-300">
+     {% for product in collections['all'].products  limit:5 %}
+      <li class="twcss-flex twcss-gap-x-4 twcss-py-5">
+        <img class="twcss-size-32 twcss-flex-none twcss-border" width="100px"
+          height="100px" src="/cdn/shop/{{product.featured_image | image_url: 'small'}}" alt="{{product.featured_image.alt}}">
+        <div class="twcss-min-w-0">
+          <p class="twcss-text-2xl twcss-font-semibold twcss-text-gray-900">
+            <a href="{{product.url}}">{{product.title}}</a>
+          </p>
+          <p class="twcss-mt-1 twcss-text-2xl twcss-text-gray-500">
+            {{product.price | money}}
+          </p>
+
+        </div>
+      </li>
+      {% endfor %}
+      </ul>
     {% endif %}
     </div>
   </div>
@@ -80,5 +101,4 @@
   </div>
   </div>
   <!-- end all acccordion above -->
-
 </div>

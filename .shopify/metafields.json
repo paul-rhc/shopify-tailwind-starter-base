@@ -1001,16 +1001,6 @@
       }
     },
     {
-      "key": "filetest",
-      "namespace": "custom",
-      "name": "filetest",
-      "description": "",
-      "type": {
-        "name": "list.file_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
       "key": "dhm_general_product_model_oxygen",
       "namespace": "custom",
       "name": "DHM Gen - Model Oxygen",
@@ -1028,6 +1018,66 @@
       "type": {
         "name": "list.single_line_text_field",
         "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_power_battery_weight_actual",
+      "namespace": "custom",
+      "name": "DHM Power - Battery Weight Actual",
+      "description": "",
+      "type": {
+        "name": "weight",
+        "category": "MEASUREMENT"
+      }
+    },
+    {
+      "key": "collection_reference",
+      "namespace": "custom",
+      "name": "Collection Reference",
+      "description": "",
+      "type": {
+        "name": "metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "collection_refernce_test",
+      "namespace": "custom",
+      "name": "Collection Refernce Test",
+      "description": "",
+      "type": {
+        "name": "metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "treatment-objective",
+      "namespace": "shopify",
+      "name": "Treatment objective",
+      "description": "Defines the issue the product addresses, typically for personal care items; e.g. snoring, fever",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "color-pattern",
+      "namespace": "shopify",
+      "name": "Color",
+      "description": "Defines the primary color or pattern, such as blue or striped",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "power-source",
+      "namespace": "shopify",
+      "name": "Power source",
+      "description": "Specifies the power source a product uses to operate, such as solar or batteries",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
       }
     }
   ],
