@@ -112,7 +112,8 @@
         -moz-transition: background-color 0.5s ease;
       }
 </style>
-<nav class="header__inline-menu"  id="menuwrapper">
+<nav class="header__inline-menu"  >
+  <div id="menuwrapper">
   <ul class="list-menu list-menu--inline" role="list">
     {%- for link in section.settings.menu.links -%}
       <li>
@@ -207,4 +208,5 @@
       </li>
     {%- endfor -%}
   </ul>
+  </div>
 </nav>
