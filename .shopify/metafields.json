@@ -113,7 +113,7 @@
     {
       "key": "dhm_general_in_the_box",
       "namespace": "custom",
-      "name": "DHM Gen - In The Box",
+      "name": "DHM Gen - What's Included",
       "description": "For Complex Products Only",
       "type": {
         "name": "single_line_text_field",
@@ -314,7 +314,7 @@
       "key": "dhm_sleep_machine_ramp",
       "namespace": "custom",
       "name": "DHM Sleep - Machine Ramp",
-      "description": "",
+      "description": "Example: 0-45 Minutes or Auto",
       "type": {
         "name": "single_line_text_field",
         "category": "TEXT"
@@ -324,16 +324,6 @@
       "key": "dhm_sleep_machine_leak_compensation",
       "namespace": "custom",
       "name": "DHM Sleep - Machine Leak Compensation",
-      "description": "",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "dhm_sleep_machine_event_detection_response",
-      "namespace": "custom",
-      "name": "DHM Sleep - Machine Event Detection & Response",
       "description": "",
       "type": {
         "name": "single_line_text_field",
@@ -461,16 +451,6 @@
       }
     },
     {
-      "key": "dhm_oxygen_machine_bolus",
-      "namespace": "custom",
-      "name": "DHM Concentrator - Bolus Size",
-      "description": "Size of Pulse Bolus (Not Used for Continuous Flow)",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
       "key": "dhm_oxygen_machine_opi",
       "namespace": "custom",
       "name": "DHM Concentrator - OPI",
@@ -508,16 +488,6 @@
       "type": {
         "name": "single_line_text_field",
         "category": "TEXT"
-      }
-    },
-    {
-      "key": "dhm_humidifier_activator",
-      "namespace": "custom",
-      "name": "DHM Hum - Activator",
-      "description": "",
-      "type": {
-        "name": "boolean",
-        "category": "TRUE_FALSE"
       }
     },
     {
@@ -861,16 +831,6 @@
       }
     },
     {
-      "key": "dhm_nebulizer_activator",
-      "namespace": "custom",
-      "name": "DHM Neb - Activator",
-      "description": "",
-      "type": {
-        "name": "boolean",
-        "category": "TRUE_FALSE"
-      }
-    },
-    {
       "key": "dhm_nebulizer_pressure",
       "namespace": "custom",
       "name": "DHM Neb - Pressure",
@@ -941,26 +901,6 @@
       }
     },
     {
-      "key": "dhm_sleep_machine_pressure_increments",
-      "namespace": "custom",
-      "name": "DHM Sleep - Machine Pressure Increments",
-      "description": "",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "dhm_power_dc_options",
-      "namespace": "custom",
-      "name": "DHM Power - DC Options",
-      "description": "",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
       "key": "dhm_sleep_machine_tubing_compatibility",
       "namespace": "custom",
       "name": "DHM Sleep - Machine Tubing Compatibility",
@@ -1021,16 +961,6 @@
       }
     },
     {
-      "key": "dhm_power_battery_weight_actual",
-      "namespace": "custom",
-      "name": "DHM Power - Battery Weight Actual",
-      "description": "",
-      "type": {
-        "name": "weight",
-        "category": "MEASUREMENT"
-      }
-    },
-    {
       "key": "collection_reference",
       "namespace": "custom",
       "name": "Collection Reference",
@@ -1075,6 +1005,66 @@
       "namespace": "shopify",
       "name": "Power source",
       "description": "Specifies the power source a product uses to operate, such as solar or batteries",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "dhm_general_part_numbers",
+      "namespace": "custom",
+      "name": "DHM Gen - Part Numbers",
+      "description": "12345 (Small), 34567 (Medium)",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_general_gtins",
+      "namespace": "custom",
+      "name": "DHM Gen - GTINS",
+      "description": "123456789012 (Small), 2345223223212 (Medium)",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_oxygen_maximum_tubing_length",
+      "namespace": "custom",
+      "name": "DHM O2 - Max Tubing Length",
+      "description": "50 Feet",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dhm_nebulizer_respirable_fraction",
+      "namespace": "custom",
+      "name": "DHM Neb - Respirable Fraction",
+      "description": "XX%",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "product-form",
+      "namespace": "shopify",
+      "name": "Product form",
+      "description": "Defines the format or presentation of a product, typically for health and beauty; e.g. lotion, serum",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "skin-care-effect",
+      "namespace": "shopify",
+      "name": "Skin care effect",
+      "description": "Defines the intended benefits of skin care products, e.g. anti-aging, plumping",
       "type": {
         "name": "list.metaobject_reference",
         "category": "REFERENCE"

@@ -1,0 +1,75 @@
+
+<div class="twcss-flex twcss-justify-center">
+    <div
+        x-data="{
+            open: false,
+            {% comment %} toggle() {
+                if (this.open) {
+                    return this.close()
+                }
+
+                this.$refs.button.focus()
+
+                this.open = true
+            },
+            close(focusAfter) {
+                if (! this.open) return
+
+                this.open = false
+
+                focusAfter && focusAfter.focus()
+            } {% endcomment %}
+        }"
+        x-data="{ open: false }"
+        @mouseenter="open = true"
+        @mouseleave="open = false" 
+        x-on:keydown.escape.prevent.stop="close($refs.button)"
+        x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
+        x-id="['dropdown-button']"
+        class="twcss-relative"
+    >
+        <!-- Button -->
+        <button
+            x-ref="button"
+            {% comment %} x-on:click="toggle()" {% endcomment %}
+            x-data="{ open: false }"
+
+            :aria-expanded="open"
+            :aria-controls="$id('dropdown-button')"
+            type="button"
+            class="twcss-relative twcss-flex twcss-items-center twcss-whitespace-nowrap twcss-justify-center twcss-gap-2 twcss-py-2 twcss-rounded-lg twcss-shadow-sm twcss-bg-white hover:twcss-bg-gray-50 twcss-text-gray-800 twcss-border twcss-border-gray-200 hover:twcss-border-gray-200 twcss-px-4"
+        >
+            <span>Options</span>
+
+            <!-- Heroicon: micro chevron-down -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+                <path fill-rule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+            </svg>
+        </button>
+
+        <!-- Panel -->
+        <div
+            x-ref="panel"
+            x-show="open"
+            x-transition.origin.top.left
+            x-on:click.outside="close($refs.button)"
+            :id="$id('dropdown-button')"
+            x-cloak
+            class="twcss-absolute twcss-left-32 twcss-w-full twcss-rounded-lg twcss-shadow-sm twcss-mt-0 twcss-z-10 twcss-origin-top-left twcss-bg-white twcss-p-1.5 twcss-outline-none twcss-border twcss-border-gray-200"
+        >
+            <a href="#new" class="twcss-px-2 lg:twcss-py-1.5 twcss-py-2 twcss-w-full twcss-flex twcss-items-center twcss-rounded-md twcss-transition-colors twcss-text-left twcss-text-gray-800 hover:twcss-bg-gray-50 focus-visible:twcss-bg-gray-50 disabled:twcss-opacity-50 disabled:twcss-cursor-not-allowed">
+                New Task
+            </a>
+
+            <a href="#edit" class="twcss-px-2 lg:twcss-py-1.5 twcss-py-2 twcss-w-full twcss-flex twcss-items-center twcss-rounded-md twcss-transition-colors twcss-text-left twcss-text-gray-800 hover:twcss-bg-gray-50 focus-visible:twcss-bg-gray-50 disabled:twcss-opacity-50 disabled:twcss-cursor-not-allowed">
+                Edit Task
+            </a>
+
+            <a href="#delete" class="twcss-px-2 lg:twcss-py-1.5 twcss-py-2 twcss-w-full twcss-flex twcss-items-center twcss-rounded-md twcss-transition-colors twcss-text-left twcss-text-gray-800 hover:twcss-bg-red-50 hover:twcss-text-red-600 focus-visible:twcss-bg-red-50 focus-visible:twcss-text-red-600 disabled:twcss-opacity-50 disabled:twcss-cursor-not-allowed">
+                Delete Task
+            </a>
+        </div>
+
+        
+    </div>
+</div>
