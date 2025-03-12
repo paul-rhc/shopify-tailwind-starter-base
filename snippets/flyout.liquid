@@ -1,75 +1,391 @@
 
-<div class="twcss-flex twcss-justify-center">
-    <div
-        x-data="{
-            open: false,
-            {% comment %} toggle() {
-                if (this.open) {
-                    return this.close()
-                }
+<style>
+    [x-cloak] {
+      display: none;
+    }
 
-                this.$refs.button.focus()
+    /* We remove the margin, padding, and list style of UL and LI components */
+    #menuwrapper ul,
+    #menuwrapper ul li {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    #menuwrapper {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 3;
+    }
+    #sidemenu {
+      position: relative;
+      z-index: 3;
+      height: 100%;
+    }
 
-                this.open = true
-            },
-            close(focusAfter) {
-                if (! this.open) return
+    #sidemenu ul li ul {
+      background: #eeeeee;
+      width:300px;
+      height: 100%;
+      position: absolute;
+      z-index: 60;
+    }
+    /* We apply background color and border bottom white and width to 150px */
+    #menuwrapper ul li {
+      background-color: #f1f7f7;
+      width: 300px;
+      cursor: pointer;
+    }
 
-                this.open = false
+    #menuwrapper ul li ul li{
+      background-color: #eeeeee;
+      cursor: pointer;
+    }
+    /* We apply the background hover color when user hover the mouse over of the li component */
+    #menuwrapper ul li:hover {
+      background-color: #dee5e5;
+    }
 
-                focusAfter && focusAfter.focus()
-            } {% endcomment %}
-        }"
-        x-data="{ open: false }"
-        @mouseenter="open = true"
-        @mouseleave="open = false" 
-        x-on:keydown.escape.prevent.stop="close($refs.button)"
-        x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
-        x-id="['dropdown-button']"
-        class="twcss-relative"
+    /* We apply the link style */
+
+    #menuwrapper ul#sidemenu li a {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      padding-left:20px;
+      color: #555555;
+      display: inline-block;
+      text-decoration: none;
+    }
+    #menuwrapper ul li a.selected {
+      color: #ddd;
+    }
+    #menuwrapper ul li a:hover {
+      color: #3f68de;
+      text-decoration: underline;
+      transition: color 0.3s ease;
+      -o-transition: color 0.3s ease;
+      -webkit-transition: color 0.3s ease;
+      -moz-transition: color 0.3s ease;
+    }
+    /* the triangle */
+    {% comment %} #menuwrapper ul li a:hover:after {
+      content: "  ";
+      display: inline-block;
+      border-bottom: 0.8em solid transparent;
+      border-left: 0.8em solid transparent;
+      border-right: 0.8em solid #3f68de;
+      border-top: 0.8em solid transparent;
+      height: 0px;
+      margin-top: -2px;
+      position: absolute;
+      left: 91px;
+      width: 1px;
+      transition: border-right 1s ease;
+      -o-transition: border-right 1s ease;
+      -webkit-transition: border-right 1s ease;
+      -moz-transition: border-right 1s ease;
+    } {% endcomment %}
+
+    #menuwrapper ul li a.noflyout:hover:after {
+      border-right: 0.8em solid transparent;
+      transition: none;
+      -o-transition: none;
+      -webkit-transition: none;
+      -moz-transition: none;
+    }
+    /**** SECOND LEVEL MENU ****/
+    /* We make the position to absolute for flyout menu and hidden the ul until the user hover the parent li item */
+    #menuwrapper ul li ul {
+      position: absolute;
+      z-index: 3;
+
+      display: block;
+      visibility: hidden;
+      height: 100%;
+      background-color: transparent;
+      width: 0px;
+      color: #fff;
+    }
+
+    #menuwrapper ul li ul li {
+      color: #fff;
+      background: transparent;
+      padding: 15px;
+    }
+    /* When user has hovered the li item, we show the ul list by applying display:block, note: 150px is the individual menu width.  */
+
+    #menuwrapper ul li:hover ul {
+      left: 300px;
+      top: 0px;
+      display: block;
+      visibility: visible;
+      width: 80%;
+
+      background-color: #3f68de;
+      transition: background-color 0.5s ease;
+      -o-transition: background-color 0.5s ease;
+      -webkit-transition: background-color 0.5s ease;
+      -moz-transition: background-color 0.5s ease;
+    }
+
+    #menuwrapper ul#sidemenu div.flyout-links a {
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left:5px;
+      color: #5d7049;
+      
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    #menuwrapper ul#sidemenu div.flyout-links a:hover {
+      color: #000000;
+      text-decoration: underline;
+    }
+
+  </style>
+
+  <div
+    x-data="{ open: false, showSleep: false, showOygen: false }"
+    class="twcss-mt-10 twcss-relative twcss-z-3 twcss-bg-lime-700 twcss-w-full twcss-hidden md:twcss-block"
+    style="grid-area: navigation"
+    @mouseleave="open = false"
+  >
+    <button
+      @mouseover="open = true"
+      class="twcss-p-6 twcss-text-left twcss-cursor-pointer twcss-bg-lime-900 twcss-w-[300px]  twcss-text-white twcss-text-3xl twcss-font-semibold "
     >
-        <!-- Button -->
-        <button
-            x-ref="button"
-            {% comment %} x-on:click="toggle()" {% endcomment %}
-            x-data="{ open: false }"
+      Categories
+    </button>
+    <div x-show="open" class="twcss-relative twcss-z-3  twcss-w-full">
+      <!-- new Flyout-->
+      <div id="menuwrapper" class=" twcss-inset-x-0 twcss-top-0 twcss-z-3 ">
+        <ul id="sidemenu">
+         
+          <li>
+            <a href="#">Sleep Therapy</a>
+            <ul>
+              <li>
+                <!-- giant paste-->
+                <div
+                  class=" twcss-absolute twcss-inset-x-0 twcss-top-0 twcss-z-10 twcss-bg-white twcss-pt-0 twcss-shadow-lg twcss-ring-1 twcss-ring-slate-200"
+                >
+                  <div
+                    class="twcss-mx-auto twcss-grid  twcss-grid-cols-1 twcss-gap-2 twcss-px-6 twcss-py-6 md:twcss-grid-cols-2 lg:twcss-grid-cols-4 lg:twcss-gap-6 lg:twcss-px-8 xl:twcss-gap-8"
+                  >
+                    <div
+                      class=" twcss-relative twcss--mx-3 twcss-flex twcss-gap-6 twcss-rounded-lg twcss-p-3 "
+                    >
+                      <div class="flyout-links">
+                        
+                        <h3 class=" twcss-text-3xl twcss-pb-4 twcss-font-bold twcss-mb-2">CPAP/BiPap Masks</h3>
+                          {% for link in linklists.sleep-therapy-masks.links %}
+                            <div><a class="twcss-p-2  twcss-text-lime-700 hover:twcss-text-lime-600 hover:twcss-underline" href="{{ link.url }}">{{ link.title }}</a></div>
+                          {% endfor %}
+                          <div class="twcss-border-b-2 twcss-mb-6 twcss-border-indigo-lime-600 twcss-w-full twcss-text-sm">&nbsp;</div>
+                          
+                          {% for link in linklists.sleep-therapy-masks-packages.links %}
+                            <div><a class="twcss-p-2  twcss-text-lime-700 hover:twcss-text-lime-600 hover:twcss-underline" href="{{ link.url }}">{{ link.title }}</a></div>
+                          {% endfor %}
+                          <div class="twcss-border-b-2 twcss-mb-6 twcss-border-indigo-lime-600 twcss-w-full twcss-text-sm">&nbsp;</div>
+                          
+                          {% for link in linklists.sleep-therapy-parts-links.links limit: 1 %}
+                            <div><a class="twcss-p-2  twcss-text-lime-700 hover:twcss-text-lime-600 hover:twcss-underline" href="{{ link.url }}">{{ link.title }}</a></div>
+                          {% endfor %}
+                      </div>
+                    </div>
+                    <div
+                      class=" twcss-relative twcss--mx-3 twcss-flex twcss-gap-6 twcss-rounded-lg twcss-p-3 ">
 
-            :aria-expanded="open"
-            :aria-controls="$id('dropdown-button')"
-            type="button"
-            class="twcss-relative twcss-flex twcss-items-center twcss-whitespace-nowrap twcss-justify-center twcss-gap-2 twcss-py-2 twcss-rounded-lg twcss-shadow-sm twcss-bg-white hover:twcss-bg-gray-50 twcss-text-gray-800 twcss-border twcss-border-gray-200 hover:twcss-border-gray-200 twcss-px-4"
-        >
-            <span>Options</span>
+                      <div class="flyout-links">
+                        <h3 class=" twcss-text-3xl twcss-pb-4 twcss-font-bold twcss-mb-2">CPAP/BiPap Machines</h3>
+                        {% for link in linklists.sleep-therapy-machines.links %}
+                          <div><a class="twcss-p-2  twcss-text-lime-700 hover:twcss-text-lime-600 hover:twcss-underline" href="{{ link.url }}">{{ link.title }}</a></div>
+                        {% endfor %}
+                        <div class="twcss-border-b-2 twcss-mb-6 twcss-border-indigo-lime-600 twcss-w-full twcss-text-sm">&nbsp;</div>
+                        
+                        {% for link in linklists.sleep-therapy-machines-parts-humidifiers.links %}
+                          <div><a class="twcss-p-2  twcss-text-lime-700 hover:twcss-text-lime-600 hover:twcss-underline" href="{{ link.url }}">{{ link.title }}</a></div>
+                        {% endfor %}
+                      </div>
+                    </div>
+                    <div
+                      class="group twcss-relative twcss--mx-3 twcss-flex twcss-gap-6 twcss-rounded-lg twcss-p-3"
+                    >
 
-            <!-- Heroicon: micro chevron-down -->
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
-                <path fill-rule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
-            </svg>
-        </button>
+                      <div class="flyout-links">
+                        <h3 class=" twcss-text-3xl twcss-pb-4 twcss-font-bold twcss-mb-2">Parts & Accessories</h3>
+                        
+                        {% for link in linklists.sleep-therapy-accessories.links %}
+                          <div><a class="twcss-p-2  twcss-text-lime-700 hover:twcss-text-lime-600 hover:twcss-underline" href="{{ link.url }}">{{ link.title }}</a></div>
+                        {% endfor %}
+                        <div class="twcss-border-b-2 twcss-mb-6 twcss-border-indigo-lime-600 twcss-w-full twcss-text-sm">&nbsp;</div>
+                          
+                        {% for link in linklists.sleep-therapy-parts-links.links %}
+                          <div><a class="twcss-p-2  twcss-text-lime-700 hover:twcss-text-lime-600 hover:twcss-underline" href="{{ link.url }}">{{ link.title }}</a></div>
+                        {% endfor %}
+                      </div>
+                    </div>
+                    <div
+                      class="twcss-group twcss-relative twcss--mx-3 twcss-flex twcss-gap-6 twcss-rounded-lg twcss-p-3 text-sm/6 twcss-bg-slate-200 hover:twcss-bg-gray-50"
+                    >
 
-        <!-- Panel -->
-        <div
-            x-ref="panel"
-            x-show="open"
-            x-transition.origin.top.left
-            x-on:click.outside="close($refs.button)"
-            :id="$id('dropdown-button')"
-            x-cloak
-            class="twcss-absolute twcss-left-32 twcss-w-full twcss-rounded-lg twcss-shadow-sm twcss-mt-0 twcss-z-10 twcss-origin-top-left twcss-bg-white twcss-p-1.5 twcss-outline-none twcss-border twcss-border-gray-200"
-        >
-            <a href="#new" class="twcss-px-2 lg:twcss-py-1.5 twcss-py-2 twcss-w-full twcss-flex twcss-items-center twcss-rounded-md twcss-transition-colors twcss-text-left twcss-text-gray-800 hover:twcss-bg-gray-50 focus-visible:twcss-bg-gray-50 disabled:twcss-opacity-50 disabled:twcss-cursor-not-allowed">
-                New Task
-            </a>
+                      <div>
+                        
+                        <p class="twcss-mt-1 twcss-text-gray-800 ">
+                          Images or prmotional area here
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+  
+                </div>
+                <!-- end giant paste -->
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Oxygen Therapy</a>
+            <ul>
+              <li>
+                    <!-- giant paste-->
+                    <div
+                      class=" twcss-absolute twcss-inset-x-0 twcss-top-0 twcss-z-10 twcss-bg-white twcss-pt-0 twcss-shadow-lg twcss-ring-1 twcss-ring-slate-200"
+                    >
+                      <div
+                        class="twcss-mx-auto twcss-grid  twcss-grid-cols-1 twcss-gap-2 twcss-px-6 twcss-py-6 md:twcss-grid-cols-2 lg:twcss-grid-cols-4 lg:twcss-gap-6 lg:twcss-px-8 xl:twcss-gap-8"
+                      >
+                        <div
+                          class=" twcss-relative twcss--mx-3 twcss-flex twcss-gap-6 twcss-rounded-lg twcss-p-3 "
+                        >
+                          <div class="flyout-links">
+                            
+                            <h3 class=" twcss-text-3xl twcss-pb-4 twcss-font-bold twcss-mb-2">Oxygen Concentrators</h3>
+                              {% for link in linklists.oxygen-therapy.links %}
+                                <div><a class="twcss-p-2  twcss-text-lime-700 hover:twcss-text-lime-600 hover:twcss-underline" href="{{ link.url }}">{{ link.title }}</a></div>
+                              {% endfor %}
+                              <div class="twcss-border-b-2 twcss-mb-6 twcss-border-indigo-lime-600 twcss-w-full twcss-text-sm">&nbsp;</div>
+                              
+                              {% for link in linklists.oxygen-therapy-single-parts-link.links  %}
+                                <div><a class="twcss-p-2  twcss-text-lime-700 hover:twcss-text-lime-600 hover:twcss-underline" href="{{ link.url }}">{{ link.title }}</a></div>
+                              {% endfor %}
+                          </div>
+                        </div>
+                        <div class=" twcss-relative twcss--mx-3 twcss-flex twcss-gap-6 twcss-rounded-lg twcss-p-3 ">
+                          <div class="flyout-links">
+                            <h3 class=" twcss-text-3xl twcss-pb-4 twcss-font-bold twcss-mb-2">Parts & Supplies</h3>
+                            {% for link in linklists.oxygen-therapy-parts-supplies.links %}
+                              <div><a class="twcss-p-2  twcss-text-lime-700 hover:twcss-text-lime-600 hover:twcss-underline" href="{{ link.url }}">{{ link.title }}</a></div>
+                            {% endfor %}
+                            <div class="twcss-border-b-2 twcss-mb-6 twcss-border-indigo-lime-600 twcss-w-full twcss-text-sm">&nbsp;</div>
+                            
+                            {% for link in linklists.oxygen-therapy-single-parts-link.links  %}
+                              <div><a class="twcss-p-2  twcss-text-lime-700 hover:twcss-text-lime-600 hover:twcss-underline" href="{{ link.url }}">{{ link.title }}</a></div>
+                            {% endfor %}
+                          </div>
+                        </div>
+                        <div
+                          class="group twcss-relative twcss--mx-3 twcss-flex twcss-gap-6 twcss-rounded-lg twcss-p-3"
+                        >
+    
+                          <div class="flyout-links">
+                            <h3 class=" twcss-text-3xl twcss-pb-4 twcss-font-bold twcss-mb-2">Accessories & Extras</h3>
+                            
+                            {% for link in linklists.oxygen-therapy-extras-accessories.links %}
+                              <div><a class="twcss-p-2  twcss-text-lime-700 hover:twcss-text-lime-600 hover:twcss-underline" href="{{ link.url }}">{{ link.title }}</a></div>
+                            {% endfor %}
+                            
+                          </div>
+                        </div>
+                        <div
+                          class="twcss-group twcss-relative twcss--mx-3 twcss-flex twcss-gap-6 twcss-rounded-lg twcss-p-3 text-sm/6 twcss-bg-slate-200 hover:twcss-bg-gray-50 sm:twcss-flex-col sm:twcss-p-6"
+                        >
+                          <div>
+                            <p class="twcss-mt-1 twcss-text-gray-800 ">
+                              Images or prmotional area here
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+      
+                    </div>
+                    <!-- end giant paste -->
+                </li>
+            </ul>
+          </li>
+          <li><a class="" href="#">Asthma & Allergy</a>
+          <ul>
+            <li>
+                  <!-- giant paste-->
+                  <div
+                    class=" twcss-absolute twcss-inset-x-0 twcss-top-0 twcss-z-10 twcss-bg-white twcss-pt-0 twcss-shadow-lg twcss-ring-1 twcss-ring-slate-200"
+                  >
+                    <div
+                      class="twcss-mx-auto twcss-grid  twcss-grid-cols-1 twcss-gap-2 twcss-px-6 twcss-py-6 md:twcss-grid-cols-2 lg:twcss-grid-cols-4 lg:twcss-gap-6 lg:twcss-px-8 xl:twcss-gap-8"
+                    >
+                      <div
+                        class=" twcss-relative twcss--mx-3 twcss-flex twcss-gap-6 twcss-rounded-lg twcss-p-3 "
+                      >
+                        <div class="flyout-links">
+                          
+                          <h3 class=" twcss-text-3xl twcss-pb-4 twcss-font-bold twcss-mb-2">Compressor Nebulizer Kits</h3>
+                            {% for link in linklists.asthma-allergy-nebulizers.links %}
+                              <div><a class="twcss-p-2  twcss-text-lime-700 hover:twcss-text-lime-600 hover:twcss-underline" href="{{ link.url }}">{{ link.title }}</a></div>
+                            {% endfor %}
+                            <div class="twcss-border-b-2 twcss-mb-6 twcss-border-indigo-lime-600 twcss-w-full twcss-text-sm">&nbsp;</div>
+                            
+                            {% for link in linklists.asthma-allergy-parts-filters.links limit: 1  %}
+                              <div><a class="twcss-p-2  twcss-text-lime-700 hover:twcss-text-lime-600 hover:twcss-underline" href="{{ link.url }}">{{ link.title }}</a></div>
+                            {% endfor %}
+                        </div>
+                      </div>
+                      <div class=" twcss-relative twcss--mx-3 twcss-flex twcss-gap-6 twcss-rounded-lg twcss-p-3 ">
+                        <div class="flyout-links">
+                          <h3 class=" twcss-text-3xl twcss-pb-4 twcss-font-bold twcss-mb-2">Parts & Accessories</h3>
+                          {% for link in linklists.oxygen-therapy-parts-supplies.links %}
+                            <div><a class="twcss-p-2  twcss-text-lime-700 hover:twcss-text-lime-600 hover:twcss-underline" href="{{ link.url }}">{{ link.title }}</a></div>
+                          {% endfor %}
+                          <div class="twcss-border-b-2 twcss-mb-6 twcss-border-indigo-lime-600 twcss-w-full twcss-text-sm">&nbsp;</div>
+                          
+                          {% for link in linklists.asthma-allergy-parts-filters.links  %}
+                            <div><a class="twcss-p-2  twcss-text-lime-700 hover:twcss-text-lime-600 hover:twcss-underline" href="{{ link.url }}">{{ link.title }}</a></div>
+                          {% endfor %}
+                        </div>
+                      </div>
+                      <div
+                        class="group twcss-relative twcss--mx-3 twcss-flex twcss-gap-6 twcss-rounded-lg twcss-p-3"
+                      >
+  
+                        <div class="flyout-links">
+                          <h3 class=" twcss-text-3xl twcss-pb-4 twcss-font-bold twcss-mb-2">Spacers & Chambers</h3>
+                          
+                          {% for link in linklists.oxygen-therapy-extras-accessories.links %}
+                            <div><a class="twcss-p-2  twcss-text-lime-700 hover:twcss-text-lime-600 hover:twcss-underline" href="{{ link.url }}">{{ link.title }}</a></div>
+                          {% endfor %}
+                          
+                        </div>
+                      </div>
+                      <div
+                        class="twcss-group twcss-relative twcss--mx-3 twcss-flex twcss-gap-6 twcss-rounded-lg twcss-p-3 text-sm/6 twcss-bg-slate-200 hover:twcss-bg-gray-50 sm:twcss-flex-col sm:twcss-p-6"
+                      >
+                        <div>
+                          <p class="twcss-mt-1 twcss-text-gray-800 ">
+                            Images or prmotional area here
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+    
+                  </div>
+                  <!-- end giant paste -->
+              </li>
+          </ul>
+        </li>
+          <li><a class="" href="#">Manufacturers</a></li>
+          <li><a class="" href="#">Contacts & Resources</a></li>
 
-            <a href="#edit" class="twcss-px-2 lg:twcss-py-1.5 twcss-py-2 twcss-w-full twcss-flex twcss-items-center twcss-rounded-md twcss-transition-colors twcss-text-left twcss-text-gray-800 hover:twcss-bg-gray-50 focus-visible:twcss-bg-gray-50 disabled:twcss-opacity-50 disabled:twcss-cursor-not-allowed">
-                Edit Task
-            </a>
-
-            <a href="#delete" class="twcss-px-2 lg:twcss-py-1.5 twcss-py-2 twcss-w-full twcss-flex twcss-items-center twcss-rounded-md twcss-transition-colors twcss-text-left twcss-text-gray-800 hover:twcss-bg-red-50 hover:twcss-text-red-600 focus-visible:twcss-bg-red-50 focus-visible:twcss-text-red-600 disabled:twcss-opacity-50 disabled:twcss-cursor-not-allowed">
-                Delete Task
-            </a>
-        </div>
-
-        
+        </ul>
+      </div>
     </div>
-</div>
+    </div>
