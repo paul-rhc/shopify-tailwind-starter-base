@@ -152,12 +152,36 @@
     style="grid-area: navigation"
     @mouseleave="open = false"
   >
+    <div class=" twcss-flex twcss-justify-start twcss-items-center ">
     <button
       @mouseover="open = true"
-      class="twcss-p-6 twcss-text-left twcss-cursor-pointer twcss-bg-lime-900 twcss-w-[300px]  twcss-text-white twcss-text-3xl twcss-font-semibold "
-    >
+      class="twcss-p-6 twcss-text-left twcss-cursor-pointer twcss-bg-lime-900 twcss-w-[300px] twcss-text-white twcss-text-3xl twcss-font-semibold "
+    >{% render 'menu' %}
       Categories
     </button>
+    <div class=" twcss-mx-auto twcss-min-w-fit twcss-flex twcss-flex-row twcss-justify-around twcss-items-center">
+      <a href="#"  class=" twcss-block hover:twcss-underline twcss-decoration-8 twcss-underline-offset-8 twcss-decoration-lime-600">
+        <span class="twcss-flex  twcss-text-white  twcss-mr-20 twcss-font-bold">
+          {% render 'icon-phone' %} Call Us: 888-505-0212
+        </span>
+      </a>
+      <a href="#"  class="twcss-block hover:twcss-underline twcss-decoration-8 twcss-underline-offset-8 twcss-decoration-lime-600">
+        <span class="twcss-flex  twcss-text-white twcss-mr-20 twcss-font-bold">
+          {% render 'icon-truck-alt' %} Free Shipping on Every Order!
+        </span>
+      </a>
+      <a href="#"  class="twcss-block hover:twcss-underline twcss-decoration-8 twcss-underline-offset-8 twcss-decoration-lime-600">
+        <span class="twcss-flex  twcss-text-white twcss-mr-20 twcss-font-bold">
+          {% render 'icon-bullhorn' %} What's New
+        </span>
+      </a>
+      <a href="#"  class="twcss-block hover:twcss-underline twcss-decoration-8 twcss-underline-offset-8 twcss-decoration-lime-600">
+        <span class="twcss-flex  twcss-text-white twcss-mr-5 twcss-font-bold">
+          {% render 'icon-rewards-alt' %} Earn Loyalty Rewards 
+        </span>
+      </a>
+    </div>
+  </div>
     <div x-show="open" class="twcss-relative twcss-z-3  twcss-w-full">
       <!-- new Flyout-->
       <div id="menuwrapper" class=" twcss-inset-x-0 twcss-top-0 twcss-z-3 ">
@@ -259,7 +283,7 @@
                         <div
                           class=" twcss-relative twcss--mx-3 twcss-flex twcss-gap-6 twcss-rounded-lg twcss-p-3 "
                         >
-                          <div class="flyout-links">
+                          <div class="flyout-links twcss-min-h-[400px]">
                             
                             <h3 class=" twcss-text-3xl twcss-pb-4 twcss-font-bold twcss-mb-2">Oxygen Concentrators</h3>
                               {% for link in linklists.oxygen-therapy.links %}
@@ -327,7 +351,7 @@
                       <div
                         class=" twcss-relative twcss--mx-3 twcss-flex twcss-gap-6 twcss-rounded-lg twcss-p-3 "
                       >
-                        <div class="flyout-links">
+                        <div class="flyout-links twcss-min-h-[400px]">
                           
                           <h3 class=" twcss-text-3xl twcss-pb-4 twcss-font-bold twcss-mb-2">Compressor Nebulizer Kits</h3>
                             {% for link in linklists.asthma-allergy-nebulizers.links %}
@@ -343,7 +367,7 @@
                       <div class=" twcss-relative twcss--mx-3 twcss-flex twcss-gap-6 twcss-rounded-lg twcss-p-3 ">
                         <div class="flyout-links">
                           <h3 class=" twcss-text-3xl twcss-pb-4 twcss-font-bold twcss-mb-2">Parts & Accessories</h3>
-                          {% for link in linklists.oxygen-therapy-parts-supplies.links %}
+                          {% for link in linklists.asthma-allergy-facemasks.links %}
                             <div><a class="twcss-p-2  twcss-text-lime-700 hover:twcss-text-lime-600 hover:twcss-underline" href="{{ link.url }}">{{ link.title }}</a></div>
                           {% endfor %}
                           <div class="twcss-border-b-2 twcss-mb-6 twcss-border-indigo-lime-600 twcss-w-full twcss-text-sm">&nbsp;</div>
@@ -360,7 +384,7 @@
                         <div class="flyout-links">
                           <h3 class=" twcss-text-3xl twcss-pb-4 twcss-font-bold twcss-mb-2">Spacers & Chambers</h3>
                           
-                          {% for link in linklists.oxygen-therapy-extras-accessories.links %}
+                          {% for link in linklists.asthma-allergy-spacers-chambers.links %}
                             <div><a class="twcss-p-2  twcss-text-lime-700 hover:twcss-text-lime-600 hover:twcss-underline" href="{{ link.url }}">{{ link.title }}</a></div>
                           {% endfor %}
                           

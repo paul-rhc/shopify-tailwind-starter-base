@@ -270,16 +270,17 @@
       <div class="mobile-search">
         {% render 'header-search', input_id: 'Search-In-Modal' %}
       </div>
-      <div class="desktop-search">
+      <div class="desktop-search twcss-w-[400px]">
               {%- if settings.predictive_search_enabled -%}
           <predictive-search class="search-modal__form" data-loading-text="{{ 'accessibility.loading' | t }}">
         {%- else -%}
           <search-form class="search-modal__form">
         {%- endif -%}
         <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form">
-          <div class="field">
+          <div class="field ">
             <input
-              class="search__input field__input"
+             
+              class="search__input field__input "
               id="{{ input_id }}"
               type="search"
               name="q"
