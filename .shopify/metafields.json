@@ -53,8 +53,8 @@
     {
       "key": "dhm_promos_parts",
       "namespace": "custom",
-      "name": "DHM Promos - Parts Link",
-      "description": "Full HTML Link",
+      "name": "DHM Promos - Parts Code",
+      "description": "Just the code",
       "type": {
         "name": "single_line_text_field",
         "category": "TEXT"
@@ -923,8 +923,8 @@
     {
       "key": "dhm_resources_pdfs",
       "namespace": "custom",
-      "name": "DHM Res - PDFs",
-      "description": "title | link",
+      "name": "DHM Res - PDFs (BAD!!!!!)",
+      "description": "Do not use this field.",
       "type": {
         "name": "list.single_line_text_field",
         "category": "TEXT"
@@ -1067,6 +1067,16 @@
       "description": "Defines the intended benefits of skin care products, e.g. anti-aging, plumping",
       "type": {
         "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "dhm_resources_pdf_files",
+      "namespace": "custom",
+      "name": "DHM Res - PDF Files",
+      "description": "Link to Shopify PDFs",
+      "type": {
+        "name": "list.file_reference",
         "category": "REFERENCE"
       }
     }

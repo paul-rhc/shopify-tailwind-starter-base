@@ -34,6 +34,9 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+ summary > div span, summary > div > svg {
+  color: #fff;
+ }
 {%- endstyle -%}
 
 <div class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
@@ -103,7 +106,7 @@
       {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
         <aside
           aria-labelledby="verticalTitle"
-          class="facets-wrapper{% unless section.settings.enable_filtering %} facets-wrapper--no-filters{% endunless %}twcss-p-6 twcss-w-[300px] twcss-bg-lime-700 {% if section.settings.filter_type != 'vertical' %} page-width{% endif %}"
+          class="facets-wrapper{% unless section.settings.enable_filtering %} facets-wrapper--no-filters{% endunless %}twcss-p-6 twcss-w-[300px] twcss-bg-lime-700 {% if section.settings.filter_type != 'vertical' %} page-width{% endif %} twcss-p-10"
           id="main-collection-filters"
           data-id="{{ section.id }}"
         >
