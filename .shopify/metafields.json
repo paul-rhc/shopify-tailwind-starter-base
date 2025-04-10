@@ -1,7 +1,6 @@
 {
   "article": [],
   "blog": [],
-  "brand": [],
   "collection": [],
   "company": [],
   "company_location": [],
@@ -273,7 +272,7 @@
     {
       "key": "dhm_sleep_mask_sizing_guide",
       "namespace": "custom",
-      "name": "DHM Sleep - Mask Sizing Guide",
+      "name": "DHM Sleep - Mask Sizing Guide (BAD!)",
       "description": "",
       "type": {
         "name": "single_line_text_field",
@@ -1077,6 +1076,26 @@
       "description": "Link to Shopify PDFs",
       "type": {
         "name": "list.file_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "dhm_sleep_mask_sizing_guide_pdf",
+      "namespace": "custom",
+      "name": "DHM Sleep - Mask Sizing Guide PDF",
+      "description": "",
+      "type": {
+        "name": "file_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "material",
+      "namespace": "shopify",
+      "name": "Material",
+      "description": "Defines a product's primary material, such as cotton or wool",
+      "type": {
+        "name": "list.metaobject_reference",
         "category": "REFERENCE"
       }
     }
