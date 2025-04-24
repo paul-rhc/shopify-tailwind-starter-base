@@ -13,15 +13,11 @@
   <div class="collection-hero__inner page-width {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %} ">
     <div class="twcss-grid twcss-grid-cols-[300px_1fr]  ">
       <div class="twcss-w-[300px] twcss-bg-lime-700">
-        {% for link in linklists.categories-menu.links %}
-          <div class=" twcss-border-b twcss-border-white "><a class=" twcss-block twcss-px-8 twcss-py-5  twcss-text-white hover:twcss-text-lime-200 hover:twcss-underline" href="{{ link.url }}">{{ link.title }}</a></div>
-        {% endfor %}
+
         
       </div>
       {% comment %}
-        
-      {% endcomment %}
-      <div class="collection-hero__text-wrapper twcss-p-6 twcss-flex twcss-flex-col twcss-bg-slate-100">
+       <div class="collection-hero__text-wrapper twcss-p-6 twcss-flex twcss-flex-col twcss-bg-slate-100">
       
         <h1 class="collection-hero__title ">
           <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
@@ -32,6 +28,8 @@
           <div class="collection-hero__description rte">{{ collection.description }}: potential description</div>
         {%- endif -%}
       </div>
+      {% endcomment %}
+     
     </div>
     
     {%- if section.settings.show_collection_image and collection.image -%}

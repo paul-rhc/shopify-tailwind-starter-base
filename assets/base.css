@@ -1299,7 +1299,9 @@ button.shopify-payment-button__button--unbranded {
 }
 
 .button:focus:not(:focus-visible):not(.focused),
-.shopify-payment-button__button--unbranded:focus:not(:focus-visible):not(.focused) {
+.shopify-payment-button__button--unbranded:focus:not(:focus-visible):not(
+    .focused
+  ) {
   box-shadow: inherit;
 }
 
@@ -3682,32 +3684,39 @@ details-disclosure > details {
     transform: translateX(100%) scaleX(0);
   }
 }
-
 .collection .grid__item {
   width: 100% !important;
   max-width: 100% !important;
 }
 .collection .card {
-    justify-content: space-between !important;
-    align-items: center !important;
-    gap: 2rem;
-    flex-direction: initial !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 2rem;
+  flex-direction: initial !important;
 }
 .collection .card__inner {
-    width: 15%;
+  width: 15%;
 }
 .collection .card__content {
-    width: 85% !important;
+  width: 85% !important;
 }
 .collection .card__information {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .collection .card__heading {
-    width: 50%;
+  width: 75%;
 }
 .collection .card-information {
-    width: 50%;
-	text-align: right;
+  width: 25%;
+  text-align: right;
+}
+
+.card__information
+  div
+  ul.metafield-single_line_text_field-array
+  li.metafield-single_line_text_field {
+  display: inline;
+  margin-right: 2rem;
 }

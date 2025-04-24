@@ -47,12 +47,16 @@
       {{ 'component-facets.css' | asset_url | stylesheet_tag }}
       <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
       {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
+
         <aside
           aria-labelledby="verticalTitle"
           class="facets-wrapper{% unless section.settings.enable_filtering %} facets-wrapper--no-filters{% endunless %}twcss-p-6 twcss-w-[300px] twcss-bg-lime-700 {% if section.settings.filter_type != 'vertical' %} page-width{% endif %} twcss-p-10"
           id="main-collection-filters"
           data-id="{{ section.id }}"
         >
+          {% for link in linklists.categories-menu.links %}
+            <div class=" twcss-border-b twcss-border-white "><a class=" twcss-block twcss-px-8 twcss-py-5  twcss-text-white hover:twcss-text-lime-200 hover:twcss-underline" href="{{ link.url }}">{{ link.title }}</a></div>
+          {% endfor %}
           {% render 'facets',
             results: collection,
             enable_filtering: section.settings.enable_filtering,
@@ -71,6 +75,20 @@
           data-cascade
         {% endif %}
       >
+        <div class="collection-hero__text-wrapper twcss-p-6 twcss-flex twcss-flex-col twcss-bg-slate-100">
+      
+          <h1 class="collection-hero__title ">
+            <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
+            {{- collection.title | escape -}}
+          </h1>
+    {% comment %}
+      Note - move the setting from  the main-collection-banner section, that's what controls if the description is shown or not.
+    {% endcomment %}
+          {%- if section.settings.show_collection_description -%}
+            <div class="collection-hero__description rte">{{ collection.description }}: potential description</div>
+          {%- endif -%}
+          
+        </div>
         {%- if collection.products.size == 0 -%}
           <div class="collection collection--empty page-width" id="product-grid" data-id="{{ section.id }}">
             <div class="loading-overlay gradient"></div>
@@ -172,7 +190,10 @@
                     style="--animation-order: {{ forloop.index }};"
                   {% endif %}
                 >
+{% assign my_fields = product.metafields.custom %}
+
                   {% render 'card-product',
+                    meta: my_fields,
                     card_product: product,
                     media_aspect_ratio: section.settings.image_ratio,
                     image_shape: section.settings.image_shape,

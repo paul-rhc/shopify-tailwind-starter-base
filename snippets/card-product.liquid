@@ -123,6 +123,7 @@
                 {{ card_product.title | escape }}
               </a>
             </h3>
+
           </div>
           <div class="card__badge {{ settings.badge_position }}">
             {%- if card_product.available == false -%}
@@ -143,7 +144,8 @@
           </div>
         </div>
       </div>
-      <div class="card__content">
+      <div class="card__content  twcss-bg-slate-100">
+        
         <div class="card__information">
           <h3
             class="card__heading{% if card_product.featured_media or settings.card_style == 'standard' %} h5{% endif %} "
@@ -159,7 +161,11 @@
             >
               {{ card_product.title | escape }}
             </a>
+            <div style="color: #000000;" class=" twcss-flex twcss-flex-row twcss-mt-5">
+              {{ meta.dhm_promos | metafield_tag }}
+            </div>
           </h3>
+
           <div class="card-information">
             {%- if show_vendor -%}
               <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
@@ -286,6 +292,7 @@
                 </quantity-popover>
               {% endif %}
             {%- endif -%}
+
           </div>
         </div>
         {% assign product_form_id = 'quick-add-' | append: section_id | append: card_product.id %}
