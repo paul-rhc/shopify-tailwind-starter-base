@@ -50,14 +50,14 @@
 
         <aside
           aria-labelledby="verticalTitle"
-          class="facets-wrapper{% unless section.settings.enable_filtering %} facets-wrapper--no-filters{% endunless %}twcss-p-6 twcss-w-[300px] twcss-bg-lime-700 {% if section.settings.filter_type != 'vertical' %} page-width{% endif %} twcss-p-10"
+          class="facets-wrapper{% unless section.settings.enable_filtering %} facets-wrapper--no-filters{% endunless %}twcss-p-6 twcss-w-[300px] twcss-bg-primaryGreen {% if section.settings.filter_type != 'vertical' %} page-width{% endif %} twcss-p-10"
           id="main-collection-filters"
           data-id="{{ section.id }}"
         >
-          <div class=" twcss-bg-lime-900 -twcss-mt-10">
+          <div class="  twcss-bg-primaryGreenDark -twcss-mt-10">
 
             {% for link in linklists.categories-menu.links %}
-              <div class="-twcss-mx-10 twcss-border-b twcss-bg-lime-900 twcss-border-white "><a class=" twcss-block twcss-px-8 twcss-py-5  twcss-text-white hover:twcss-text-lime-200 hover:twcss-underline" href="{{ link.url }}">{{ link.title }}</a></div>
+              <div class="-twcss-mx-10 twcss-border-b  twcss-bg-primaryGreenDark twcss-border-white "><a class=" twcss-block twcss-px-8 twcss-py-5  twcss-text-white hover:twcss-text-lime-200 hover:twcss-underline" href="{{ link.url }}">{{ link.title }}</a></div>
             {% endfor %}
           </div>
           {% render 'facets',
@@ -78,7 +78,7 @@
           data-cascade
         {% endif %}
       >
-        <div class="collection-hero__text-wrapper twcss-p-6 twcss-flex twcss-flex-col twcss-bg-slate-100">
+        <div class="collection-hero__text-wrapper twcss-p-6 twcss-flex twcss-flex-col  twcss-bg-bgGray">
       
           <h1 class="collection-hero__title ">
             <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
@@ -93,7 +93,7 @@
           
         </div>
         {%- if collection.products.size == 0 -%}
-          <div class="collection collection--empty page-width" id="product-grid" data-id="{{ section.id }}">
+          <div class="collection collection--empty page-width twcss-bg-bgGray" id="product-grid" data-id="{{ section.id }} ">
             <div class="loading-overlay gradient"></div>
             <div class="title-wrapper center">
               <h2 class="title title--primary">
@@ -108,19 +108,19 @@
           </div>
         {%- else -%}
           <div
-            class="collection{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}"
+            class="collection{% if section.settings.filter_type != 'vertical' %} page-width{% endif %} twcss-bg-bgGray"
           >
              {% comment %} Sort is the first tabbable element when filter type is vertical << not true any longer, i moved facet filters because of sidebar.
              It was above the product grid and aside, but now it is inside the product grid.
              {% endcomment %}
             {%- if section.settings.enable_sorting and section.settings.filter_type == 'vertical' -%}
-              <facet-filters-form class="facets facets-vertical-sort page-width small-hide twcss-bg-slate-300 ">
+              <facet-filters-form class="facets facets-vertical-sort page-width small-hide twcss-bg-slate-200 ">
                 <div class="facet-filters__title-wrapper">
                   <h2 class="facet-filters__title caption-large text-body twcss-sr-only" id="verticalTitle">
                     {{ 'products.facets.sort_by_label' | t }}
                   </h2>
                 </div>
-              <form class="facets-vertical-form " id="FacetSortForm">
+              <form class="facets-vertical-form  twcss-py-6" id="FacetSortForm">
                 <div class="facet-filters sorting caption">
                   <div class="facet-filters__field">
                     <h2 class="facet-filters__label caption-large text-body ">
