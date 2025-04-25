@@ -63,14 +63,14 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Talk about your brand",
+            "heading": "Welcome to Derect Home Medical",
             "heading_size": "h1"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
+            "text": "<p><em>We know that there are many places to buy the Sleep, Respiratory and Oxygen Therapy products you need. That's why we strive every day to make your experience with DirectHomeMedical -- our staff, our site, and our products -- a positive one.</em></p>"
           }
         }
       },
