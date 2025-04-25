@@ -1290,6 +1290,10 @@ video {
   font-weight: 600;
 }
 
+.twcss-italic {
+  font-style: italic;
+}
+
 .twcss-leading-relaxed {
   line-height: 1.625;
 }
@@ -1346,6 +1350,11 @@ video {
 .twcss-text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.twcss-text-primaryGreen {
+  --tw-text-opacity: 1;
+  color: rgb(65 106 56 / var(--tw-text-opacity, 1));
 }
 
 .twcss-decoration-lime-600 {

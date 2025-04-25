@@ -2,7 +2,7 @@
 
 <div class="page-width twcss-bg-bgGray">
   <div id="description" class="twcss-w-full twcss-mx-auto twcss-p-10 twcss-bg-bgGray ">
-  <h2 class=" twcss-text-4xl twcss-leading-relaxed">{{product.description}}</h2>
+  <h2 class=" twcss-text-4xl twcss-leading-relaxed twcss-text-primaryGreen twcss-italic">{{product.description}}</h2>
   </div>
   
   <div id="the_acc" class="twcss-space-y-6 twcss-bg-bgGray">
@@ -88,9 +88,9 @@
 
    <div class="twcss-flex twcss-mx-auto twcss-mt-10 "> 
     <!-- Accordion 2 -->
-    <div id="description" x-data="{ expanded: false}" role="region" class=" twcss-w-full twcss-border twcss-border-slate-400">
+    <div id="description" x-data="{ expanded: false}" role="region" class=" twcss-w-full twcss-border twcss-border-gray-500">
       <h2>
-      <button @click="expanded = !expanded" class="twcss-flex twcss-items-center twcss-justify-between twcss-w-full twcss-px-8 twcss-py-8 twcss-font-bold twcss-text-2xl twcss-bg-slate-100">
+      <button @click="expanded = !expanded" class="twcss-flex twcss-items-center twcss-justify-between twcss-w-full twcss-px-8 twcss-py-8 twcss-font-bold twcss-text-2xl twcss-bg-gray-500 twcss-text-white">
         <span >Product Specifications</span>
         <span x-show=" expanded" aria-hidden="true" class=" twcss-ml-4">&minus;</span>
         <span x-show="!expanded" aria-hidden="true" class=" twcss-ml-4">&plus;</span>
