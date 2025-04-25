@@ -988,6 +988,11 @@ video {
   border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
 }
 
+.twcss-border-gray-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(107 114 128 / var(--tw-border-opacity, 1));
+}
+
 .twcss-border-x-slate-100 {
   --tw-border-opacity: 1;
   border-left-color: rgb(241 245 249 / var(--tw-border-opacity, 1));
@@ -1081,6 +1086,11 @@ video {
 .twcss-bg-bgGray {
   --tw-bg-opacity: 1;
   background-color: rgb(245 245 245 / var(--tw-bg-opacity, 1));
+}
+
+.twcss-bg-gray-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(107 114 128 / var(--tw-bg-opacity, 1));
 }
 
 .twcss-fill-current {

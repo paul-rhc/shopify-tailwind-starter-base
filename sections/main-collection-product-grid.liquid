@@ -42,8 +42,8 @@
 <div class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
   {%- paginate collection.products by section.settings.products_per_page -%}
    
-
-    <div class="{% if section.settings.filter_type == 'vertical' %} facets-vertical page-width twcss-h-full twcss-mr-4  twcss-text-white twcss-pl-4{% endif %}">
+    {% comment %} twcss-pl-4 {% endcomment %}
+    <div class="{% if section.settings.filter_type == 'vertical' %} facets-vertical page-width twcss-h-full twcss-mr-4  twcss-text-white {% endif %}">
       {{ 'component-facets.css' | asset_url | stylesheet_tag }}
       <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
       {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
