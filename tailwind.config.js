@@ -14,7 +14,7 @@ module.exports = {
       lg: '990px',
       xlg: '1440px',
       x2lg: '1920px',
-      pageMaxWidth: '1440px',
+      pageMaxWidth: '1660px',
     },
     extend: {
       fontFamily: {

@@ -54,9 +54,12 @@
           id="main-collection-filters"
           data-id="{{ section.id }}"
         >
-          {% for link in linklists.categories-menu.links %}
-            <div class=" twcss-border-b twcss-border-white "><a class=" twcss-block twcss-px-8 twcss-py-5  twcss-text-white hover:twcss-text-lime-200 hover:twcss-underline" href="{{ link.url }}">{{ link.title }}</a></div>
-          {% endfor %}
+          <div class=" twcss-bg-lime-900 -twcss-mt-10">
+
+            {% for link in linklists.categories-menu.links %}
+              <div class="-twcss-mx-10 twcss-border-b twcss-bg-lime-900 twcss-border-white "><a class=" twcss-block twcss-px-8 twcss-py-5  twcss-text-white hover:twcss-text-lime-200 hover:twcss-underline" href="{{ link.url }}">{{ link.title }}</a></div>
+            {% endfor %}
+          </div>
           {% render 'facets',
             results: collection,
             enable_filtering: section.settings.enable_filtering,
@@ -111,11 +114,16 @@
              It was above the product grid and aside, but now it is inside the product grid.
              {% endcomment %}
             {%- if section.settings.enable_sorting and section.settings.filter_type == 'vertical' -%}
-              <facet-filters-form class="facets facets-vertical-sort page-width small-hide twcss-bg-slate-400 ">
+              <facet-filters-form class="facets facets-vertical-sort page-width small-hide twcss-bg-slate-300 ">
+                <div class="facet-filters__title-wrapper">
+                  <h2 class="facet-filters__title caption-large text-body twcss-sr-only" id="verticalTitle">
+                    {{ 'products.facets.sort_by_label' | t }}
+                  </h2>
+                </div>
               <form class="facets-vertical-form " id="FacetSortForm">
-                <div class="facet-filters sorting caption ">
+                <div class="facet-filters sorting caption">
                   <div class="facet-filters__field">
-                    <h2 class="facet-filters__label caption-large text-body">
+                    <h2 class="facet-filters__label caption-large text-body ">
                       <label for="SortBy">{{ 'products.facets.sort_by_label' | t }}</label>
                     </h2>
                     <div class="select">
@@ -190,7 +198,7 @@
                     style="--animation-order: {{ forloop.index }};"
                   {% endif %}
                 >
-{% assign my_fields = product.metafields.custom %}
+                  {% assign my_fields = product.metafields.custom %}
 
                   {% render 'card-product',
                     meta: my_fields,
