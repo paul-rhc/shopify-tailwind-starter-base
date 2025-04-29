@@ -1,6 +1,7 @@
 {
   "article": [],
   "blog": [],
+  "brand": [],
   "collection": [],
   "company": [],
   "company_location": [],
@@ -1097,6 +1098,26 @@
       "type": {
         "name": "list.metaobject_reference",
         "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "product_rating",
+      "namespace": "custom",
+      "name": "Product Rating",
+      "description": "",
+      "type": {
+        "name": "rating",
+        "category": "RATING"
+      }
+    },
+    {
+      "key": "product_rating_count",
+      "namespace": "custom",
+      "name": "Product Rating Count",
+      "description": "",
+      "type": {
+        "name": "number_integer",
+        "category": "NUMBER"
       }
     }
   ],

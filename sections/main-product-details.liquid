@@ -19,29 +19,28 @@
 
 </style>
 <div class="page-width twcss-bg-bgGray">
-  <div id="description" class="twcss-w-full twcss-mx-auto twcss-p-10 twcss-bg-bgGray ">
-  <h2 class=" twcss-text-4xl twcss-leading-relaxed twcss-text-primaryGreen twcss-italic">{{product.description}}</h2>
+  <div id="description" class="twcss-w-full twcss-mx-auto twcss-px-10 twcss-py-4 twcss-bg-bgGray ">
+  <h2 class=" twcss-text-4xl twcss-leading-relaxed twcss-text-primaryGreen twcss-italic">
+    {{product.description}}
+  </h2>
   </div>
   
   <div id="the_acc" class="twcss-space-y-6 twcss-bg-bgGray">
-    <div class="twcss-flex twcss-mx-auto twcss-mt-10 "> 
+    <div class="twcss-flex twcss-mx-auto  "> 
     <!-- Accordion -->
-      <div id="description_details" x-data="{ expanded: true}"  role="region" class=" twcss-w-full twcss-border twcss-border-gray-500 ">
+      <div id="description_details"  role="region" class=" twcss-w-full twcss-px-10 twcss-py-6 ">
         <h2 class="">
-          <button @click="expanded = !expanded" class="twcss-flex twcss-items-center twcss-justify-between twcss-w-full twcss-px-12 twcss-py-12 twcss-font-bold twcss-text-3xl   twcss-bg-gray-500 twcss-text-white ">
             <span >Product Description</span>
-            <span x-show=" expanded" aria-hidden="true" class=" twcss-ml-4 twcss-text-5xl">&minus;</span>
-            <span x-show=" !expanded" aria-hidden="true" class=" twcss-ml-4 twcss-text-5xl">&plus;</span>
-          </button>
+
         </h2>
-      <div x-show="expanded" class="twcss-pb-4 twcss-pt-6 twcss-px-6 twcss-w-full twcss-flex twcss-flex-col md:twcss-flex-row" x-collapse>
-        <div class="twcss-w-full md:twcss-w-3/5 twcss-py-5 twcss-pr-10 twcss-pl-5 twcss-pt-10"> 
+      <div class="twcss-pb-4 twcss-pt-6  twcss-w-full twcss-flex twcss-flex-col md:twcss-flex-row" >
+        <div class="twcss-w-full md:twcss-w-3/5 twcss-py-5 twcss-pr-10"> 
         <div id="desc_container">
 
           {{ product.metafields.custom.dhm_shared_description.value }}
         </div>
         </div>
-        <div class="twcss-w-full md:twcss-w-2/5 twcss-p-5 md:twcss-pl-12" > 
+        <div class="twcss-w-full md:twcss-w-2/5  md:twcss-pl-12 twcss-bg-white" > 
       {% if product.metafields["custom"]["dhm_promos_parts"] != blank %}
       {% assign part_collection = product.metafields["custom"]["dhm_promos_parts"] %}
       {% assign part_collection_len = collections[part_collection].all_products_count %}
@@ -101,7 +100,15 @@
 
   </div>
 </div>
+<div class="twcss-w-full twcss-px-10 twcss-py-6 twcss-bg-slate-200 twcss-flex twcss-flex-col md:twcss-flex-row">
 
+  <div class="twcss-w-full md:twcss-w-3/5 twcss-py-5 twcss-pr-10 twcss-bg-slate-300"> 
+  specs here
+  </div>
+  <div class="twcss-w-full md:twcss-w-2/5  twcss-bg-white" > 
+  Media here
+  </div>
+</div>
       <!-- end acccordion 1 above -->
 
    <div class="twcss-flex twcss-mx-auto twcss-mt-10 "> 

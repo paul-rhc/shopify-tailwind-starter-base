@@ -619,6 +619,10 @@ video {
   margin-top: -2.5rem;
 }
 
+.-twcss-mt-8 {
+  margin-top: -2rem;
+}
+
 .twcss-mb-2 {
   margin-bottom: 0.5rem;
 }
@@ -681,22 +685,6 @@ video {
 
 .twcss-mt-8 {
   margin-top: 2rem;
-}
-
-.twcss-mt-0 {
-  margin-top: 0px;
-}
-
-.-twcss-mt-6 {
-  margin-top: -1.5rem;
-}
-
-.-twcss-mt-8 {
-  margin-top: -2rem;
-}
-
-.twcss-mt-16 {
-  margin-top: 4rem;
 }
 
 .twcss-block {
@@ -994,14 +982,9 @@ video {
   border-color: rgb(229 231 235 / var(--tw-border-opacity, 1));
 }
 
-.twcss-border-slate-400 {
+.twcss-border-gray-400 {
   --tw-border-opacity: 1;
-  border-color: rgb(148 163 184 / var(--tw-border-opacity, 1));
-}
-
-.twcss-border-white {
-  --tw-border-opacity: 1;
-  border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
+  border-color: rgb(156 163 175 / var(--tw-border-opacity, 1));
 }
 
 .twcss-border-gray-500 {
@@ -1009,14 +992,9 @@ video {
   border-color: rgb(107 114 128 / var(--tw-border-opacity, 1));
 }
 
-.twcss-border-gray-400 {
+.twcss-border-white {
   --tw-border-opacity: 1;
-  border-color: rgb(156 163 175 / var(--tw-border-opacity, 1));
-}
-
-.twcss-border-gray-300 {
-  --tw-border-opacity: 1;
-  border-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
+  border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
 }
 
 .twcss-border-x-slate-100 {
@@ -1025,9 +1003,14 @@ video {
   border-right-color: rgb(241 245 249 / var(--tw-border-opacity, 1));
 }
 
-.twcss-border-s-primaryGreen {
-  --tw-border-opacity: 1;
-  border-inline-start-color: rgb(65 106 56 / var(--tw-border-opacity, 1));
+.twcss-bg-bgGray {
+  --tw-bg-opacity: 1;
+  background-color: rgb(245 245 245 / var(--tw-bg-opacity, 1));
+}
+
+.twcss-bg-gray-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(107 114 128 / var(--tw-bg-opacity, 1));
 }
 
 .twcss-bg-green-500 {
@@ -1048,11 +1031,6 @@ video {
 .twcss-bg-lime-700 {
   --tw-bg-opacity: 1;
   background-color: rgb(77 124 15 / var(--tw-bg-opacity, 1));
-}
-
-.twcss-bg-lime-900 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(54 83 20 / var(--tw-bg-opacity, 1));
 }
 
 .twcss-bg-pink-600 {
@@ -1114,21 +1092,6 @@ video {
   background-color: rgb(234 179 8 / var(--tw-bg-opacity, 1));
 }
 
-.twcss-bg-bgGray {
-  --tw-bg-opacity: 1;
-  background-color: rgb(245 245 245 / var(--tw-bg-opacity, 1));
-}
-
-.twcss-bg-gray-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(107 114 128 / var(--tw-bg-opacity, 1));
-}
-
-.twcss-bg-gray-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(209 213 219 / var(--tw-bg-opacity, 1));
-}
-
 .twcss-fill-current {
   fill: currentColor;
 }
@@ -1167,6 +1130,15 @@ video {
   padding: 2rem;
 }
 
+.twcss-p-12 {
+  padding: 3rem;
+}
+
+.twcss-px-12 {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
 .twcss-px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -1190,6 +1162,11 @@ video {
 .twcss-px-8 {
   padding-left: 2rem;
   padding-right: 2rem;
+}
+
+.twcss-py-12 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
 .twcss-py-2 {
@@ -1232,14 +1209,9 @@ video {
   padding-bottom: 2rem;
 }
 
-.twcss-px-12 {
-  padding-left: 3rem;
-  padding-right: 3rem;
-}
-
-.twcss-py-12 {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+.twcss-px-10 {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
 }
 
 .twcss-pb-4 {
@@ -1278,12 +1250,12 @@ video {
   padding-top: 2.5rem;
 }
 
-.twcss-pt-6 {
-  padding-top: 1.5rem;
-}
-
 .twcss-pt-20 {
   padding-top: 5rem;
+}
+
+.twcss-pt-6 {
+  padding-top: 1.5rem;
 }
 
 .twcss-text-left {
@@ -1309,6 +1281,11 @@ video {
   line-height: 2.5rem;
 }
 
+.twcss-text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
+
 .twcss-text-base {
   font-size: 1rem;
   line-height: 1.5rem;
@@ -1322,11 +1299,6 @@ video {
 .twcss-text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
-}
-
-.twcss-text-5xl {
-  font-size: 3rem;
-  line-height: 1;
 }
 
 .twcss-font-bold {
@@ -1402,18 +1374,14 @@ video {
   color: rgb(77 124 15 / var(--tw-text-opacity, 1));
 }
 
-.twcss-text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
-}
-
 .twcss-text-primaryGreen {
   --tw-text-opacity: 1;
   color: rgb(65 106 56 / var(--tw-text-opacity, 1));
 }
 
-.twcss-decoration-lime-600 {
-  text-decoration-color: #65a30d;
+.twcss-text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
 .twcss-decoration-highlightGreen {
@@ -1700,6 +1668,11 @@ video {
   .lg\:twcss-py-8 {
     padding-top: 2rem;
     padding-bottom: 2rem;
+  }
+
+  .lg\:twcss-px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   .lg\:twcss-pl-8 {
