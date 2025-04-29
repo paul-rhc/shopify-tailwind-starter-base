@@ -29,10 +29,7 @@
     <div class="twcss-flex twcss-mx-auto  "> 
     <!-- Accordion -->
       <div id="description_details"  role="region" class=" twcss-w-full twcss-px-10 twcss-py-6 ">
-        <h2 class="">
-            <span >Product Description</span>
-
-        </h2>
+   
       <div class="twcss-pb-4 twcss-pt-6  twcss-w-full twcss-flex twcss-flex-col md:twcss-flex-row" >
         <div class="twcss-w-full md:twcss-w-3/5 twcss-py-5 twcss-pr-10"> 
         <div id="desc_container">
@@ -40,20 +37,22 @@
           {{ product.metafields.custom.dhm_shared_description.value }}
         </div>
         </div>
-        <div class="twcss-w-full md:twcss-w-2/5  md:twcss-pl-12 twcss-bg-white" > 
+        <div class="twcss-w-full md:twcss-w-2/5  md:twcss-pl-12 " > 
       {% if product.metafields["custom"]["dhm_promos_parts"] != blank %}
       {% assign part_collection = product.metafields["custom"]["dhm_promos_parts"] %}
       {% assign part_collection_len = collections[part_collection].all_products_count %}
       <h3 class=" twcss-text-3xl twcss-mb-8">{{ collections[part_collection].title }}</h3>
-      <h4>Total Products in this Collection: {{ collections[part_collection].all_products_count }}</h4>
-      <ul role="list" class="divide-y divide-gray-300">
+      {% comment %} <h4>Total Products in this Collection: {{ collections[part_collection].all_products_count }}</h4> {% endcomment %}
+      <ul role="list" class="">
       {% for product in collections[part_collection].products  limit:5 %}
-        <li class="twcss-flex twcss-gap-x-4 twcss-py-5">
-          <img class="twcss-size-32 twcss-flex-none twcss-border" width="100px"
-            height="100px" src="/cdn/shop/{{product.featured_image | image_url: 'small'}}" alt="{{product.featured_image.alt}}">
+        
+        <li class="twcss-flex twcss-gap-x-4 twcss-py-6 twcss-px-6  twcss-bg-white twcss-mb-12">
+          <img class="twcss-size-48 twcss-flex-none twcss-border" width="200px"
+            height="200px" src="/cdn/shop/{{product.featured_image | image_url: 'small'}}" alt="{{product.featured_image.alt}}">
+            
           <div class="twcss-min-w-0">
-            <p class="twcss-text-2xl twcss-font-semibold twcss-text-gray-900">
-              <a href="{{product.url}}">{{product.title}}</a>
+            <p class="twcss-text-3xl twcss-font-semibold twcss-text-gray-900 twcss-leading-[1.5]">
+              <a href="{{product.url}}" class=" twcss-text-slate-500 hover:twcss-text-primaryGreenDark">{{product.title}}</a>
             </p>
             <p class="twcss-mt-1 twcss-text-2xl twcss-text-gray-500">
               {{product.price | money}}
@@ -63,6 +62,7 @@
           {% endcomment %}
           </div>
         </li>
+        
      {% endfor %}
      </ul>
      {% comment %}
@@ -71,24 +71,27 @@
      {% assign max_prods = 4 %}
      {% if max_prods < part_collection_len %}
      
-      <a href="/collections/{{part_collection}}" class=" twcss-bg-slate-500 twcss-text-white twcss-p-10 twcss-flex twcss-items-center twcss-text-3xl twcss-mt-5 twcss-text-center">
+      <a href="/collections/{{part_collection}}" class=" twcss-bg-primaryGreen twcss-text-white twcss-p-10 twcss-flex twcss-items-center twcss-text-3xl twcss-mt-5 twcss-text-center">
       View All Parts</a>
      {% endif %}
      {% else %}
      <h3 class="twcss-text-3xl twcss-mb-8 twcss-mt-5">Popular Products</h3>
      <ul role="list" class="divide-y divide-gray-300">
      {% for product in collections['all'].products  limit:5 %}
-      <li class="twcss-flex twcss-gap-x-4 twcss-py-5">
-        <img class="twcss-size-32 twcss-flex-none twcss-border" width="100px"
-          height="100px" src="/cdn/shop/{{product.featured_image | image_url: 'small'}}" alt="{{product.featured_image.alt}}">
+      <li class="twcss-flex twcss-gap-x-4 twcss-py-6 twcss-px-6  twcss-bg-white twcss-mb-12">
+        <img class="twcss-size-48 twcss-flex-none twcss-border" width="200px"
+          height="200px" src="/cdn/shop/{{product.featured_image | image_url: 'small'}}" alt="{{product.featured_image.alt}}">
+          
         <div class="twcss-min-w-0">
-          <p class="twcss-text-2xl twcss-font-semibold twcss-text-gray-900">
-            <a href="{{product.url}}">{{product.title}}</a>
+          <p class="twcss-text-3xl twcss-font-semibold twcss-text-gray-900 twcss-leading-[1.5]">
+            <a href="{{product.url}}" class=" twcss-text-primaryGreen hover:twcss-text-primaryGreenDark">{{product.title}}</a>
           </p>
-          <p class="twcss-mt-1 twcss-text-2xl twcss-text-gray-500">
+          <p class="twcss-mt-1 twcss-text-2xl  twcss-text-primaryGreen">
             {{product.price | money}}
           </p>
-
+        {% comment %}
+          shorten product names: twcss-truncate 
+        {% endcomment %}
         </div>
       </li>
       {% endfor %}

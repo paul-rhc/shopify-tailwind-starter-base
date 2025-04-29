@@ -687,6 +687,14 @@ video {
   margin-top: 2rem;
 }
 
+.twcss-mb-10 {
+  margin-bottom: 2.5rem;
+}
+
+.twcss-mb-12 {
+  margin-bottom: 3rem;
+}
+
 .twcss-block {
   display: block;
 }
@@ -715,6 +723,11 @@ video {
 .twcss-size-32 {
   width: 8rem;
   height: 8rem;
+}
+
+.twcss-size-48 {
+  width: 12rem;
+  height: 12rem;
 }
 
 .twcss-h-10 {
@@ -929,6 +942,11 @@ video {
   border-color: rgb(209 213 219 / var(--tw-divide-opacity, 1));
 }
 
+.twcss-divide-gray-900 > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-opacity: 1;
+  border-color: rgb(17 24 39 / var(--tw-divide-opacity, 1));
+}
+
 .twcss-truncate {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1130,8 +1148,9 @@ video {
   padding: 2rem;
 }
 
-.twcss-p-12 {
-  padding: 3rem;
+.twcss-px-10 {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
 }
 
 .twcss-px-12 {
@@ -1207,11 +1226,6 @@ video {
 .twcss-py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
-}
-
-.twcss-px-10 {
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
 }
 
 .twcss-pb-4 {
@@ -1325,6 +1339,18 @@ video {
   line-height: 1.625;
 }
 
+.twcss-leading-10 {
+  line-height: 2.5rem;
+}
+
+.twcss-leading-loose {
+  line-height: 2;
+}
+
+.twcss-leading-\[1\.5\] {
+  line-height: 1.5;
+}
+
 .twcss-tracking-tight {
   letter-spacing: -0.025em;
 }
@@ -1382,6 +1408,11 @@ video {
 .twcss-text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.twcss-text-slate-500 {
+  --tw-text-opacity: 1;
+  color: rgb(100 116 139 / var(--tw-text-opacity, 1));
 }
 
 .twcss-decoration-highlightGreen {
@@ -1447,6 +1478,11 @@ video {
 .hover\:twcss-text-lime-600:hover {
   --tw-text-opacity: 1;
   color: rgb(101 163 13 / var(--tw-text-opacity, 1));
+}
+
+.hover\:twcss-text-primaryGreenDark:hover {
+  --tw-text-opacity: 1;
+  color: rgb(41 70 52 / var(--tw-text-opacity, 1));
 }
 
 .hover\:twcss-underline:hover {
@@ -1655,6 +1691,11 @@ video {
     border-bottom-width: calc(0px * var(--tw-divide-y-reverse));
   }
 
+  .lg\:twcss-px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
   .lg\:twcss-px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -1668,11 +1709,6 @@ video {
   .lg\:twcss-py-8 {
     padding-top: 2rem;
     padding-bottom: 2rem;
-  }
-
-  .lg\:twcss-px-4 {
-    padding-left: 1rem;
-    padding-right: 1rem;
   }
 
   .lg\:twcss-pl-8 {
