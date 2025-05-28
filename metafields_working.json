@@ -1,14 +1,4 @@
-{
-  "article": [],
-  "blog": [],
-  "collection": [],
-  "company": [],
-  "company_location": [],
-  "location": [],
-  "market": [],
-  "order": [],
-  "page": [],
-  "product": [
+ [
     {
       "key": "dhm_promos",
       "namespace": "custom",
@@ -62,7 +52,7 @@
     {
       "key": "dhm_shared_sound_level",
       "namespace": "custom",
-      "name": "DHM Shared - Sound Level",
+      "name": "Sound Levels",
       "description": "5 dBA, 10 dBA, 25 dBA",
       "type": {
         "name": "single_line_text_field",
@@ -72,7 +62,7 @@
     {
       "key": "dhm_shared_altitude",
       "namespace": "custom",
-      "name": "DHM Shared - Altitude",
+      "name": "Altitude Adjustments",
       "description": "5,000 Feet, 10,000 Feet, etc.",
       "type": {
         "name": "single_line_text_field",
@@ -82,7 +72,7 @@
     {
       "key": "dhm_shared_filter_types",
       "namespace": "custom",
-      "name": "DHM Shared - Filter Types",
+      "name": "Filters",
       "description": "",
       "type": {
         "name": "single_line_text_field",
@@ -92,7 +82,7 @@
     {
       "key": "dhm_shared_alerts",
       "namespace": "custom",
-      "name": "DHM Shared - Alerts",
+      "name": "Alerts",
       "description": "",
       "type": {
         "name": "single_line_text_field",
@@ -102,7 +92,7 @@
     {
       "key": "dhm_general_hcpcs",
       "namespace": "custom",
-      "name": "DHM Gen - HCPCS",
+      "name": "HCPCS Code",
       "description": "",
       "type": {
         "name": "single_line_text_field",
@@ -112,7 +102,7 @@
     {
       "key": "dhm_general_in_the_box",
       "namespace": "custom",
-      "name": "DHM Gen - What's Included",
+      "name": "In the Package",
       "description": "For Complex Products Only",
       "type": {
         "name": "single_line_text_field",
@@ -122,7 +112,7 @@
     {
       "key": "dhm_general_intended_use",
       "namespace": "custom",
-      "name": "DHM Gen - Intended Use",
+      "name": "Intended Use",
       "description": "Copied from Manufacturer for Complex Products Only",
       "type": {
         "name": "single_line_text_field",
@@ -132,7 +122,7 @@
     {
       "key": "dhm_general_rx_required",
       "namespace": "custom",
-      "name": "DHM Gen - RX Required",
+      "name": "Prescription Required",
       "description": "True = RX Required",
       "type": {
         "name": "boolean",
@@ -142,7 +132,7 @@
     {
       "key": "dhm_general_country",
       "namespace": "custom",
-      "name": "DHM Gen - Country",
+      "name": "Country",
       "description": "",
       "type": {
         "name": "list.single_line_text_field",
@@ -152,7 +142,7 @@
     {
       "key": "dhm_general_compatibility",
       "namespace": "custom",
-      "name": "DHM Gen - Compatibility",
+      "name": "Compatibility",
       "description": "",
       "type": {
         "name": "single_line_text_field",
@@ -182,7 +172,7 @@
     {
       "key": "dhm_physical_length",
       "namespace": "custom",
-      "name": "DHM Sizes - Length",
+      "name": "Length",
       "description": "As in Length of a Tube (2 Feet, 6 Feet, 18 Inches, etc.)",
       "type": {
         "name": "single_line_text_field",
@@ -192,7 +182,7 @@
     {
       "key": "dhm_physical_dimension_length",
       "namespace": "custom",
-      "name": "DHM Dimensions - Length (Depth)",
+      "name": "Dimensions - Length (Depth)",
       "description": "Number Only in Inches",
       "type": {
         "name": "dimension",
@@ -202,7 +192,7 @@
     {
       "key": "dhm_physical_dimension_width",
       "namespace": "custom",
-      "name": "DHM Dimensions - Width",
+      "name": "Dimensions - Width",
       "description": "Number Only in Inches",
       "type": {
         "name": "dimension",
@@ -212,7 +202,7 @@
     {
       "key": "dhm_physical_dimension_height",
       "namespace": "custom",
-      "name": "DHM Dimensions - Height",
+      "name": "Dimensions - Height",
       "description": "Number Only in Inches",
       "type": {
         "name": "dimension",
@@ -222,7 +212,7 @@
     {
       "key": "dhm_physical_inner_diameter",
       "namespace": "custom",
-      "name": "DHM Sizes - Inner Diameter",
+      "name": "Sizes - Inner Diameter",
       "description": "",
       "type": {
         "name": "single_line_text_field",
@@ -232,7 +222,7 @@
     {
       "key": "dhm_physical_weight",
       "namespace": "custom",
-      "name": "DHM Phys - Weight",
+      "name": "Weight",
       "description": "Product Weight (Number Only) in Pounds",
       "type": {
         "name": "weight",
@@ -242,7 +232,7 @@
     {
       "key": "dhm_physical_materials",
       "namespace": "custom",
-      "name": "DHM Phys - Materials",
+      "name": "Materials",
       "description": "Select All That Are Appropriate",
       "type": {
         "name": "list.single_line_text_field",
@@ -252,7 +242,7 @@
     {
       "key": "dhm_physical_ingredients",
       "namespace": "custom",
-      "name": "DHM Phys - Ingredients",
+      "name": "Ingredients",
       "description": "Comma separated list of ingredients with a period at the end.",
       "type": {
         "name": "single_line_text_field",
@@ -269,16 +259,7 @@
         "category": "TEXT"
       }
     },
-    {
-      "key": "dhm_sleep_mask_sizing_guide",
-      "namespace": "custom",
-      "name": "DHM Sleep - Mask Sizing Guide (BAD!)",
-      "description": "",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
+    
     {
       "key": "dhm_sleep_machine_modes",
       "namespace": "custom",
@@ -292,7 +273,7 @@
     {
       "key": "dhm_sleep_machine_comfort_tech",
       "namespace": "custom",
-      "name": "DHM Sleep - Machine Comfort Tech",
+      "name": "Comfort Tech",
       "description": "",
       "type": {
         "name": "single_line_text_field",
@@ -302,7 +283,7 @@
     {
       "key": "dhm_sleep_machine_rainout_reduction",
       "namespace": "custom",
-      "name": "DHM Sleep - Machine Rainout Reduction",
+      "name": "Rainout Reduction",
       "description": "",
       "type": {
         "name": "single_line_text_field",
@@ -312,7 +293,7 @@
     {
       "key": "dhm_sleep_machine_ramp",
       "namespace": "custom",
-      "name": "DHM Sleep - Machine Ramp",
+      "name": "Ramp",
       "description": "Example: 0-45 Minutes or Auto",
       "type": {
         "name": "single_line_text_field",
@@ -322,7 +303,7 @@
     {
       "key": "dhm_sleep_machine_leak_compensation",
       "namespace": "custom",
-      "name": "DHM Sleep - Machine Leak Compensation",
+      "name": "Leak Compensation",
       "description": "",
       "type": {
         "name": "single_line_text_field",
@@ -332,7 +313,7 @@
     {
       "key": "dhm_sleep_machine_auto_on_off",
       "namespace": "custom",
-      "name": "DHM Sleep - Machine Auto On Off",
+      "name": "Auto On Off",
       "description": "",
       "type": {
         "name": "single_line_text_field",
@@ -342,7 +323,7 @@
     {
       "key": "dhm_sleep_machine_oxygen_compatibility",
       "namespace": "custom",
-      "name": "DHM Sleep - Machine Oxygen Compatibility",
+      "name": "Oxygen Compatibility",
       "description": "",
       "type": {
         "name": "single_line_text_field",
@@ -362,7 +343,7 @@
     {
       "key": "dhm_oxygen_cannula_max_flow",
       "namespace": "custom",
-      "name": "DHM Cannula - Max Flow",
+      "name": "Max Flow",
       "description": "5 LPM, 6 LPM, 10 LPM, 15 LPM, etc.",
       "type": {
         "name": "single_line_text_field",
@@ -372,7 +353,7 @@
     {
       "key": "dhm_oxygen_cannula_tubing_style",
       "namespace": "custom",
-      "name": "DHM Cannula - Tubing Style",
+      "name": "Tubing Style",
       "description": "",
       "type": {
         "name": "single_line_text_field",
@@ -382,7 +363,7 @@
     {
       "key": "dhm_oxygen_cannula_faceplate_width",
       "namespace": "custom",
-      "name": "DHM Cannula - Faceplate Width",
+      "name": "Faceplate Width",
       "description": "",
       "type": {
         "name": "single_line_text_field",
@@ -392,7 +373,7 @@
     {
       "key": "dhm_oxygen_cannula_prong_length",
       "namespace": "custom",
-      "name": "DHM Cannula - Prong Length",
+      "name": "Prong Length",
       "description": "",
       "type": {
         "name": "single_line_text_field",
@@ -402,7 +383,7 @@
     {
       "key": "dhm_oxygen_cannula_prong_width",
       "namespace": "custom",
-      "name": "DHM Cannula - Prong Width",
+      "name": "Prong Width",
       "description": "",
       "type": {
         "name": "single_line_text_field",
@@ -422,7 +403,7 @@
     {
       "key": "dhm_oxygen_machine_continuous_range",
       "namespace": "custom",
-      "name": "DHM Concentrator - Continuous Range",
+      "name": "Continuous Range",
       "description": "1-5 LPM, 1-10 LPM, etc.",
       "type": {
         "name": "single_line_text_field",
@@ -432,7 +413,7 @@
     {
       "key": "dhm_oxygen_machine_warmup_time",
       "namespace": "custom",
-      "name": "DHM Concentrator - Warmup Time",
+      "name": "Warmup Time",
       "description": "2 Minutes, 4 Minutes, etc.",
       "type": {
         "name": "single_line_text_field",
@@ -442,7 +423,7 @@
     {
       "key": "dhm_oxygen_machine_concentration",
       "namespace": "custom",
-      "name": "DHM Concentrator - Concentration",
+      "name": "Concentration",
       "description": "",
       "type": {
         "name": "single_line_text_field",
@@ -452,7 +433,7 @@
     {
       "key": "dhm_oxygen_machine_opi",
       "namespace": "custom",
-      "name": "DHM Concentrator - OPI",
+      "name": "OPI",
       "description": "",
       "type": {
         "name": "single_line_text_field",
@@ -472,7 +453,7 @@
     {
       "key": "dhm_shared_data_storage",
       "namespace": "custom",
-      "name": "DHM Data - Storage",
+      "name": "Data Storage",
       "description": "",
       "type": {
         "name": "single_line_text_field",
@@ -482,7 +463,7 @@
     {
       "key": "dhm_shared_data_viewing",
       "namespace": "custom",
-      "name": "DHM Data - Viewing Options",
+      "name": "Data Viewing Options",
       "description": "",
       "type": {
         "name": "single_line_text_field",
@@ -492,7 +473,7 @@
     {
       "key": "dhm_humidifier_compatibility",
       "namespace": "custom",
-      "name": "DHM Hum - Compatibility",
+      "name": "Humidifier Compatibility",
       "description": "",
       "type": {
         "name": "single_line_text_field",
@@ -502,7 +483,7 @@
     {
       "key": "dhm_humidifier_settings",
       "namespace": "custom",
-      "name": "DHM Hum - Settings",
+      "name": "Humidifier Settings",
       "description": "",
       "type": {
         "name": "single_line_text_field",
@@ -512,7 +493,7 @@
     {
       "key": "dhm_humidifier_chamber_capacity",
       "namespace": "custom",
-      "name": "DHM Hum - Chamber Capacity",
+      "name": "Chamber Capacity",
       "description": "",
       "type": {
         "name": "single_line_text_field",
@@ -532,7 +513,7 @@
     {
       "key": "dhm_power_ac_length",
       "namespace": "custom",
-      "name": "DHM AC - Cord Length",
+      "name": "AC Power Cord Length",
       "description": "4.5 Feet, 6 Feet, etc.",
       "type": {
         "name": "single_line_text_field",
@@ -542,7 +523,7 @@
     {
       "key": "dhm_power_ac_weight",
       "namespace": "custom",
-      "name": "DHM AC - Cord Weight",
+      "name": "AC Cord Weight",
       "description": "8 Ounces, 12 Ounces, etc.",
       "type": {
         "name": "single_line_text_field",
@@ -552,7 +533,7 @@
     {
       "key": "dhm_power_ac_brick_dimensions",
       "namespace": "custom",
-      "name": "DHM AC - Brick Dimensions",
+      "name": "AC - Brick Dimensions",
       "description": "L x W x H Inches",
       "type": {
         "name": "single_line_text_field",
@@ -572,7 +553,7 @@
     {
       "key": "dhm_power_dc_length",
       "namespace": "custom",
-      "name": "DHM DC - Cord Length",
+      "name": "DC - Cord Length",
       "description": "4.5 Feet, 6 Feet, etc.",
       "type": {
         "name": "single_line_text_field",
@@ -582,7 +563,7 @@
     {
       "key": "dhm_power_dc_weight",
       "namespace": "custom",
-      "name": "DHM DC - Cord Weight",
+      "name": "DC - Cord Weight",
       "description": "8 Ounces, 12 Ounces",
       "type": {
         "name": "single_line_text_field",
@@ -592,7 +573,7 @@
     {
       "key": "dhm_power_ac_consumption",
       "namespace": "custom",
-      "name": "DHM AC - Consumption",
+      "name": "AC - Consumption",
       "description": "",
       "type": {
         "name": "single_line_text_field",
@@ -602,7 +583,7 @@
     {
       "key": "dhm_power_dc_consumption",
       "namespace": "custom",
-      "name": "DHM DC - Consumption",
+      "name": "DC - Consumption",
       "description": "",
       "type": {
         "name": "single_line_text_field",
@@ -612,7 +593,7 @@
     {
       "key": "dhm_power_dc_brick_dimensions",
       "namespace": "custom",
-      "name": "DHM DC - Brick Dimensions",
+      "name": "DC - Brick Dimensions",
       "description": "L x W x H Inches",
       "type": {
         "name": "single_line_text_field",
@@ -632,7 +613,7 @@
     {
       "key": "dhm_power_battery_capacity",
       "namespace": "custom",
-      "name": "DHM Battery - Capacity",
+      "name": "Battery Capacity",
       "description": "",
       "type": {
         "name": "single_line_text_field",
@@ -642,7 +623,7 @@
     {
       "key": "dhm_power_battery_life_cycles",
       "namespace": "custom",
-      "name": "DHM Battery - Life Cycles",
+      "name": "Battery Life Cycles",
       "description": "",
       "type": {
         "name": "single_line_text_field",
@@ -652,7 +633,7 @@
     {
       "key": "dhm_power_battery_recharge_time",
       "namespace": "custom",
-      "name": "DHM Battery - Recharge Time",
+      "name": "Battery Recharge Time",
       "description": "",
       "type": {
         "name": "single_line_text_field",
@@ -662,7 +643,7 @@
     {
       "key": "dhm_power_battery_run_time",
       "namespace": "custom",
-      "name": "DHM Battery - Run Time",
+      "name": "Battery Run Time",
       "description": "",
       "type": {
         "name": "single_line_text_field",
@@ -672,7 +653,7 @@
     {
       "key": "dhm_power_battery_dimensions",
       "namespace": "custom",
-      "name": "DHM Battery - Dimensions",
+      "name": "Battery Dimensions",
       "description": "L x W x H Inches",
       "type": {
         "name": "single_line_text_field",
@@ -682,7 +663,7 @@
     {
       "key": "dhm_power_battery_weight",
       "namespace": "custom",
-      "name": "DHM Battery - Weight",
+      "name": "Battery Weight",
       "description": "8 Ounces, 12 Ounces, 1 Pound, 1.5 Pounds, etc.",
       "type": {
         "name": "single_line_text_field",
@@ -692,7 +673,7 @@
     {
       "key": "dhm_power_battery_shipping_notice",
       "namespace": "custom",
-      "name": "DHM Battery - Shipping Notice",
+      "name": "Battery Shipping Notice",
       "description": "True = Show Notice",
       "type": {
         "name": "boolean",
@@ -729,16 +710,7 @@
         "category": "TEXT"
       }
     },
-    {
-      "key": "mask-type",
-      "namespace": "shopify",
-      "name": "Mask type",
-      "description": "Specifies the design of masks, typically for respiratory care; e.g. oral, nasal",
-      "type": {
-        "name": "list.metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
+    
     {
       "key": "dhm_general_product_type",
       "namespace": "custom",
@@ -879,16 +851,7 @@
         "category": "TEXT"
       }
     },
-    {
-      "key": "dhm_resources_pdfs",
-      "namespace": "custom",
-      "name": "DHM Res - PDFs (BAD!!!!!)",
-      "description": "Do not use this field.",
-      "type": {
-        "name": "list.single_line_text_field",
-        "category": "TEXT"
-      }
-    },
+
     {
       "key": "dhm_resources_videos",
       "namespace": "custom",
@@ -919,56 +882,7 @@
         "category": "TEXT"
       }
     },
-    {
-      "key": "collection_reference",
-      "namespace": "custom",
-      "name": "Collection Reference",
-      "description": "",
-      "type": {
-        "name": "metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "collection_refernce_test",
-      "namespace": "custom",
-      "name": "Collection Refernce Test",
-      "description": "",
-      "type": {
-        "name": "metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "treatment-objective",
-      "namespace": "shopify",
-      "name": "Treatment objective",
-      "description": "Defines the issue the product addresses, typically for personal care items; e.g. snoring, fever",
-      "type": {
-        "name": "list.metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "color-pattern",
-      "namespace": "shopify",
-      "name": "Color",
-      "description": "Defines the primary color or pattern, such as blue or striped",
-      "type": {
-        "name": "list.metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "power-source",
-      "namespace": "shopify",
-      "name": "Power source",
-      "description": "Specifies the power source a product uses to operate, such as solar or batteries",
-      "type": {
-        "name": "list.metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
+
     {
       "key": "dhm_general_part_numbers",
       "namespace": "custom",
@@ -1009,26 +923,7 @@
         "category": "TEXT"
       }
     },
-    {
-      "key": "product-form",
-      "namespace": "shopify",
-      "name": "Product form",
-      "description": "Defines the format or presentation of a product, typically for health and beauty; e.g. lotion, serum",
-      "type": {
-        "name": "list.metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "skin-care-effect",
-      "namespace": "shopify",
-      "name": "Skin care effect",
-      "description": "Defines the intended benefits of skin care products, e.g. anti-aging, plumping",
-      "type": {
-        "name": "list.metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
+   
     {
       "key": "dhm_resources_pdf_files",
       "namespace": "custom",
@@ -1048,109 +943,6 @@
         "name": "file_reference",
         "category": "REFERENCE"
       }
-    },
-    {
-      "key": "material",
-      "namespace": "shopify",
-      "name": "Material",
-      "description": "Defines a product's primary material, such as cotton or wool",
-      "type": {
-        "name": "list.metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "product_rating",
-      "namespace": "custom",
-      "name": "Product Rating",
-      "description": "",
-      "type": {
-        "name": "rating",
-        "category": "RATING"
-      }
-    },
-    {
-      "key": "product_rating_count",
-      "namespace": "custom",
-      "name": "Product Rating Count",
-      "description": "",
-      "type": {
-        "name": "number_integer",
-        "category": "NUMBER"
-      }
-    },
-    {
-      "key": "age-group",
-      "namespace": "shopify",
-      "name": "Age group",
-      "description": "Defines the target age range for a product, such as adults or kids",
-      "type": {
-        "name": "list.metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "package-type",
-      "namespace": "shopify",
-      "name": "Package type",
-      "description": "Defines the type of packaging for a product, e.g. jar, pump",
-      "type": {
-        "name": "list.metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "constitutive-ingredients",
-      "namespace": "shopify",
-      "name": "Constitutive ingredients",
-      "description": "Specifies the main components used in a product's formulation, e.g. beeswax, rosehip oil",
-      "type": {
-        "name": "list.metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "cosmetic-function",
-      "namespace": "shopify",
-      "name": "Cosmetic function",
-      "description": "Defines the intended benefit or effect of a cosmetic product, e.g. soothing, healing",
-      "type": {
-        "name": "list.metaobject_reference",
-        "category": "REFERENCE"
-      }
     }
-  ],
-  "variant": [
-    {
-      "key": "mpn",
-      "namespace": "shopify--facts",
-      "name": "MPN",
-      "description": "Manufacturer Part Number",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "upc",
-      "namespace": "facts",
-      "name": "UPC",
-      "description": "Universal Product Code",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "variant_warranty",
-      "namespace": "custom",
-      "name": "Variant Warranty",
-      "description": "",
-      "type": {
-        "name": "list.single_line_text_field",
-        "category": "TEXT"
-      }
-    }
-  ],
-  "shop": []
-}
+
+  ]

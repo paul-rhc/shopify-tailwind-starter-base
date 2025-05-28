@@ -3721,7 +3721,7 @@ details-disclosure > details {
   margin-right: 2rem;
 }
 
-@media screen and (min-width: 990px) {
+/* @media screen and (min-width: 990px) {
   .header:not(.drawer-menu).page-width {
     padding-left: 0rem;
     padding-right: 0rem;
@@ -3734,13 +3734,13 @@ details-disclosure > details {
     padding-left: 0rem;
     padding-right: 0rem;
   }
-}
+} */
 
-.header {
+/* .header {
   padding: 12px 0rem 0px 0rem;
-}
+} */
 
-@media screen and (min-width: 750px) {
+/* @media screen and (min-width: 750px) {
   .page-width {
     padding: 0;
   }
@@ -3748,4 +3748,4 @@ details-disclosure > details {
 
 .page-width {
   padding: 0;
-}
+} */
