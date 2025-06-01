@@ -25,7 +25,7 @@ Notes : dhm_general_notes ,
       </div>
     <div class=" twcss-px-6  twcss-py-6 md:twcss-grid md:twcss-grid-cols-3 md:twcss-gap-4 ">
         <dt class="twcss-mt-1  twcss-text-xl  twcss-font-bold twcss-text-gray-900 twcss-uppercase term">Product Model</dt>
-        <dd class="twcss-mt-1  twcss-text-gray-700 md:twcss-col-span-2 md:twcss-mt-0"><a href="https://directhomemedical.com/search?dhm_general_product_model">{{ product.metafields.custom.dhm_general_product_model }}</a></dd>
+        <dd class="twcss-mt-1  twcss-text-gray-700 md:twcss-col-span-2 md:twcss-mt-0"><a href="https://directhomemedical.com/search?{{ product.metafields.custom.dhm_general_product_model }}">{{ product.metafields.custom.dhm_general_product_model }}</a></dd>
       </div>
 {% for spec in general_specs_split %}
     {% assign spec_parts = spec | split: ":" %}
