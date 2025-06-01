@@ -1,9 +1,7 @@
 <div class="twcss-overflow-hidden twcss-bg-white twcss-shadow sm:twcss-rounded-lg twcss-mt-8">
 {% render "specs-general-list", product:product %}
 
- {% if product.metafields.custom["dhm_physical_activator"] != null %}
-    {% render "specs-physical-list", product:product %}
-{% endif %}
+{% render "specs-physical-list", product:product %}
 
  {% if product.metafields.custom["dhm_sleep_mask_type"] != null %}
     {% render "specs-pap-mask-list", product:product %}
