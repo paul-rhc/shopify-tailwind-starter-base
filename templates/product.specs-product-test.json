@@ -62,6 +62,7 @@
         "quantity_selector",
         "buy_buttons"
       ],
+      "disabled": true,
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
@@ -80,6 +81,7 @@
     },
     "main-product-benefits": {
       "type": "main-product-benefits",
+      "disabled": true,
       "settings": {}
     },
     "main-product-details": {
