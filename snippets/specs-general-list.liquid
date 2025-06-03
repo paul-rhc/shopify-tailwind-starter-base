@@ -7,7 +7,6 @@ GTIN Number(s) : dhm_general_gtins ,
 Warranty : dhm_promos_warranty ,
 Risk Free Trial : dhm_promos_risk_free_trial ,
 Intended Use : dhm_general_intended_use ,
-Prescription Item : dhm_general_rx_required ,
 Typical Country of Origin : dhm_general_country ,
 Compatibility : dhm_general_compatibility ,
 Notes : dhm_general_notes ,
@@ -29,6 +28,13 @@ Notes : dhm_general_notes ,
         <dd class="twcss-mt-1  twcss-text-gray-700 md:twcss-col-span-2 md:twcss-mt-0"><a href="https://directhomemedical.com/search?product.metafields.custom.dhm_general_product_model">{{ product.metafields.custom["dhm_general_product_model"] }}</a></dd>
       </div>
 
+                    {% if product.metafields.custom["dhm_general_rx_required"] != null %}
+                <div class=" twcss-px-6  twcss-py-6 md:twcss-grid md:twcss-grid-cols-3 md:twcss-gap-4 ">
+        <dt class="twcss-mt-1  twcss-text-xl  twcss-font-bold twcss-text-gray-900 twcss-uppercase term">Prescription Item</dt>
+        <dd class="twcss-mt-1  twcss-text-gray-700 md:twcss-col-span-2 md:twcss-mt-0">A prescription required before this item can be shipped.</dd>
+      </div>
+       {% endif %}
+
 {% for spec in general_specs_split %}
     {% assign spec_parts = spec | split: ":" %}
     {% assign spec_name = spec_parts[0] | strip %}
@@ -48,5 +54,6 @@ Notes : dhm_general_notes ,
         <dd class="twcss-mt-1  twcss-text-gray-700 md:twcss-col-span-2 md:twcss-mt-0">This product meets FAA regulations for use on commercial flights within the US and all international flights that depart or arrive in the US. <a href="https://www.tsa.gov/travel/tsa-cares"Click here for TSA / FAA information on traveling with sleep and oxygen therapy.</a> Always contact your airline prior to your flight to confirm any requirements they may have (i.e. a copy of your prescription or a letter of medical necessity) for allowing your device on board.</dd>
       </div>
        {% endif %}
+
   </dl>
 </div>
