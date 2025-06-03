@@ -723,6 +723,10 @@ video {
   margin-top: 2rem;
 }
 
+.twcss-mt-4 {
+  margin-top: 1rem;
+}
+
 .twcss-block {
   display: block;
 }
@@ -941,6 +945,24 @@ video {
   border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
 }
 
+.twcss-divide-y-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-y-reverse: 0;
+  border-top-width: calc(2px * calc(1 - var(--tw-divide-y-reverse)));
+  border-bottom-width: calc(2px * var(--tw-divide-y-reverse));
+}
+
+.twcss-divide-y-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-y-reverse: 0;
+  border-top-width: calc(4px * calc(1 - var(--tw-divide-y-reverse)));
+  border-bottom-width: calc(4px * var(--tw-divide-y-reverse));
+}
+
+.twcss-divide-y-8 > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-y-reverse: 0;
+  border-top-width: calc(8px * calc(1 - var(--tw-divide-y-reverse)));
+  border-bottom-width: calc(8px * var(--tw-divide-y-reverse));
+}
+
 .twcss-divide-gray-200 > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-opacity: 1;
   border-color: rgb(229 231 235 / var(--tw-divide-opacity, 1));
@@ -949,6 +971,11 @@ video {
 .twcss-divide-gray-300 > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-divide-opacity, 1));
+}
+
+.twcss-divide-gray-50 > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-opacity: 1;
+  border-color: rgb(249 250 251 / var(--tw-divide-opacity, 1));
 }
 
 .twcss-overflow-hidden {
@@ -1025,6 +1052,21 @@ video {
 .twcss-border-white {
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
+}
+
+.twcss-border-gray-100 {
+  --tw-border-opacity: 1;
+  border-color: rgb(243 244 246 / var(--tw-border-opacity, 1));
+}
+
+.twcss-border-gray-300 {
+  --tw-border-opacity: 1;
+  border-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
+}
+
+.twcss-border-gray-50 {
+  --tw-border-opacity: 1;
+  border-color: rgb(249 250 251 / var(--tw-border-opacity, 1));
 }
 
 .twcss-border-x-slate-100 {
@@ -1252,6 +1294,11 @@ video {
   padding-bottom: 2rem;
 }
 
+.twcss-py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
 .twcss-pb-10 {
   padding-bottom: 2.5rem;
 }
@@ -1298,6 +1345,30 @@ video {
 
 .twcss-pt-6 {
   padding-top: 1.5rem;
+}
+
+.twcss-pb-3 {
+  padding-bottom: 0.75rem;
+}
+
+.twcss-pb-5 {
+  padding-bottom: 1.25rem;
+}
+
+.twcss-pb-6 {
+  padding-bottom: 1.5rem;
+}
+
+.twcss-pt-3 {
+  padding-top: 0.75rem;
+}
+
+.twcss-pt-4 {
+  padding-top: 1rem;
+}
+
+.twcss-pt-5 {
+  padding-top: 1.25rem;
 }
 
 .twcss-text-left {
