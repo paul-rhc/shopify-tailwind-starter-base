@@ -6,7 +6,7 @@ Rainout Reduction : dhm_sleep_machine_rainout_reduction ,
 Ramp : dhm_sleep_machine_ramp ,
 Leak Compensation : dhm_sleep_machine_leak_compensation ,
 Auto On Off : dhm_sleep_machine_auto_on_off ,
-Oxygen Compatibility : dhm_sleep_machine_oxygen_compatibility ,
+Oxygen Compatibility : dhm_sleep_machine_sleep_compatibility ,
    DHM Data - Included (Activator) : dhm_shared_data_included ,
 Data Storage : dhm_shared_data_storage ,
 Data Viewing Options : dhm_shared_data_viewing ,
@@ -20,7 +20,7 @@ DHM Sleep - Machine Tubing Compatibility : dhm_sleep_machine_tubing_compatibilit
 
 " %}
 
-{% assign oxygen_specs_split = oxygen_specs | split: ',' %}
+{% assign sleep_specs_split = sleep_specs | split: ',' %}
 {% assign path = product.metafields.custom %}
 
 {% if product.metafields.custom["dhm_sleep_machine_modes"] != blank %}
@@ -32,7 +32,7 @@ PAP MACHINE DETAILS
 <div style="font-size:90%; font-kerning: normal; font-family:verdana, sans-serif;" class="twcss-border-t twcss-border-b">
 <dl class="twcss-px-6 twcss-divide-y twcss-divide-gray-100 ">
      
-{% for spec in oxygen_specs_split %}
+{% for spec in sleep_specs_split %}
     {% assign spec_parts = spec | split: ":" %}
     {% assign spec_name = spec_parts[0] | strip %}
     {% assign spec_handle = spec_parts[1] | strip %}
