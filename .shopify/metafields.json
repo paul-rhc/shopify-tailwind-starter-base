@@ -180,16 +180,6 @@
       }
     },
     {
-      "key": "dhm_physical_length",
-      "namespace": "custom",
-      "name": "DHM Sizes - Length",
-      "description": "As in Length of a Tube (2 Feet, 6 Feet, 18 Inches, etc.)",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
       "key": "dhm_physical_dimension_length",
       "namespace": "custom",
       "name": "DHM Dimensions - Length (Depth)",
@@ -222,7 +212,7 @@
     {
       "key": "dhm_physical_inner_diameter",
       "namespace": "custom",
-      "name": "DHM Sizes - Inner Diameter",
+      "name": "DHM Sizes - Inner Diameter (DO NOT USE!!!!!!)",
       "description": "",
       "type": {
         "name": "single_line_text_field",
@@ -1117,6 +1107,16 @@
       "type": {
         "name": "list.metaobject_reference",
         "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "product_review_content",
+      "namespace": "custom",
+      "name": "Product Review Content",
+      "description": "JSON Object of Review Data",
+      "type": {
+        "name": "json",
+        "category": "JSON"
       }
     }
   ],
