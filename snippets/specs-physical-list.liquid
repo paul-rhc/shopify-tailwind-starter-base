@@ -1,10 +1,4 @@
 {% assign physical_specs = "
-DHM Sizes - List : dhm_physical_sizes ,
-Length : dhm_physical_length ,
-Length (Depth) : dhm_physical_dimension_length ,
-Width : dhm_physical_dimension_width ,
-Height : dhm_physical_dimension_height ,
-Sizes - Inner Diameter : dhm_physical_inner_diameter ,
 Weight : dhm_physical_weight ,
 Materials : dhm_physical_materials ,
 Ingredients : dhm_physical_ingredients 
@@ -13,20 +7,27 @@ Ingredients : dhm_physical_ingredients
 {% assign physical_specs_split = physical_specs | split: ',' %}
 {% assign path = product.metafields.custom %}
 
- <h3 class="twcss-px-6  twcss-py-8  twcss-font-semibold twcss-text-primaryGreen twcss-uppercase twcss-text-2xl ">
-        Physical Specifications
+ <h3 class="twcss-px-6  twcss-py-8  twcss-font-semibold twcss-text-primaryGreen  twcss-text-2xl ">
+        PHYSICAL DETAILS
 </h3>
+
 <div class="twcss-border-t twcss-border-gray-200 px">
   <dl class="twcss-divide-y twcss-divide-gray-200 ">
-     
+        {% if product.metafields.custom["dhm_physical_dimension_length"] != blank %}
+        <div class=" twcss-px-6  twcss-py-3 md:twcss-grid md:twcss-grid-cols-3 md:twcss-gap-4 ">
+        <dt class="twcss-font-bold twcss-text-gray-900  term">Dimensions</dt>
+        <dd class="twcss-mt-1  twcss-text-gray-700 md:twcss-col-span-2 md:twcss-mt-0">L {{ product.metafields.custom["dhm_physical_dimension_length"] }} x W {{ product.metafields.custom["dhm_physical_dimension_width"] }} x H {{ product.metafields.custom["dhm_physical_dimension_height"] }}</dd>
+      </div>
+    {% endif %}
+    
 {% for spec in physical_specs_split %}
     {% assign spec_parts = spec | split: ":" %}
     {% assign spec_name = spec_parts[0] | strip %}
     {% assign spec_handle = spec_parts[1] | strip %}
 
     {% if product.metafields.custom[spec_handle] %}
-      <div class=" twcss-px-6  twcss-py-6 md:twcss-grid md:twcss-grid-cols-3 md:twcss-gap-4 ">
-        <dt class="twcss-mt-1  twcss-text-xl  twcss-font-bold twcss-text-gray-900 twcss-uppercase term">{{spec_name}}</dt>
+      <div class=" twcss-px-6  twcss-py-3 md:twcss-grid md:twcss-grid-cols-3 md:twcss-gap-4 ">
+        <dt class="twcss-font-bold twcss-text-gray-900  term">{{spec_name}}</dt>
         <dd class="twcss-mt-1  twcss-text-gray-700 md:twcss-col-span-2 md:twcss-mt-0">{{path[spec_handle]| metafield_tag}}</dd>
       </div>
     {% endif %}

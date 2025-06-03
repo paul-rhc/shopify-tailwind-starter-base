@@ -1,22 +1,24 @@
 {% assign oxygen_specs = "
-Oxygen Compatibility : dhm_sleep_machine_oxygen_compatibility ,
-DHM Cannula - Prong Style (Activator) : dhm_oxygen_cannula_prong_style ,
-Max Flow : dhm_oxygen_cannula_max_flow ,
-Tubing Style : dhm_oxygen_cannula_tubing_style ,
-Faceplate Width : dhm_oxygen_cannula_faceplate_width ,
-Prong Length : dhm_oxygen_cannula_prong_length ,
-Prong Width : dhm_oxygen_cannula_prong_width ,
-Continuous Range : dhm_oxygen_machine_continuous_range ,
+Concentrator Mode(s) : dhm_oxygen_machine_type ,
+Continuous Flow Range : dhm_oxygen_machine_continuous_range ,
+Pulse Dose Range : dhm_oxygen_machine_pulse_range ,
 Warmup Time : dhm_oxygen_machine_warmup_time ,
 Concentration : dhm_oxygen_machine_concentration ,
-OPI : dhm_oxygen_machine_opi 
+Oxygen Percentage Indicator (OPI) : dhm_oxygen_machine_opi ,
+Maximum Recommended Tubing Length : dhm_oxygen_maximum_tubing_length ,
+Typical Sound Levels : dhm_shared_sound_level ,
+Operating Altitude : dhm_shared_altitude ,
+Filters : dhm_shared_filter_types ,
+Alerts : dhm_shared_alerts ,
 " %}
 
 {% assign oxygen_specs_split = oxygen_specs | split: ',' %}
 {% assign path = product.metafields.custom %}
 
- <h3 class="twcss-px-6  twcss-py-8  twcss-font-semibold twcss-text-primaryGreen twcss-uppercase twcss-text-2xl ">
-       Oxygen Concentrator Specifications
+{% if product.metafields.custom["dhm_oxygen_machine_type"] != blank %}
+
+ <h3 class="twcss-px-6  twcss-py-8  twcss-font-semibold twcss-text-primaryGreen  twcss-text-2xl ">
+       Concentrator Details
 </h3>
 <div class="twcss-border-t twcss-border-gray-200 px">
   <dl class="twcss-divide-y twcss-divide-gray-200 ">
@@ -27,11 +29,52 @@ OPI : dhm_oxygen_machine_opi
     {% assign spec_handle = spec_parts[1] | strip %}
 
     {% if product.metafields.custom[spec_handle] %}
-      <div class=" twcss-px-6  twcss-py-6 md:twcss-grid md:twcss-grid-cols-3 md:twcss-gap-4 ">
-        <dt class="twcss-mt-1  twcss-text-xl  twcss-font-bold twcss-text-gray-900 twcss-uppercase term">{{spec_name}}</dt>
+      <div class=" twcss-px-6  twcss-py-3 md:twcss-grid md:twcss-grid-cols-3 md:twcss-gap-4 ">
+        <dt class="twcss-font-bold twcss-text-gray-900  term">{{spec_name}}</dt>
         <dd class="twcss-mt-1  twcss-text-gray-700 md:twcss-col-span-2 md:twcss-mt-0">{{path[spec_handle]| metafield_tag}}</dd>
       </div>
     {% endif %}
 {% endfor %}
   </dl>
 </div>
+
+{% endif %}
+
+{% assign cannula_specs = "
+Prong Style : dhm_oxygen_cannula_prong_style ,
+Maximum Recommended Flow : dhm_oxygen_cannula_max_flow ,
+Tubing Style : dhm_oxygen_cannula_tubing_style ,
+Faceplate Width : dhm_oxygen_cannula_faceplate_width ,
+Prong Length : dhm_oxygen_cannula_prong_length ,
+Prong Width : dhm_oxygen_cannula_prong_width ,
+Prong Separation : dhm_oxygen_cannula_prong_separation ,
+Prong Side Profile : dhm_oxygen_cannula_prong_profile_side ,
+" %}
+
+{% assign cannula_specs_split = cannula_specs | split: ',' %}
+{% assign path = product.metafields.custom %}
+
+{% if product.metafields.custom["dhm_oxygen_cannula_prong_style"] != blank %}
+
+ <h3 class="twcss-px-6  twcss-py-8  twcss-font-semibold twcss-text-primaryGreen  twcss-text-2xl ">
+       Cannula Details
+</h3>
+<div class="twcss-border-t twcss-border-gray-200 px">
+  <dl class="twcss-divide-y twcss-divide-gray-200 ">
+     
+{% for spec in cannula_specs_split %}
+    {% assign spec_parts = spec | split: ":" %}
+    {% assign spec_name = spec_parts[0] | strip %}
+    {% assign spec_handle = spec_parts[1] | strip %}
+
+    {% if product.metafields.custom[spec_handle] %}
+      <div class=" twcss-px-6  twcss-py-3 md:twcss-grid md:twcss-grid-cols-3 md:twcss-gap-4 ">
+        <dt class="twcss-font-bold twcss-text-gray-900  term">{{spec_name}}</dt>
+        <dd class="twcss-mt-1  twcss-text-gray-700 md:twcss-col-span-2 md:twcss-mt-0">{{path[spec_handle]| metafield_tag}}</dd>
+      </div>
+    {% endif %}
+{% endfor %}
+  </dl>
+</div>
+
+{% endif %}
