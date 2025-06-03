@@ -2,10 +2,10 @@
 In the Package : dhm_general_in_the_box ,
 Part Number(s) : dhm_general_part_numbers ,
 Size(s) : dhm_physical_sizes ,
-Warranty : dhm_promos_warranty ,
-Risk Free Trial : dhm_promos_risk_free_trial ,
 HCPCS Code : dhm_general_hcpcs ,
 GTIN Number(s) : dhm_general_gtins ,
+Warranty : dhm_promos_warranty ,
+Risk Free Trial : dhm_promos_risk_free_trial ,
 Intended Use : dhm_general_intended_use ,
 Typical Country of Origin : dhm_general_country ,
 Compatibility : dhm_general_compatibility ,
@@ -14,12 +14,12 @@ Notes : dhm_general_notes ,
 {% assign general_specs_split = general_specs | split: ',' %}
 {% assign path = product.metafields.custom %}
 
- <h3 class="twcss-px-6  twcss-font-semibold twcss-text-primaryGreen twcss-uppercase twcss-text-2xl ">
+ <h3 class="twcss-px-6  twcss-py-8  twcss-font-semibold twcss-text-primaryGreen twcss-uppercase twcss-text-2xl ">
         Product Details
 </h3>
-<div class="twcss-mt-8 twcss-border-t twcss-border-gray-200 px">
+<div class="twcss-border-t twcss-border-gray-200 px">
   <dl class="twcss-divide-y twcss-divide-gray-200 ">
-      <div class="twcss-py-6 md:twcss-grid md:twcss-grid-cols-3 md:twcss-gap-4 ">
+      <div class=" twcss-px-6  twcss-py-6 md:twcss-grid md:twcss-grid-cols-3 md:twcss-gap-4 ">
         <dt class="twcss-mt-1  twcss-text-xl  twcss-font-bold twcss-text-gray-900 twcss-uppercase term">Manufacturer</dt>
         <dd class="twcss-mt-1  twcss-text-gray-700 md:twcss-col-span-2 md:twcss-mt-0"><a href="https://directhomemedical.com/collections/all-products?filter.p.vendor={{ product.vendor }}&sort_by=best-selling">{{ product.vendor }}<a/></dd>
       </div>
