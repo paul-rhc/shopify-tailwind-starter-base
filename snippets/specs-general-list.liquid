@@ -14,23 +14,23 @@ Notes : dhm_general_notes ,
 {% assign general_specs_split = general_specs | split: ',' %}
 {% assign path = product.metafields.custom %}
 
- <h3 class="twcss-px-6  twcss-py-8  twcss-font-semibold twcss-text-primaryGreen twcss-uppercase twcss-text-2xl ">
+ <h3 class="twcss-px-6  twcss-py-8  twcss-font-semibold twcss-text-primaryGreen  twcss-text-2xl ">
         Product Details
 </h3>
 <div class="twcss-border-t twcss-border-gray-200 px">
   <dl class="twcss-divide-y twcss-divide-gray-200 ">
       <div class=" twcss-px-6  twcss-py-3 md:twcss-grid md:twcss-grid-cols-3 md:twcss-gap-4 ">
-        <dt class="twcss-mt-1  twcss-text-xl  twcss-font-bold twcss-text-gray-900 twcss-uppercase term">Manufacturer</dt>
+        <dt class="twcss-mt-1  twcss-text-xl  twcss-font-bold twcss-text-gray-900  term">Manufacturer</dt>
         <dd class="twcss-mt-1  twcss-text-gray-700 md:twcss-col-span-2 md:twcss-mt-0"><a href="https://directhomemedical.com/collections/all-products?filter.p.vendor={{ product.vendor }}&sort_by=best-selling">{{ product.vendor }}<a/></dd>
       </div>
     <div class=" twcss-px-6  twcss-py-6 md:twcss-grid md:twcss-grid-cols-3 md:twcss-gap-4 ">
-        <dt class="twcss-mt-1  twcss-text-xl  twcss-font-bold twcss-text-gray-900 twcss-uppercase term">Product Model</dt>
+        <dt class="twcss-mt-1  twcss-text-xl  twcss-font-bold twcss-text-gray-900  term">Product Model</dt>
         <dd class="twcss-mt-1  twcss-text-gray-700 md:twcss-col-span-2 md:twcss-mt-0"><a href="https://directhomemedical.com/search?product.metafields.custom.dhm_general_product_model">{{ product.metafields.custom["dhm_general_product_model"] }}</a></dd>
       </div>
 
                     {% if product.metafields.custom["dhm_general_rx_required"] != null %}
                 <div class=" twcss-px-6  twcss-py-6 md:twcss-grid md:twcss-grid-cols-3 md:twcss-gap-4 ">
-        <dt class="twcss-mt-1  twcss-text-xl  twcss-font-bold twcss-text-gray-900 twcss-uppercase term">Prescription Item</dt>
+        <dt class="twcss-mt-1  twcss-text-xl  twcss-font-bold twcss-text-gray-900  term">Prescription Item</dt>
         <dd class="twcss-mt-1  twcss-text-gray-700 md:twcss-col-span-2 md:twcss-mt-0">A prescription required before this item can be shipped.</dd>
       </div>
        {% endif %}
@@ -42,7 +42,7 @@ Notes : dhm_general_notes ,
 
     {% if product.metafields.custom[spec_handle] %}
       <div class=" twcss-px-6  twcss-py-6 md:twcss-grid md:twcss-grid-cols-3 md:twcss-gap-4 ">
-        <dt class="twcss-mt-1  twcss-text-xl  twcss-font-bold twcss-text-gray-900 twcss-uppercase term">{{spec_name}}</dt>
+        <dt class="twcss-mt-1  twcss-text-xl  twcss-font-bold twcss-text-gray-900  term">{{spec_name}}</dt>
         <dd class="twcss-mt-1  twcss-text-gray-700 md:twcss-col-span-2 md:twcss-mt-0">{{path[spec_handle]| metafield_tag}}</dd>
       </div>
     {% endif %}
@@ -50,7 +50,7 @@ Notes : dhm_general_notes ,
 
           {% if product.metafields.custom["dhm_promos_faa"] != null %}
                 <div class=" twcss-px-6  twcss-py-6 md:twcss-grid md:twcss-grid-cols-3 md:twcss-gap-4 ">
-        <dt class="twcss-mt-1  twcss-text-xl  twcss-font-bold twcss-text-gray-900 twcss-uppercase term">FAA Approved</dt>
+        <dt class="twcss-mt-1  twcss-text-xl  twcss-font-bold twcss-text-gray-900  term">FAA Approved</dt>
         <dd class="twcss-mt-1  twcss-text-gray-700 md:twcss-col-span-2 md:twcss-mt-0">This product meets FAA regulations for use on commercial flights within the US and all international flights that depart or arrive in the US. <a href="https://www.tsa.gov/travel/tsa-cares"Click here for TSA / FAA information on traveling with sleep and oxygen therapy.</a> Always contact your airline prior to your flight to confirm any requirements they may have (i.e. a copy of your prescription or a letter of medical necessity) for allowing your device on board.</dd>
       </div>
        {% endif %}
