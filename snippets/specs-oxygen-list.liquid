@@ -21,7 +21,6 @@ Alerts : dhm_shared_alerts ,
        Concentrator Details
 </h3>
 <div class="twcss-border-t twcss-border-gray-200 px">
-  <dl class="twcss-divide-y ">
      
 {% for spec in oxygen_specs_split %}
     {% assign spec_parts = spec | split: ":" %}
@@ -35,7 +34,6 @@ Alerts : dhm_shared_alerts ,
       </div>
     {% endif %}
 {% endfor %}
-  </dl>
 </div>
 
 {% endif %}
