@@ -24,7 +24,7 @@ Therapy Data Viewing Options : dhm_shared_data_viewing ,
 {% assign pap_machine_specs_split = pap_machine_specs | split: ',' %}
 {% assign path = product.metafields.custom %}
 
-{% if product.metafields.custom["dhm_sleep_machine_modes"] != null %}
+{% if product.metafields.custom["dhm_sleep_machine_modes"] != blank %}
 
 <h3 class="twcss-px-6 twcss-py-4 twcss-font-semibold twcss-text-primaryGreen twcss-text-2xl ">
 MACHINE DETAILS
