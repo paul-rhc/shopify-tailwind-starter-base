@@ -1,4 +1,4 @@
-{% assign pap_machine_specs = "
+{% assign power_ac_specs = "
 AC Power Range (Activator) : dhm_power_ac_range ,
 AC Power Consumption : dhm_power_ac_consumption ,
 AC Cord Length : dhm_power_ac_length ,
@@ -19,56 +19,19 @@ Battery Run Time : dhm_power_battery_run_time ,
 Battery Shipping Notice : dhm_power_battery_shipping_notice ,
 " %}
 
-{% assign pap_machine_specs_split = pap_machine_specs | split: ',' %}
+{% assign power_ac_specs_split = pap_machine_specs | split: ',' %}
 {% assign path = product.metafields.custom %}
 
-{% if product.metafields.custom["dhm_sleep_machine_modes"] != blank %}
+{% if product.metafields.custom["dhm_power_ac_range"] != blank %}
 
 <h3 class="twcss-px-6 twcss-py-4 twcss-font-semibold twcss-text-primaryGreen twcss-text-2xl ">
-POWER DETAILS
+AC POWER DETAILS
 </h3>
 
 <div style="font-size:90%; font-kerning: normal; font-family:verdana, sans-serif;" class="twcss-border-t twcss-border-b">
 <dl class="twcss-px-6 twcss-divide-y twcss-divide-gray-100 ">
      
-{% for spec in pap_machine_specs_split %}
-    {% assign spec_parts = spec | split: ":" %}
-    {% assign spec_name = spec_parts[0] | strip %}
-    {% assign spec_handle = spec_parts[1] | strip %}
-
-    {% if product.metafields.custom[spec_handle] %}
-      <div class="twcss-py-3 md:twcss-grid md:twcss-grid-cols-3 md:twcss-gap-4 ">
-        <dt>{{spec_name}}:</dt>
-        <dd class="md:twcss-col-span-2 md:twcss-mt-0">{{path[spec_handle]| metafield_tag}}</dd>
-      </div>
-    {% endif %}
-  
-{% endfor %}
-  </dl>
-</div>
-
-<br />
-
-{% endif %}
-
-{% assign pap_mask_specs = "
-Mask Type : dhm_sleep_mask_type ,
-Recommended Pressure Range : dhm_sleep_pressure_range ,
-" %}
-
-{% assign pap_mask_specs_split = pap_mask_specs | split: ',' %}
-{% assign path = product.metafields.custom %}
-
-{% if product.metafields.custom["dhm_sleep_mask_type"] != blank %}
-
-<h3 class="twcss-px-6 twcss-py-4 twcss-font-semibold twcss-text-primaryGreen twcss-text-2xl ">
-MASK DETAILS
-</h3>
-
-<div style="font-size:90%; font-kerning: normal; font-family:verdana, sans-serif;" class="twcss-border-t twcss-border-b">
-<dl class="twcss-px-6 twcss-divide-y twcss-divide-gray-100 ">
-     
-{% for spec in pap_mask_specs_split %}
+{% for spec in power_ac_specs_split %}
     {% assign spec_parts = spec | split: ":" %}
     {% assign spec_name = spec_parts[0] | strip %}
     {% assign spec_handle = spec_parts[1] | strip %}
