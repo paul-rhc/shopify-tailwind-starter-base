@@ -19,7 +19,7 @@ Battery Run Time : dhm_power_battery_run_time ,
 Battery Shipping Notice : dhm_power_battery_shipping_notice ,
 " %}
 
-{% assign power_ac_specs_split = pap_machine_specs | split: ',' %}
+{% assign power_ac_specs_split = power_ac_specs | split: ',' %}
 {% assign path = product.metafields.custom %}
 
 {% if product.metafields.custom["dhm_power_ac_range"] != blank %}
