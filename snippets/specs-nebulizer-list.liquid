@@ -1,4 +1,4 @@
-{% assign product_specs = "
+{% assign nebulizer_specs = "
 DHM Neb - Liter Flow : dhm_nebulizer_liter_flow ,
 DHM Neb - Pressure : dhm_nebulizer_pressure ,
 DHM Neb - Nebulization Rate : dhm_nebulizer_nebulization_rate ,
@@ -10,10 +10,10 @@ DHM Res - Videos : dhm_resources_videos ,
 DHM Neb - Respirable Fraction : dhm_nebulizer_respirable_fraction ,
 
 " %}
-{% assign product_specs_split = product_specs | split: ',' %}
+{% assign nebulizer_specs_split = nebulizer_specs | split: ',' %}
 {% assign path = product.metafields.custom %}
 
-{% assign power_battery_specs_split = power_battery_specs | split: ',' %}
+{% assign nebulizer_specs_split = nebulizer_specs | split: ',' %}
 {% assign path = product.metafields.custom %}
 
 {% if product.metafields.custom["dhm_nebulizer_respirable_fraction"] != blank %}
