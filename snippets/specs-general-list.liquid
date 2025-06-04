@@ -14,7 +14,7 @@ Notes : dhm_general_notes ,
 {% assign general_specs_split = general_specs | split: ',' %}
 {% assign path = product.metafields.custom %}
 
-{% if product.metafields.custom["dhm_physical_sizes"] != null %}
+{% if product.metafields.custom["dhm_physical_sizes"] != %}
                 <div class="twcss-py-3 md:twcss-grid md:twcss-grid-cols-3 md:twcss-gap-4 ">
         <dt>IS IT NULL???:</dt>
         <dd class="md:twcss-col-span-2 md:twcss-mt-0">This product meets FAA regulations for use on commercial flights within the US and all international flights that depart or arrive in the US. <a href="https://www.tsa.gov/travel/tsa-cares">Click here for TSA / FAA information on traveling with sleep and oxygen therapy.</a> Always contact your airline prior to your flight to confirm any requirements they may have (i.e. a copy of your prescription or a letter of medical necessity) for allowing your device on board.</dd>
