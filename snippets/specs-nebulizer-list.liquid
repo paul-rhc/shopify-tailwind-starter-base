@@ -13,23 +13,34 @@ DHM Neb - Respirable Fraction : dhm_nebulizer_respirable_fraction ,
 {% assign product_specs_split = product_specs | split: ',' %}
 {% assign path = product.metafields.custom %}
 
- <h3 class="twcss-px-6  twcss-py-8  twcss-font-semibold twcss-text-primaryGreen  twcss-text-2xl ">
-        NEBULIZER DETAILS
-</h3>
-<div class="twcss-border-t twcss-border-gray-200 px">
-  <dl class="twcss-divide-y twcss-divide-gray-200 ">
+{% assign power_battery_specs_split = power_battery_specs | split: ',' %}
+{% assign path = product.metafields.custom %}
 
-{% for spec in product_specs_split %}
+{% if product.metafields.custom["dhm_power_battery_type"] != blank %}
+
+<h3 class="twcss-px-6 twcss-py-4 twcss-font-semibold twcss-text-primaryGreen twcss-text-2xl ">
+BATTERY POWER DETAILS
+</h3>
+
+<div style="font-size:90%; font-kerning: normal; font-family:verdana, sans-serif;" class="twcss-border-t twcss-border-b">
+<dl class="twcss-px-6 twcss-divide-y twcss-divide-gray-100 ">
+     
+{% for spec in power_battery_specs_split %}
     {% assign spec_parts = spec | split: ":" %}
     {% assign spec_name = spec_parts[0] | strip %}
     {% assign spec_handle = spec_parts[1] | strip %}
 
     {% if product.metafields.custom[spec_handle] %}
-      <div class=" twcss-px-6  twcss-py-3 md:twcss-grid md:twcss-grid-cols-3 md:twcss-gap-4 ">
-        <dt class="twcss-font-bold twcss-text-gray-900  term">{{spec_name}}</dt>
-        <dd class="twcss-mt-1  twcss-text-gray-700 md:twcss-col-span-2 md:twcss-mt-0">{{path[spec_handle]| metafield_tag}}</dd>
+      <div class="twcss-py-3 md:twcss-grid md:twcss-grid-cols-3 md:twcss-gap-4 ">
+        <dt>{{spec_name}}:</dt>
+        <dd class="md:twcss-col-span-2 md:twcss-mt-0">{{path[spec_handle]| metafield_tag}}</dd>
       </div>
     {% endif %}
+  
 {% endfor %}
   </dl>
 </div>
+
+<br />
+
+{% endif %}
