@@ -6,10 +6,10 @@ DHM Neb - Median Diameter : dhm_nebulizer_median_diameter ,
 DHM Neb - Modes of Operation : dhm_nebulizer_modes_of_operation ,
 DHM Neb - Capacity : dhm_nebulizer_capacity ,
 DHM Neb - Treatment Time : dhm_nebulizer_treatment_time ,
-DHM Res - Videos : dhm_resources_videos ,
 DHM Neb - Respirable Fraction : dhm_nebulizer_respirable_fraction ,
 
 " %}
+
 {% assign nebulizer_specs_split = nebulizer_specs | split: ',' %}
 {% assign path = product.metafields.custom %}
 
@@ -22,7 +22,7 @@ NEBULIZER DETAILS
 <div style="font-size:90%; font-kerning: normal; font-family:verdana, sans-serif;" class="twcss-border-t twcss-border-b">
 <dl class="twcss-px-6 twcss-divide-y twcss-divide-gray-100 ">
      
-{% for spec in power_battery_specs_split %}
+{% for spec in nebulizer_specs_split %}
     {% assign spec_parts = spec | split: ":" %}
     {% assign spec_name = spec_parts[0] | strip %}
     {% assign spec_handle = spec_parts[1] | strip %}
