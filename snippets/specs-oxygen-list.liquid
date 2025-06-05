@@ -32,7 +32,10 @@ CONCENTRATOR DETAILS
     {% assign spec_parts = spec | split: ":" %}
     {% assign spec_name = spec_parts[0] | strip %}
     {% assign spec_handle = spec_parts[1] | strip %}
-
+    {% assign field_length = product.metafields.custom[spec_handle] | size %}
+    {% if field_length == 0 %}
+        {% continue %}
+    {% endif %}
     {% if product.metafields.custom[spec_handle] %}
       <div class="twcss-py-3 md:twcss-grid md:twcss-grid-cols-3 md:twcss-gap-4 ">
         <dt>{{spec_name}}:</dt>
@@ -63,7 +66,10 @@ Prong Side Profile : dhm_oxygen_cannula_prong_profile_side ,
 {% assign path = product.metafields.custom %}
 
 {% if product.metafields.custom["dhm_oxygen_cannula_prong_style"] != blank %}
-
+{% assign field_length = product.metafields.custom["dhm_oxygen_cannula_prong_style"] | metafield_text | size %}
+   {% if field_length == 0 %}
+         {% continue %}
+   {% else %}
 <h3 class="twcss-px-6 twcss-py-4 twcss-font-semibold twcss-text-primaryGreen twcss-text-2xl ">
 CANNULA DETAILS
 </h3>
@@ -88,5 +94,5 @@ CANNULA DETAILS
 </div>
 
 <br />
-
+{% endif %}
 {% endif %}

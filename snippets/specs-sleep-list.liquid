@@ -37,14 +37,20 @@ MACHINE DETAILS
     {% assign spec_parts = spec | split: ":" %}
     {% assign spec_name = spec_parts[0] | strip %}
     {% assign spec_handle = spec_parts[1] | strip %}
-
+    {% comment %}
+      Checking the field length to ensure it has content.
+      This is to avoid displaying empty fields in the specs list, we just move on if it's 0.
+    {% endcomment %}
+    {% assign field_length = product.metafields.custom[spec_handle] | metafield_text | size %}
+      {% if field_length == 0 %}
+         {% continue %}
+      {% endif %}
     {% if product.metafields.custom[spec_handle] %}
       <div class="twcss-py-3 md:twcss-grid md:twcss-grid-cols-3 md:twcss-gap-4 ">
         <dt>{{spec_name}}:</dt>
         <dd class="md:twcss-col-span-2 md:twcss-mt-0">{{path[spec_handle]| metafield_tag}}</dd>
       </div>
     {% endif %}
-  
 {% endfor %}
   </dl>
 </div>
@@ -60,9 +66,14 @@ Recommended Pressure Range : dhm_sleep_pressure_range ,
 
 {% assign pap_mask_specs_split = pap_mask_specs | split: ',' %}
 {% assign path = product.metafields.custom %}
-
+{% comment %}
+  doing a one off check - I left in the else statement for clarity, and so i remember in 6 months why I did this.
+{% endcomment %}
+{% assign field_length = product.metafields.custom["dhm_sleep_mask_type"] | metafield_text | size %}
 {% if product.metafields.custom["dhm_sleep_mask_type"] != blank %}
-
+   {% if field_length == 0 %}
+         {% continue %}
+   {% else %}
 <h3 class="twcss-px-6 twcss-py-4 twcss-font-semibold twcss-text-primaryGreen twcss-text-2xl ">
 MASK DETAILS
 </h3>
@@ -87,5 +98,5 @@ MASK DETAILS
 </div>
 
 <br />
-
+  {% endif %}
 {% endif %}
