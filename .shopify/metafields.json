@@ -92,7 +92,7 @@
     {
       "key": "dhm_shared_alerts",
       "namespace": "custom",
-      "name": "DHM Shared - Alerts",
+      "name": "DHM Shared - Alarms",
       "description": "",
       "type": {
         "name": "single_line_text_field",
@@ -256,16 +256,6 @@
       "description": "",
       "type": {
         "name": "list.single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "dhm_sleep_mask_sizing_guide",
-      "namespace": "custom",
-      "name": "DHM Sleep - Mask Sizing Guide (BAD!)",
-      "description": "",
-      "type": {
-        "name": "single_line_text_field",
         "category": "TEXT"
       }
     },
@@ -870,16 +860,6 @@
       }
     },
     {
-      "key": "dhm_resources_pdfs",
-      "namespace": "custom",
-      "name": "DHM Res - PDFs (BAD!!!!!)",
-      "description": "Do not use this field.",
-      "type": {
-        "name": "list.single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
       "key": "dhm_resources_videos",
       "namespace": "custom",
       "name": "DHM Res - Videos",
@@ -982,7 +962,7 @@
     {
       "key": "dhm_oxygen_maximum_tubing_length",
       "namespace": "custom",
-      "name": "DHM O2 - Max Tubing Length",
+      "name": "DHM Concentrator - Max Tubing Length",
       "description": "50 Feet",
       "type": {
         "name": "single_line_text_field",
