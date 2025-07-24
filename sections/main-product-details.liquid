@@ -21,8 +21,6 @@
 
 
   
-  
-
 
 <div style="display: none">
   
@@ -176,9 +174,9 @@
       only show this button if there are more that this limit
      {% endcomment %}
      {% assign max_prods = 4 %}
-     {% if max_prods < part_collection_len %}
+     {% if max_prods <= part_collection_len %}
      
-      <a href="/collections/{{part_collection}}" class=" twcss-bg-primaryGreen twcss-text-white twcss-p-10 twcss-flex twcss-items-center twcss-text-3xl twcss-mt-5 twcss-text-center">
+      <a href="{{ routes.collections_url }}/{{part_collection}}" class=" twcss-bg-primaryGreen twcss-text-white twcss-p-10 twcss-flex twcss-items-center twcss-text-3xl twcss-mt-5 twcss-text-center">
       View All Parts</a>
      {% endif %}
      {% else %}
@@ -210,6 +208,7 @@
   </div>
 </div>
 {% if char_count >= 1100 %}
+
 <div class="twcss-w-full twcss-px-10 twcss-py-6 twcss-bg-bgGray twcss-flex twcss-flex-col md:twcss-flex-row">
   <div class="twcss-w-full md:twcss-w-3/5 twcss-py-5"> 
   <div>
@@ -296,8 +295,103 @@
 closes the check for the charater count
   {% endcomment %}
   {% endif %}
+
   </div>
       <!-- end #the_acc div above-->
+
+
+
+{% assign review_data = product.metafields.custom.reviewdata.value | default: product.metafields.custom.reviewdata %}
+
+{% if review_data %}
+<div class="product-reviews-widget">
+  <!-- Review Summary -->
+  <div class="review-summary">
+    <div class="rating-number">{{ review_data.averageRating }}</div>
+    
+    <div>
+      <div class="star-rating">
+        {% assign rating = review_data.averageRating | round %}
+        {% for i in (1..5) %}
+          <span class="star{% unless i <= rating %} empty{% endunless %}">★</span>
+        {% endfor %}
+      </div>
+      <div class="review-count">
+        Based on {{ review_data.totalReviews }} review{% unless review_data.totalReviews == 1 %}s{% endunless %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Individual Reviews -->
+  {% if review_data.reviews.size > 0 %}
+    <div class="reviews-list">
+      {% for review in review_data.reviews limit: 25 %}
+        <div class="review-item">
+          <div class="review-header">
+            <div class="review-rating">
+              {% for i in (1..5) %}
+                <span class="star{% unless i <= review.score %} empty{% endunless %}">★</span>
+              {% endfor %}
+            </div>
+            <div class="review-meta">
+              {{ review.author }} • {{ review.date | date: "%b %d, %Y" }}
+            </div>
+          </div>
+          
+          {% if review.title and review.title != blank %}
+            <h5 class="review-title">{{ review.title }}</h5>
+          {% endif %}
+          
+          <div class="review-text">
+            {{ review.text | strip_html | truncate: 600 }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
+{% endif %}
+
+
+
+      {% assign review_data = product.metafields.custom.reviewdata.value %}
+      {% if review_data %}
+         <div class="review-count">
+        Based on {{ review_data.totalReviews }} review{% unless review_data.totalReviews == 1 %}s{% endunless %}
+      </div>
+<div class="twcss-bg-bgGray">
+  <div class="twcss-mx-auto twcss-w-full twcss-px-4 twcss-py-16 sm:twcss-px-6 sm:twcss-py-24  lg:twcss-px-8">
+    <h2 class="twcss-text-3xl twcss-font-medium twcss-text-gray-900">Recent reviews</h2>
+    <div class="twcss-mt-6 twcss-divide-y twcss-divide-gray-200 twcss-border-b twcss-border-t twcss-border-gray-200">
+      <div class="twcss-py-10 lg:twcss-grid lg:twcss-grid-cols-12 lg:twcss-gap-x-8">
+        <div class="lg:twcss-col-span-9 lg:twcss-col-start-4 lg:twcss-grid lg:twcss-grid-cols-3 lg:twcss-items-start lg:twcss-gap-x-8">
+          <div class="twcss-flex twcss-items-center lg:twcss-col-span-1">
+            <div class="twcss-flex twcss-items-center">
+            Stars here
+            </div>
+            <p class="twcss-ml-3 twcss-text-sm twcss-text-gray-700">5<span class="twcss-sr-only"> out of 5 stars</span></p>
+          </div>
+
+          <div class="twcss-mt-4 lg:twcss-mt-6">
+            <h3 class="twcss-text-sm twcss-font-2xl twcss-text-gray-900">Can&#039;t say enough good things</h3>
+
+            <div class="twcss-mt-3 twcss-space-y-6 twcss-text-sm twcss-text-gray-500">
+              <p>I was really pleased with the overall shopping experience. My order even included a little personal, handwritten note, which delighted me!</p>
+              <p>The product quality is amazing, it looks and feel even better than I had anticipated. Brilliant stuff! I would gladly recommend this store to my friends. And, now that I think of it... I actually have, many times!</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="twcss-mt-6 twcss-flex twcss-items-center twcss-text-sm lg:twcss-col-span-4 lg:twcss-col-start-1 lg:twcss-row-start-1 lg:twcss-mt-0 lg:twcss-flex-col lg:twcss-items-start lg:twcss-col-span-3">
+          <p class="twcss-font-medium twcss-text-gray-900">Risako M</p>
+          <time datetime="2021-01-06" class="twcss-ml-4 twcss-border-l twcss-border-gray-200 twcss-pl-4 twcss-text-gray-500 lg:twcss-ml-0 lg:twcss-mt-2 lg:twcss-border-0 lg:twcss-pl-0">May 16, 2021</time>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      {% endif %}
 </div>
 <!-- end  .page-width div -->
   

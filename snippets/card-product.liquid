@@ -162,7 +162,13 @@
               {{ card_product.title | escape }}
             </a>
             <div style="color: #000000;" class=" twcss-flex twcss-flex-row twcss-mt-5">
-              {{ meta.dhm_promos | metafield_tag }}
+              {{ meta.dhm_promos  }}
+              {%  assign dhm_promos = meta.dhm_promos %}
+              {% if dhm_promos != blank %}
+                {% for promo in dhm_promos %}
+                  <span class="twcss-text-primaryGreen">Hello! {{ promo.value | metafield_tag }}</span>
+                {% endfor %}
+              {% endif %}
             </div>
           </h3>
 

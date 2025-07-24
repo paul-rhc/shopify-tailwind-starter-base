@@ -18,7 +18,8 @@
 }
 
 .rating-star {
-  --color-rating-star: rgb(var(--color-foreground));
+  --color-rating-star: rgb(65 106 56 / var(--tw-text-opacity, 1));
+
   --percent: calc(
     (
         var(--rating) / var(--rating-max) + var(--rating-decimal) *
@@ -28,6 +29,8 @@
   );
   letter-spacing: calc(var(--letter-spacing) * 1rem);
   font-size: calc(var(--font-size) * 1rem);
+  font-size: 4rem;
+
   line-height: 1;
   display: inline-block;
   font-family: Times;
@@ -35,7 +38,7 @@
 }
 
 .rating-star::before {
-  content: '★★★★★';
+  content: '✪✪✪✪✪';
   background: linear-gradient(
     90deg,
     var(--color-rating-star) var(--percent),
@@ -43,10 +46,6 @@
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-.rating-text {
-  display: none;
 }
 
 .rating-count {
