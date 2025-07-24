@@ -304,94 +304,134 @@ closes the check for the charater count
 {% assign review_data = product.metafields.custom.reviewdata.value | default: product.metafields.custom.reviewdata %}
 
 {% if review_data %}
-<div class="product-reviews-widget">
-  <!-- Review Summary -->
-  <div class="review-summary">
-    <div class="rating-number">{{ review_data.averageRating }}</div>
-    
-    <div>
-      <div class="star-rating">
-        {% assign rating = review_data.averageRating | round %}
-        {% for i in (1..5) %}
-          <span class="star{% unless i <= rating %} empty{% endunless %}">★</span>
-        {% endfor %}
-      </div>
-      <div class="review-count">
-        Based on {{ review_data.totalReviews }} review{% unless review_data.totalReviews == 1 %}s{% endunless %}
-      </div>
-    </div>
-  </div>
+ 
+  <style>
+    .product-reviews-widget {
+      margin: 20px 0;
+      padding: 20px;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+    }
+    .review-summary {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .star-rating {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .star {
+      color: rgb(65 106 56 / var(--tw-text-opacity, 1));
+      font-size: 26px;
+      letter-spacing: .6rem;
+    }
+    .star.empty {
+      color: #e0e0e0;
+    }
+    .rating-number {
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+    }
+    .review-count {
+      color: #666;
+      font-size: 14px;
+    }
+    .review-item {
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #f5f5f5;
+    }
+    .review-item:last-child {
+      border-bottom: none;
+    }
+    .review-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .review-rating {
+      color: #ffc107;
+    }
+    .review-meta {
+      font-size: 12px;
+      color: #666;
+    }
+    .review-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 5px 0;
+      color: #333;
+    }
+    .review-text {
+      color: #555;
+      line-height: 1.5;
+    }
+    .recommend-badge {
+      background: #4caf50;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 11px;
+      margin-left: 10px;
+    }
+  </style>
+
 
   <!-- Individual Reviews -->
+
+
+{% assign review_data = product.metafields.custom.reviewdata.value %}
+
+ 
+<div class=" twcss-bg-bgGray">
   {% if review_data.reviews.size > 0 %}
-    <div class="reviews-list">
-      {% for review in review_data.reviews limit: 25 %}
-        <div class="review-item">
-          <div class="review-header">
-            <div class="review-rating">
+   
+  <div class="twcss-mx-auto twcss-max-w-2xl twcss-px-4 twcss-py-16 sm:twcss-px-6 sm:twcss-py-24  lg:twcss-max-w-full lg:twcss-px-8">
+    <h3 class="twcss-text-3xl twcss-p-4 twcss-mb-3 twcss-font-semibold  twcss-text-primaryGreen">Recent reviews</h3>
+     {% for review in review_data.reviews limit: 25 %}
+    <div class="twcss-mt-6 twcss-divide-y twcss-divide-gray-200 twcss-border-b ">
+      <div class="twcss-py-10 lg:twcss-grid lg:twcss-grid-cols-12 lg:twcss-gap-x-8">
+        <div class="lg:twcss-col-span-8 lg:twcss-col-start-5 xl:twcss-col-span-9 xl:twcss-col-start-4 xl:twcss-grid xl:twcss-grid-cols-3 xl:twcss-items-start xl:twcss-gap-x-8">
+          <div class="twcss-flex twcss-items-center xl:twcss-col-span-1">
+            <div class="twcss-flex twcss-items-center review-rating">
+             
               {% for i in (1..5) %}
-                <span class="star{% unless i <= review.score %} empty{% endunless %}">★</span>
+                <span class="star{% unless i <= review.score %} empty{% endunless %}">✪</span>
               {% endfor %}
             </div>
-            <div class="review-meta">
-              {{ review.author }} • {{ review.date | date: "%b %d, %Y" }}
+            <p class="twcss-ml-3 twcss-text-sm twcss-text-gray-700"><span class="twcss-sr-only">{{ review.score }} out of 5 stars</span></p>
+          </div>
+
+          <div class="twcss-mt-4 lg:twcss-mt-6 xl:twcss-col-span-2 xl:twcss-mt-0">
+            <h3 class=" twcss-font-medium twcss-text-3xl twcss-text-primaryGreenDark">{{ review.title }}</h3>
+
+            <div class="twcss-mt-3 twcss-space-y-6 twcss-text-2xl twcss-text-gray-500 twcss-leading-loose">
+              <p>{{ review.text | strip_html | truncate: 700 }}</p>
             </div>
           </div>
-          
-          {% if review.title and review.title != blank %}
-            <h5 class="review-title">{{ review.title }}</h5>
-          {% endif %}
-          
-          <div class="review-text">
-            {{ review.text | strip_html | truncate: 600 }}
-          </div>
         </div>
-      {% endfor %}
+
+        <div class="twcss-mt-6 twcss-flex twcss-items-center twcss-text-sm lg:twcss-col-span-4  lg:twcss-pl-5 lg:twcss-col-start-1 lg:twcss-row-start-1 lg:twcss-mt-0 lg:twcss-flex-col lg:twcss-items-start xl:twcss-col-span-3">
+          <p class="twcss-font-medium twcss-text-2xl twcss-text-gray-900 ">{{ review.author }}</p>
+          <time datetime="{{review.date}}" class="twcss-ml-4 twcss-border-l twcss-border-gray-200 twcss-pl-4 twcss-text-2xl twcss-text-gray-500 lg:twcss-ml-0 lg:twcss-mt-2 lg:twcss-border-0 lg:twcss-pl-0"> {{ review.date | date: "%b %d, %Y" }}</time>
+        </div>
+      </div>
     </div>
+    {% endfor %}
+  </div>
+  
   {% endif %}
 </div>
+
+
 {% endif %}
-
-
-
-      {% assign review_data = product.metafields.custom.reviewdata.value %}
-      {% if review_data %}
-         <div class="review-count">
-        Based on {{ review_data.totalReviews }} review{% unless review_data.totalReviews == 1 %}s{% endunless %}
-      </div>
-<div class="twcss-bg-bgGray">
-  <div class="twcss-mx-auto twcss-w-full twcss-px-4 twcss-py-16 sm:twcss-px-6 sm:twcss-py-24  lg:twcss-px-8">
-    <h2 class="twcss-text-3xl twcss-font-medium twcss-text-gray-900">Recent reviews</h2>
-    <div class="twcss-mt-6 twcss-divide-y twcss-divide-gray-200 twcss-border-b twcss-border-t twcss-border-gray-200">
-      <div class="twcss-py-10 lg:twcss-grid lg:twcss-grid-cols-12 lg:twcss-gap-x-8">
-        <div class="lg:twcss-col-span-9 lg:twcss-col-start-4 lg:twcss-grid lg:twcss-grid-cols-3 lg:twcss-items-start lg:twcss-gap-x-8">
-          <div class="twcss-flex twcss-items-center lg:twcss-col-span-1">
-            <div class="twcss-flex twcss-items-center">
-            Stars here
-            </div>
-            <p class="twcss-ml-3 twcss-text-sm twcss-text-gray-700">5<span class="twcss-sr-only"> out of 5 stars</span></p>
-          </div>
-
-          <div class="twcss-mt-4 lg:twcss-mt-6">
-            <h3 class="twcss-text-sm twcss-font-2xl twcss-text-gray-900">Can&#039;t say enough good things</h3>
-
-            <div class="twcss-mt-3 twcss-space-y-6 twcss-text-sm twcss-text-gray-500">
-              <p>I was really pleased with the overall shopping experience. My order even included a little personal, handwritten note, which delighted me!</p>
-              <p>The product quality is amazing, it looks and feel even better than I had anticipated. Brilliant stuff! I would gladly recommend this store to my friends. And, now that I think of it... I actually have, many times!</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="twcss-mt-6 twcss-flex twcss-items-center twcss-text-sm lg:twcss-col-span-4 lg:twcss-col-start-1 lg:twcss-row-start-1 lg:twcss-mt-0 lg:twcss-flex-col lg:twcss-items-start lg:twcss-col-span-3">
-          <p class="twcss-font-medium twcss-text-gray-900">Risako M</p>
-          <time datetime="2021-01-06" class="twcss-ml-4 twcss-border-l twcss-border-gray-200 twcss-pl-4 twcss-text-gray-500 lg:twcss-ml-0 lg:twcss-mt-2 lg:twcss-border-0 lg:twcss-pl-0">May 16, 2021</time>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-      {% endif %}
 </div>
 <!-- end  .page-width div -->
   
@@ -414,7 +454,7 @@ closes the check for the charater count
       videoContainer.innerHTML = '';
     }
     {% comment %} (async() => {
-      // Code to be executed - the json filter lets you use liquid in javascript
+       Code to be executed - the json filter lets you use liquid in javascript
       const videoIds = {{ product.metafields.custom.dhm_resources_videos.value | json }};
       console.log(videoIds);
       const thumbnailsContainer = document.getElementById('video-thumbnails');

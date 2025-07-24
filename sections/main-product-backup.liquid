@@ -1,4 +1,3 @@
-
 <product-info
   id="MainProduct-{{ section.id }}"
   class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
@@ -476,51 +475,39 @@
                   section_id: section.id,
                   show_pickup_availability: true
                 -%}
-                
               {%- when 'rating' -%}
-              
-
-                {% assign product.metafields.custom.product_rating.scale_max = 5 %}
-                {% assign my_max = 5 %}
-
-
-                
-                {%- if product.metafields.custom.product_rating.value != blank -%}
+                {%- if product.metafields.reviews.rating.value != blank -%}
                   <div class="rating-wrapper">
                     {% liquid
                       assign rating_decimal = 0
-                      assign decimal = product.metafields.custom.product_rating.value | modulo: 1
+                      assign decimal = product.metafields.reviews.rating.value.rating | modulo: 1
                       if decimal >= 0.3 and decimal <= 0.7
                         assign rating_decimal = 0.5
                       elsif decimal > 0.7
                         assign rating_decimal = 1
                       endif
                     %}
-  
                     <div
                       class="rating"
                       role="img"
-                      aria-label="{{ 'accessibility.star_reviews_info' | t: rating_value: product.metafields.custom.product_rating.value, rating_max: my_max }}"
+                      aria-label="{{ 'accessibility.star_reviews_info' | t: rating_value: product.metafields.reviews.rating.value, rating_max: product.metafields.reviews.rating.value.scale_max }}"
                     >
                       <span
                         aria-hidden="true"
                         class="rating-star"
-                        style="--rating: {{ product.metafields.custom.product_rating.value  }}; --rating-max: {{ my_max }}; --rating-decimal: {{ rating_decimal }} ;"
+                        style="--rating: {{ product.metafields.reviews.rating.value.rating | floor }}; --rating-max: {{ product.metafields.reviews.rating.value.scale_max }}; --rating-decimal: {{ rating_decimal }};"
                       ></span>
                     </div>
-                    
-                      
-
                     <p class="rating-text caption">
                       <span aria-hidden="true">
-                        {{- product.metafields.custom.product_rating.value }} /
-                        {{ my_max -}} &nbsp;&nbsp; <span aria-hidden="true">({{ product.metafields.custom.product_rating_count }} Reviews)</span>
+                        {{- product.metafields.reviews.rating.value }} /
+                        {{ product.metafields.reviews.rating.value.scale_max -}}
                       </span>
                     </p>
                     <p class="rating-count caption">
-                     
+                      <span aria-hidden="true">({{ product.metafields.reviews.rating_count }})</span>
                       <span class="visually-hidden">
-                        {{- product.metafields.custom.product_rating_count }}
+                        {{- product.metafields.reviews.rating_count }}
                         {{ 'accessibility.total_reviews' | t -}}
                       </span>
                     </p>
@@ -585,8 +572,10 @@
                                 {% endif %}
                               >
                                 <ul class="list-unstyled" role="list">
-                                  {%- for product in recommendations.products limit: block.settings.products_per_page-%}
-                                  
+                                  {%- for product in recommendations.products
+                                    limit: block.settings.products_per_page
+                                    offset: continue
+                                  -%}
                                     <li>
                                       {%- if block.settings.enable_quick_add -%}
                                         {% assign quick_add = 'standard' %}

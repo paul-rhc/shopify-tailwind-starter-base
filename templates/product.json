@@ -23,6 +23,10 @@
           "type": "title",
           "settings": {}
         },
+        "rating_MC4LUG": {
+          "type": "rating",
+          "settings": {}
+        },
         "caption": {
           "type": "text",
           "settings": {
@@ -56,6 +60,7 @@
       "block_order": [
         "vendor",
         "title",
+        "rating_MC4LUG",
         "caption",
         "price",
         "variant_picker",

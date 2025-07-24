@@ -1,68 +1,59 @@
 <div class="twcss-mt-5 twcss-text-3xl twcss-w-full ">
   <h2 class="twcss-text-3xl twcss-font-medium twcss-text-gray-500 twcss-mb-5">Product Benefits</h2>
-  <ul role="list" class="twcss-mt-3 twcss-grid  twcss-gap-5 twcss-grid-cols-1 sm:twcss-gap-6 lg:twcss-grid-cols-3">
+  <ul role="list" class="twcss-mt-3 twcss-grid  twcss-gap-5 twcss-grid-cols-1 sm:twcss-gap-6 lg:twcss-grid-cols-4 twcss-items-center">
    
     <li class="twcss-flex twcss-grow  twcss-mt-10">
-      <div class="twcss-flex twcss-w-16 md:twcss-w-28 twcss-shrink-0 twcss-items-center twcss-justify-center ">{% render "icon-instock" %}</div>
-      <div class="twcss-flex twcss-flex-1 twcss-items-center twcss-justify-between twcss-truncate">
+      <div class="twcss-flex twcss-w-16 md:twcss-w-20 twcss-shrink-1 twcss-items-center twcss-justify-center ">{% render "icon-instock" %}</div>
+      <div class="twcss-flex twcss-flex-1 twcss-items-center twcss-justify-between ">
        <div class="twcss-ml-4 twcss-flex twcss-flex-auto twcss-flex-col-reverse">
           <h3 class="twcss-font-medium twcss-text-gray-900">In Stock with Free Shipping</h3>
-          <p class="twcss-text-2xl twcss-text-gray-500">Includes Free Shipping within the USA.</p>
+          <p class="twcss-text-xl twcss-text-gray-500">Includes Free Shipping within the USA.</p>
         </div>
       </div>
     </li>
     <li class="twcss-grow twcss-flex twcss-mt-10">
-      <div class="twcss-flex twcss-w-16 md:twcss-w-28 shrink-0 twcss-items-center twcss-justify-center ">
+      <div class="twcss-flex twcss-w-16 md:twcss-w-20 shrink-0 twcss-items-center twcss-justify-center ">
           {% render "icon-rewards" %}
       </div>
-      <div class="twcss-flex twcss-flex-1 twcss-items-center twcss-justify-between twcss-truncate ">
+      <div class="twcss-flex twcss-flex-1 twcss-items-center twcss-justify-between  ">
          <div class="twcss-ml-4 twcss-flex twcss-flex-auto twcss-flex-col-reverse">
             <h3 class="twcss-font-medium twcss-text-gray-900">Loyalty Rewards Save Money</h3>
-            <p class="twcss-text-2xl twcss-text-gray-500">Log in and earn points towrd your next order.</p>
+            <p class="twcss-text-xl twcss-text-gray-500">Earn points towrd your next order.</p>
          </div>
       </div>
     </li>
     <li class="twcss-grow twcss-flex twcss-mt-10">
-      <div class="twcss-flex twcss-w-16 md:twcss-w-28 shrink-0 twcss-items-center twcss-justify-center ">
+      <div class="twcss-flex twcss-w-16 md:twcss-w-20 shrink-0 twcss-items-center twcss-justify-center ">
         {% render "icon-subscribe" %}
       </div>
-      <div class="twcss-flex twcss-flex-1 twcss-items-center twcss-justify-between twcss-truncate ">
+      <div class="twcss-flex twcss-flex-1 twcss-items-center twcss-justify-between  ">
       <div class="twcss-ml-4 twcss-flex twcss-flex-auto twcss-flex-col-reverse">
         <h3 class="twcss-font-medium twcss-text-gray-900">Subscribe and Save 15%</h3>
-        <p class="twcss-text-2xl twcss-text-gray-500">Save on every order. Skip or cancel anytime.</p>
+        <p class="twcss-text-xl twcss-text-gray-500">Skip or cancel anytime.</p>
       </div>
 
       </div>
     </li>
+    {% if product.metafields.custom.dhm_promos_risk_free_trial %}
     <li class="twcss-grow twcss-flex twcss-mt-10">
-      <div class="twcss-flex twcss-w-16 md:twcss-w-28 shrink-0 twcss-items-center twcss-justify-center twcss-rounded-l-md  twcss-text-sm twcss-font-medium twcss-text-white">{% render "icon-warranty" %}</div>
-      <div class="twcss-flex twcss-flex-1 twcss-items-center twcss-justify-between twcss-truncate ">
+      <div class="twcss-flex twcss-w-16 md:twcss-w-20 shrink-0 twcss-items-center twcss-justify-center twcss-rounded-l-md  twcss-text-sm twcss-font-medium twcss-text-white">{% render "icon-warranty" %}</div>
+      <div class="twcss-flex twcss-flex-1 twcss-items-center twcss-justify-between  ">
         <div class="twcss-ml-4 twcss-flex twcss-flex-auto twcss-flex-col-reverse">
-          <h3 class="twcss-font-medium twcss-text-gray-900">30-Night Money Back Guarantee</h3>
-          <p class="twcss-text-2xl twcss-text-gray-500">If you're not happy, return it for a full refund.</p>
+          <h3 class="twcss-font-medium twcss-text-gray-900">{{product.metafields.custom.dhm_promos_risk_free_trial | metafield_text}}</h3>
+          <p class="twcss-text-xl twcss-text-gray-500">Return it for a full refund.</p>
         </div>
       </div>
     </li>
-    <li class="twcss-grow twcss-flex twcss-mt-10">
-      <div class="twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center twcss-rounded-l-md twcss-text-sm twcss-font-medium twcss-text-white">{% render "icon-gift" %}</div>
-      <div class="twcss-flex twcss-flex-1 twcss-items-center twcss-justify-between twcss-truncate ">
+    {% endif %}
+    {% comment %} <li class="twcss-grow twcss-flex twcss-mt-10">
+      <div class="twcss-flex twcss-w-16 md:twcss-w-20 shrink-0 twcss-items-center twcss-justify-center twcss-rounded-l-md twcss-text-sm twcss-font-medium twcss-text-white">{% render "icon-gift" %}</div>
+      <div class="twcss-flex twcss-flex-1 twcss-items-center twcss-justify-between  ">
         <div class="twcss-ml-4 twcss-flex twcss-flex-auto twcss-flex-col-reverse">
             <h3 class="twcss-font-medium twcss-text-gray-900">Includes Great Free Gift</h3>
-            <p class="twcss-text-2xl twcss-text-gray-500">Get 6 months of Cannulas with purchase.</p>
+            <p class="twcss-text-xl twcss-text-gray-500">Get 6 months of Cannulas with purchase.</p>
         </div>
       </div>
-    </li> 
-    <li class=" twcss-flex twcss-grow twcss-mt-10">
-      <div class="twcss-flex twcss-w-16 md:twcss-w-28 shrink-0 twcss-items-center twcss-justify-center twcss-rounded-l-md  twcss-text-sm twcss-font-medium twcss-text-white">{% render "icon-find-parts" %}</div>
-      <div class="twcss-flex twcss-flex-1 twcss-items-center twcss-justify-between twcss-truncate ">
-        <div class="twcss-ml-4 twcss-flex twcss-flex-auto twcss-flex-col-reverse">
-          <h3 class="twcss-font-medium twcss-text-gray-900">Find Replacement Parts</h3>
-          <p class="twcss-text-2xl twcss-text-gray-500">View compatible parts for this item.</p>
-        </div>
-        <div class="shrink-0 twcss-pr-2">
-          <!-- empty -->
-        </div>
-      </div>
-    </li> 
+    </li>  {% endcomment %}
+    
   </ul>
 </div>
