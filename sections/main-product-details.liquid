@@ -243,16 +243,21 @@
 <div class=" twcss-ml-10 twcss-p-10"  x-data="{ modalOpen: false }">
 <!-- 1. The button --> 
   {% for videoid in product.metafields.custom.dhm_resources_videos.value %}
-   
+   {%  assign limit = 3 %}
+   {%  assign hidden_videos = false %}
     {% assign videoid2 = videoid | replace_first: '_', '*' %}
-  
+  {%  if forloop.index > limit %}
+    {% assign hidden_videos = true %}
+    {% endif %}
     {% assign the_title = videoid2 | split: '*' | first %}
     {% assign the_id = videoid2 | split: '*' | last %}
     {% if the_id == null %}
       {% assign the_id = videoid %}
     {% endif %}
     {% comment %} {{ videoid }} {% endcomment %}
+     <div class="video_thumbnail {% if forloop.index > limit %} hidden{% endif %}">
 {% if the_title != null %}
+  
   <h3 class="twcss-text-2xl twcss-mb-8 twcss-text-gray-500">
     {{ the_title }}
   </h3> 
@@ -272,8 +277,12 @@
         <path class="fill-indigo-500 drop-shadow-2xl" d="M44 36a.999.999 0 0 0-.427-.82l-10-7A1 1 0 0 0 32 29V43a.999.999 0 0 0 1.573.82l10-7A.995.995 0 0 0 44 36V36c0 .001 0 .001 0 0Z" />
     </svg>
 </button>
-   
+   </div>
+    
   {% endfor %} 
+{% if hidden_videos %}
+    {% endif %}
+          <button id="showAllVideosBtn" class="twcss-text-primaryGreen twcss-text-2xl twcss-mb-10" >Show All Videos</button>
 
 <!-- 2. The backdrop layer --> 
 <div x-show="modalOpen" class="twcss-fixed twcss-inset-0 twcss-z-[99999] twcss-bg-black twcss-bg-opacity-50 twcss-transition-opacity">
@@ -386,14 +395,11 @@ closes the check for the charater count
 
   <!-- Individual Reviews -->
 
-
-{% assign review_data = product.metafields.custom.reviewdata.value %}
-
  
 <div class=" twcss-bg-bgGray">
   {% if review_data.reviews.size > 0 %}
    
-  <div class="twcss-mx-auto twcss-max-w-2xl twcss-px-4 twcss-py-16 sm:twcss-px-6 sm:twcss-py-24  lg:twcss-max-w-full lg:twcss-px-8">
+  <div class="twcss-mx-auto twcss-max-w-2xl twcss-px-4 twcss-py-16 sm:twcss-px-6 sm:twcss-py-6  lg:twcss-max-w-full lg:twcss-px-8">
     <h3 class="twcss-text-3xl twcss-p-4 twcss-mb-3 twcss-font-semibold  twcss-text-primaryGreen">Recent reviews</h3>
      {% for review in review_data.reviews limit: 25 %}
     <div class="twcss-mt-6 twcss-divide-y twcss-divide-gray-200 twcss-border-b ">
@@ -449,10 +455,28 @@ closes the check for the charater count
         </iframe>
       `;
     }
+
     function hideVideo() {
       const videoContainer = document.getElementById('video-container');
       videoContainer.innerHTML = '';
     }
+
+        // Get a reference to the element
+{% comment %} window.showAllVideos =  function() {
+      console.log("Showing all videos");
+      const video_thumbnails = document.querySelectorAll(".video_thumbnail");
+      video_thumbnails.forEach(element => element.classList.remove("hidden"););
+    }
+  
+
+    const myButton = document.getElementById('showAllVideosBtn');
+    myButton.addEventListener('click', showAllVideos); {% endcomment %}
+
+
+
+
+// Attach the event listener
+
     {% comment %} (async() => {
        Code to be executed - the json filter lets you use liquid in javascript
       const videoIds = {{ product.metafields.custom.dhm_resources_videos.value | json }};

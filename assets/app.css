@@ -1736,6 +1736,16 @@ video {
     padding-bottom: 8rem;
   }
 
+  .sm\:twcss-py-12 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .sm\:twcss-py-6 {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
   .sm\:twcss-pl-0 {
     padding-left: 0px;
   }
