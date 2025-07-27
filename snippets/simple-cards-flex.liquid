@@ -1,7 +1,21 @@
+     {% comment %} Only show a maximum of 3 promos for now - we show risk free trial instead of rewards (if that's available) {% endcomment %}
+
+{% liquid
+assign has_subscriptions = false
+assign has_trial = false
+
+if product.selling_plan_groups != empty
+  assign has_subscriptions = true
+endif
+
+if product.metafields.custom.dhm_promos_risk_free_trial != null
+  assign has_trial = true
+endif
+%}
+
 <div class="twcss-mt-5 twcss-text-3xl twcss-w-full ">
-  {% comment %} <h2 class="twcss-text-3xl twcss-font-medium twcss-text-gray-500 twcss-mb-5">Product Benefits</h2> {% endcomment %}
   <ul role="list" class="twcss-mt-3 twcss-grid  twcss-gap-5 twcss-grid-cols-1 sm:twcss-gap-6 lg:twcss-grid-cols-3 twcss-items-center">
-   
+
     <li class="twcss-flex twcss-grow  twcss-mt-10">
       <div class="twcss-flex twcss-w-16 md:twcss-w-28 twcss-shrink-1 twcss-items-center twcss-justify-center ">{% render "icon-instock" %}</div>
       <div class="twcss-flex twcss-flex-1 twcss-items-center twcss-justify-between ">
@@ -11,7 +25,8 @@
         </div>
       </div>
     </li>
-    <li class="twcss-grow twcss-flex twcss-mt-10">
+  {% if has_subscriptions == false or has_trial == false %}
+      <li class="twcss-grow twcss-flex twcss-mt-10">
       <div class="twcss-flex twcss-w-16 md:twcss-w-28 shrink-0 twcss-items-center twcss-justify-center ">
           {% render "icon-rewards" %}
       </div>
@@ -22,7 +37,20 @@
          </div>
       </div>
     </li>
-    {% if product.selling_plan_groups != empty %}
+  {% endif %}
+   {% if has_trial == true %}
+    <li class="twcss-grow twcss-flex twcss-mt-10">
+      <div class="twcss-flex twcss-w-16 md:twcss-w-28 shrink-0 twcss-items-center twcss-justify-center twcss-rounded-l-md  twcss-text-sm twcss-font-medium twcss-text-white">{% render "icon-warranty" %}</div>
+      <div class="twcss-flex twcss-flex-1 twcss-items-center twcss-justify-between  ">
+        <div class="twcss-ml-4 twcss-flex twcss-flex-auto twcss-flex-col-reverse">
+          <h3 class="twcss-font-medium twcss-text-gray-900">{{product.metafields.custom.dhm_promos_risk_free_trial | metafield_text}}</h3>
+          <p class="twcss-text-xl twcss-text-gray-500">Not Happy? Return it for a full refund.</p>
+        </div>
+      </div>
+    </li>
+    {% endif %}
+
+    {% if has_subscriptions %}
     <li class="twcss-grow twcss-flex twcss-mt-10">
       <div class="twcss-flex twcss-w-16 md:twcss-w-28 shrink-0 twcss-items-center twcss-justify-center ">
         {% render "icon-subscribe" %}
@@ -32,21 +60,13 @@
         <h3 class="twcss-font-medium twcss-text-gray-900">Subscribe and Save 15%</h3>
         <p class="twcss-text-xl twcss-text-gray-500">Save on Every Order. Skip or cancel anytime.</p>
       </div>
-
       </div>
     </li>
   {% endif %}
-    {% if product.metafields.custom.dhm_promos_risk_free_trial %}
-    <li class="twcss-grow twcss-flex twcss-mt-10">
-      <div class="twcss-flex twcss-w-16 md:twcss-w-28 shrink-0 twcss-items-center twcss-justify-center twcss-rounded-l-md  twcss-text-sm twcss-font-medium twcss-text-white">{% render "icon-warranty" %}</div>
-      <div class="twcss-flex twcss-flex-1 twcss-items-center twcss-justify-between  ">
-        <div class="twcss-ml-4 twcss-flex twcss-flex-auto twcss-flex-col-reverse">
-          <h3 class="twcss-font-medium twcss-text-gray-900">{{product.metafields.custom.dhm_promos_risk_free_trial | metafield_text}}</h3>
-          <p class="twcss-text-xl twcss-text-gray-500">Return it for a full refund.</p>
-        </div>
-      </div>
-    </li>
-    {% endif %}
+
+
+
+   
     {% comment %} <li class="twcss-grow twcss-flex twcss-mt-10">
       <div class="twcss-flex twcss-w-16 md:twcss-w-20 shrink-0 twcss-items-center twcss-justify-center twcss-rounded-l-md twcss-text-sm twcss-font-medium twcss-text-white">{% render "icon-gift" %}</div>
       <div class="twcss-flex twcss-flex-1 twcss-items-center twcss-justify-between  ">

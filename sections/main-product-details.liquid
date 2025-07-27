@@ -43,9 +43,9 @@
     <div class="twcss-flex twcss-mx-auto  "> 
     <!--Former Accordion -->
 
-      <div id="description_details"  role="region" class=" twcss-w-full twcss-px-10 twcss-py-6 ">
+      <div id="description_details"  role="region" class=" twcss-w-full twcss-px-10 twcss-py-10 ">
         {% if char_count >= 1100 %}
-           <h2 class=" twcss-text-4xl twcss-leading-relaxed twcss-text-primaryGreen twcss-italic">
+           <h2 class=" twcss-text-4xl twcss-leading-relaxed twcss-text-primaryGreen twcss-italic twcss-mb-10">
             {{product.description}}
           </h2>
         {% endif %}
@@ -86,7 +86,7 @@
       </ul>
     {% endif %}
   <br/>
-<div class=" twcss-ml-10 twcss-p-10"  x-data="{ modalOpen: false }">
+<div class=" twcss-ml-10 twcss-p-10"  x-data="{ modalOpen: false, hasHiddenVideos: false }">
 <!-- 1. The button --> 
   {% for videoid in product.metafields.custom.dhm_resources_videos.value %}
    
@@ -111,7 +111,9 @@
     aria-controls="modal"
     aria-label="Watch the video"
 > 
+{% # theme-check-disable %}
     <img class="twcss-rounded-3xl twcss-shadow-2xl twcss-transition-shadow twcss-duration-300 twcss-ease-in-out vidThumnail" src="https://img.youtube.com/vi/{{ the_id }}/hqdefault.jpg" width="768" height="432" alt="Modal video thumbnail" />
+   {% # theme-check-enable %}
     <!-- Play icon -->
     <svg class="twcss-absolute twcss-pointer-events-none group-hover:twcss-scale-110 twcss-transition-transform twcss-duration-300 twcss-ease-in-out" xmlns="http://www.w3.org/2000/svg" width="72" height="72">
         <circle class="twcss-fill-white" cx="36" cy="36" r="36" fill-opacity=".8" />
@@ -208,8 +210,9 @@
   </div>
 </div>
 {% if char_count >= 1100 %}
-
+{% # theme-check-disable %}
 <div class="twcss-w-full twcss-px-10 twcss-py-6 twcss-bg-bgGray twcss-flex twcss-flex-col md:twcss-flex-row">
+  {% # theme-check-enable %}
   <div class="twcss-w-full md:twcss-w-3/5 twcss-py-5"> 
   <div>
     <div class="twcss-px-4 md:twcss-px-0">
@@ -233,17 +236,20 @@
         {% else %}
           No Name Given: Click Here
         {% endif %}
-        
       </a>
       </li>
       {% endfor %}
       </ul>
     {% endif %}
   <br/>
-<div class=" twcss-ml-10 twcss-p-10"  x-data="{ modalOpen: false }">
+  {% if product.metafields.custom.dhm_resources_pdf_files !=null %}
+<div class=" twcss-ml-10 twcss-p-10"  x-data="{ modalOpen: false , showVideos: false }">
+  {%  assign num_videos = product.metafields.custom.dhm_resources_videos.value.size %}
+  <h3 class=" twcss-mb-10 twcss-text-primaryGreen twcss-font-bold">Video Resources ({{ num_videos  }} Total) </h3>
 <!-- 1. The button --> 
   {% for videoid in product.metafields.custom.dhm_resources_videos.value %}
-   {%  assign limit = 3 %}
+    
+   {%  assign limit = 1 %}
    {%  assign hidden_videos = false %}
     {% assign videoid2 = videoid | replace_first: '_', '*' %}
   {%  if forloop.index > limit %}
@@ -255,7 +261,7 @@
       {% assign the_id = videoid %}
     {% endif %}
     {% comment %} {{ videoid }} {% endcomment %}
-     <div class="video_thumbnail {% if forloop.index > limit %} hidden{% endif %}">
+     <div class="video_thumbnail " {% if forloop.index > limit %} x-show="showVideos" {% endif %}>
 {% if the_title != null %}
   
   <h3 class="twcss-text-2xl twcss-mb-8 twcss-text-gray-500">
@@ -269,8 +275,9 @@
     @click="modalOpen = true; showVideo('{{the_id}}')"
     aria-controls="modal"
     aria-label="Watch the video"
-> 
+> {% # theme-check-disable %}
     <img class="twcss-rounded-3xl twcss-shadow-2xl twcss-transition-shadow twcss-duration-300 twcss-ease-in-out vidThumnail" src="https://img.youtube.com/vi/{{ the_id }}/hqdefault.jpg" width="768" height="432" alt="Modal video thumbnail" />
+   {% # theme-check-enable %}
     <!-- Play icon -->
     <svg class="twcss-absolute twcss-pointer-events-none group-hover:twcss-scale-110 twcss-transition-transform twcss-duration-300 twcss-ease-in-out" xmlns="http://www.w3.org/2000/svg" width="72" height="72">
         <circle class="twcss-fill-white" cx="36" cy="36" r="36" fill-opacity=".8" />
@@ -281,8 +288,9 @@
     
   {% endfor %} 
 {% if hidden_videos %}
-    {% endif %}
-          <button id="showAllVideosBtn" class="twcss-text-primaryGreen twcss-text-2xl twcss-mb-10" >Show All Videos</button>
+    <button id="showAllVideosBtn" class="twcss-bg-primaryGreen hover:twcss-bg-black twcss-text-white  twcss-p-10 twcss-flex  twcss-text-3xl twcss-mt-5  twcss-w-full" @click="showVideos = ! showVideos;" > <span x-text="showVideos ? 'Hide Videos' : 'Show All Videos'"></span></button>
+
+ {% endif %}
 
 <!-- 2. The backdrop layer --> 
 <div x-show="modalOpen" class="twcss-fixed twcss-inset-0 twcss-z-[99999] twcss-bg-black twcss-bg-opacity-50 twcss-transition-opacity">
@@ -298,6 +306,8 @@
     </div>
 <!-- closing the x-data div -->
     </div>
+  {% endif %}
+
 
   </div>
 {% comment %}
@@ -442,6 +452,9 @@ closes the check for the charater count
 <!-- end  .page-width div -->
   
   <script>
+
+
+
     function showVideo(videoId) {
       console.log(videoId);
       
@@ -460,6 +473,12 @@ closes the check for the charater count
       const videoContainer = document.getElementById('video-container');
       videoContainer.innerHTML = '';
     }
+
+   {% comment %} function showAllVideos() {
+      console.log("Showing all videos");
+      const video_thumbnails = document.querySelectorAll(".video_thumbnail");
+      video_thumbnails.forEach(element => element.classList.remove("hidden"););
+    }  {% endcomment %}
 
         // Get a reference to the element
 {% comment %} window.showAllVideos =  function() {
