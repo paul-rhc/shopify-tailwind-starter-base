@@ -3717,8 +3717,14 @@ details-disclosure > details {
   div
   ul.metafield-single_line_text_field-array
   li.metafield-single_line_text_field {
-  display: inline;
   margin-right: 2rem;
+  font-size: 16px;
+  margin-top: 10px;
+  display: inline;
+}
+
+.collection .card__inner {
+  width: 20%;
 }
 
 /* @media screen and (min-width: 990px) {

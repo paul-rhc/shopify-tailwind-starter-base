@@ -151,7 +151,7 @@
       <h3 class=" twcss-text-3xl twcss-mb-8">{{ collections[part_collection].title }}</h3>
       {% comment %} <h4>Total Products in this Collection: {{ collections[part_collection].all_products_count }}</h4> {% endcomment %}
       <ul role="list" class="">
-      {% for product in collections[part_collection].products  limit:5 %}
+      {% for product in collections[part_collection].products  limit:3 %}
         
         <li class="twcss-flex twcss-gap-x-4 twcss-py-6 twcss-px-6 twcss-rounded-lg twcss-shadow-sm  twcss-bg-white twcss-mb-12">
           <img class="twcss-size-48 twcss-flex-none twcss-border" width="200px"
@@ -173,12 +173,12 @@
      {% endfor %}
      </ul>
      {% comment %}
-      only show this button if there are more that this limit
+       using limit above to limit amount of parts that are retrieved from the collection
      {% endcomment %}
-     {% assign max_prods = 4 %}
+     {% assign max_prods = 3 %}
      {% if max_prods <= part_collection_len %}
      
-      <a href="{{ routes.collections_url }}/{{part_collection}}" class=" twcss-bg-primaryGreen twcss-text-white twcss-p-10 twcss-flex twcss-items-center twcss-text-3xl twcss-mt-5 twcss-text-center">
+      <a href="{{ routes.collections_url }}/{{part_collection}}" class="  twcss-bg-primaryGreen hover:twcss-bg-primaryGreenDark twcss-text-white twcss-p-10 twcss-flex twcss-items-center twcss-text-3xl twcss-mt-5 twcss-text-center">
       View All Parts</a>
      {% endif %}
      {% else %}
@@ -288,7 +288,7 @@
     
   {% endfor %} 
 {% if hidden_videos %}
-    <button id="showAllVideosBtn" class="twcss-bg-primaryGreen hover:twcss-bg-black twcss-text-white  twcss-p-10 twcss-flex  twcss-text-3xl twcss-mt-5  twcss-w-full" @click="showVideos = ! showVideos;" > <span x-text="showVideos ? 'Hide Videos' : 'Show All Videos'"></span></button>
+    <button id="showAllVideosBtn" class="twcss-bg-primaryGreen hover:twcss-bg-primaryGreenDark twcss-text-white  twcss-p-10 twcss-flex  twcss-text-3xl twcss-mt-5  twcss-w-full" @click="showVideos = ! showVideos;" > <span x-text="showVideos ? 'Hide Videos' : 'Show All Videos'"></span></button>
 
  {% endif %}
 
@@ -429,7 +429,7 @@ closes the check for the charater count
             <h3 class=" twcss-font-medium twcss-text-3xl twcss-text-primaryGreenDark">{{ review.title }}</h3>
 
             <div class="twcss-mt-3 twcss-space-y-6 twcss-text-2xl twcss-text-gray-500 twcss-leading-loose">
-              <p>{{ review.text | strip_html | truncate: 700 }}</p>
+              <p>{{ review.text | strip_html | truncate: 1000 }}</p>
             </div>
           </div>
         </div>
