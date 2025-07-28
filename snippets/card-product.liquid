@@ -147,6 +147,12 @@
       <div class="card__content ">
         
         <div class="card__information">
+             {% comment %} 
+             this isn't showing up here, so I commented it out. Don't think we need the vendor here 
+             {%- if show_vendor -%}
+              <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
+              <div class="caption-with-letter-spacing light">{{ card_product.vendor }}</div>
+            {%- endif -%} {% endcomment %}
           <h3
             class="  card__heading{% if card_product.featured_media or settings.card_style == 'standard' %} h5{% endif %} "
             {% if card_product.featured_media or settings.card_style == 'card' %}
@@ -203,21 +209,19 @@
               </p>
             {%- endif -%}
             <div style="" class=" twcss-flex twcss-flex-row  twcss-text-primaryGreen">
-              {{ meta.dhm_promos | metafield_tag }}
+              {{ meta.dhm_promos | metafield_tag }} 
               {%  assign dhm_promos = meta.dhm_promos %}
-              {% if dhm_promos != blank %}
-                {% for promo in dhm_promos %}
-                  <span class="twcss-text-primaryGreen">Hello! {{ promo.value | metafield_tag }}</span>
+               {% for promo in dhm_promos %}
+                  <span class="twcss-text-primaryGreen">Hello! {{ promo }}</span>
                 {% endfor %}
+              {% if dhm_promos != null %}
+               
               {% endif %}
             </div>
           </h3>
 
           <div class="card-information ">
-            {%- if show_vendor -%}
-              <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
-              <div class="caption-with-letter-spacing light">{{ card_product.vendor }}</div>
-            {%- endif -%}
+         
 
             <span class="caption-large light ">{{ block.settings.description | escape }}</span>
 
