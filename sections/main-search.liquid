@@ -67,7 +67,45 @@
   <div class="template-search{% unless search.performed and search.results_count > 0 %} template-search--empty{% endunless %} section-{{ section.id }}-padding">
   
     {%- if search.performed -%}
-      {%- if section.settings.enable_sorting
+
+      <div
+        {% if section.settings.filter_type == 'vertical' %}
+          class="facets-vertical page-width twcss-h-full twcss-mr-4  twcss-text-white "
+        {% endif %}
+      >
+        
+        {%- if search.filters != empty -%}
+          {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
+            
+            <aside
+              aria-labelledby="verticalTitle"
+              class="facets-wrapper{% unless section.settings.enable_filtering %} facets-wrapper--no-filters{% endunless %} twcss-w-[300px] twcss-bg-primaryGreen twcss-p-10{% if section.settings.filter_type != 'vertical' %}  page-width{% endif %}"
+              id="main-search-filters"
+              data-id="{{ section.id }}"
+            >
+               <div class="  twcss-bg-primaryGreenDark -twcss-mt-10">
+
+            {% for link in linklists.categories-menu.links %}
+              <div class="-twcss-mx-10 twcss-border-b  twcss-bg-primaryGreenDark twcss-border-white ">
+                <a class=" twcss-block twcss-px-8 twcss-py-5  twcss-text-white hover:twcss-text-lime-200 hover:twcss-underline" href="{{ link.url }}">
+                  {{ link.title }}
+                  </a>
+               </div>
+            {% endfor %}
+          </div>
+         
+              {% render 'facets',
+                results: search,
+                enable_filtering: section.settings.enable_filtering,
+                enable_sorting: section.settings.enable_sorting,
+                filter_type: section.settings.filter_type,
+                paginate: paginate
+              %}
+            </aside>
+          {%- endif -%}
+        {%- endif -%}
+        <div class="product-grid-container twcss-bg-bgGray twcss-p-10" id="ProductGridContainer ">
+                {%- if section.settings.enable_sorting
         and section.settings.filter_type == 'vertical'
         and search.filters != empty
       -%}
@@ -124,32 +162,7 @@
           </form>
         </facet-filters-form>
       {%- endif -%}
-      <div
-        {% if section.settings.filter_type == 'vertical' %}
-          class="facets-vertical page-width twcss-h-full twcss-mr-4  twcss-text-white "
-        {% endif %}
-      >
-        {%- if search.filters != empty -%}
-          {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
-            <aside
-              aria-labelledby="verticalTitle"
-              class="facets-wrapper{% unless section.settings.enable_filtering %} facets-wrapper--no-filters{% endunless %} twcss-w-[300px] twcss-bg-primaryGreen twcss-p-10{% if section.settings.filter_type != 'vertical' %}  page-width{% endif %}"
-              id="main-search-filters"
-              data-id="{{ section.id }}"
-            >
-         
-              {% render 'facets',
-                results: search,
-                enable_filtering: section.settings.enable_filtering,
-                enable_sorting: section.settings.enable_sorting,
-                filter_type: section.settings.filter_type,
-                paginate: paginate
-              %}
-            </aside>
-          {%- endif -%}
-        {%- endif -%}
-        <div class="product-grid-container " id="ProductGridContainer ">
-            <div class="template-search__header page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %} twcss-bg-slate-300">
+            <div class="template-search__header page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}  twcss-bg-bgGray">
                 <h1 class="h2 center">
                   {%- if search.performed -%}
                     {{- 'templates.search.title' | t -}}
@@ -157,7 +170,7 @@
                     {{- 'general.search.search' | t -}}
                   {%- endif -%}
                 </h1>
-                <div class="template-search__search twcss-bg-slate-600">
+                <div class="template-search__search ">
                   {%- if settings.predictive_search_enabled -%}
                     <predictive-search data-loading-text="{{ 'accessibility.loading' | t }}">
                   {%- endif -%}
