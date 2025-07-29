@@ -50,7 +50,7 @@
 
         <aside
           aria-labelledby="verticalTitle"
-          class="facets-wrapper{% unless section.settings.enable_filtering %} facets-wrapper--no-filters{% endunless %}twcss-p-6 twcss-w-[300px] twcss-bg-primaryGreen {% if section.settings.filter_type != 'vertical' %} page-width{% endif %} twcss-p-10"
+          class="facets-wrapper{% unless section.settings.enable_filtering %} facets-wrapper--no-filters{% endunless %} twcss-w-[300px] twcss-bg-primaryGreen twcss-p-10{% if section.settings.filter_type != 'vertical' %} page-width{% endif %} "
           id="main-collection-filters"
           data-id="{{ section.id }}"
         >
