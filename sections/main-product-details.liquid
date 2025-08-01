@@ -25,8 +25,8 @@
       If the description is less than 1100 characters, we show the specs below description... 
       if it's bigger, we create a new row for specs that might also have videos and pdfs.
      {% endcomment %}
-{% assign char_count = product.metafields.custom.dhm_shared_description.value | size %}
-<div class="page-width">
+{% comment %} {% assign char_count = product.metafields.custom.dhm_shared_description.value | size %} {% endcomment %}
+<div class="page-width -twcss-mt-10">
   <div id="the_acc" class="twcss-space-y-6 twcss-bg-bgGray">
     <div class="twcss-flex twcss-mx-auto  "> 
     <!--Former Accordion -->
@@ -52,6 +52,11 @@
     </div>
   </div>
   <div class="twcss-w-full md:twcss-w-2/5  md:twcss-pl-12 " > 
+  <div class=" twcss-p-5 twcss-mb-16">
+ {% render "simple-cards-flex" product=product %}
+
+  </div>
+
       {% if product.metafields["custom"]["dhm_promos_parts"] != blank %}
       {% assign part_collection = product.metafields["custom"]["dhm_promos_parts"] %}
       {% assign part_collection_len = collections[part_collection].all_products_count %}
