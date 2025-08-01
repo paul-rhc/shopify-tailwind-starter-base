@@ -31,19 +31,19 @@
     <div class="twcss-flex twcss-mx-auto  "> 
     <!--Former Accordion -->
       <div id="description_details"  role="region" class=" twcss-w-full twcss-px-10 twcss-pt-10 ">
-        {% if char_count >= 1100 %}
+        {% comment %} {% if char_count >= 1100 %}
            <h2 class=" twcss-text-4xl twcss-leading-relaxed twcss-text-primaryGreen twcss-italic twcss-mb-10">
             {{product.description}}
           </h2>
-        {% endif %}
+        {% endif %} {% endcomment %}
       <div class="twcss-pb-4 twcss-pt-6  twcss-w-full twcss-flex twcss-flex-col md:twcss-flex-row" >
         <div class="twcss-w-full md:twcss-w-3/5 twcss-py-5 twcss-pr-10"> 
          <div id="desc_container">
-          {% if char_count <= 1100 %}
+         
            <h2 class=" twcss-text-4xl twcss-leading-relaxed twcss-text-primaryGreen twcss-italic">
             {{product.description}}
           </h2>
-        {% endif %}
+       
           {{ product.metafields.custom.dhm_shared_description.value }}
            {% comment %}
             This is where we put the description, and the specs if the character count is less than 1100
