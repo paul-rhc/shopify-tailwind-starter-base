@@ -1,0 +1,68 @@
+ {% if char_count <= 1100 %}
+         {% render 'specs-all' , product:product %}
+         <!-- huge repeated html for edge case videos -->
+  {% if product.metafields.custom.dhm_resources_pdf_files !=null %}
+    <ul class="twcss-ml-10 twcss-p-10">
+      <h3 class=" twcss-mb-10 twcss-text-primaryGreen twcss-font-bold">PDF Resources</h3>
+    {% for metavalue in product.metafields.custom.dhm_resources_pdf_files.value  %}
+      <li class="twcss-mb-4">
+      <a href="{{metavalue.url}}" alt="{{metavalue.alt}}" class="twcss-text-primaryGreen hover:twcss-text-primaryGreenDark twcss-text-2xl" target="_blank" rel="noopener noreferrer">
+        {% if metavalue.alt !=null %}
+          {{metavalue.alt}}
+        {% else %}
+          No Name Given: Click Here
+        {% endif %}
+      </a>
+      </li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  <br/>
+<div class=" twcss-ml-10 twcss-p-10"  x-data="{ modalOpen: false, hasHiddenVideos: false }">
+<!-- 1. The button --> 
+  {% for videoid in product.metafields.custom.dhm_resources_videos.value %}
+    {% assign videoid2 = videoid | replace_first: '_', '*' %}
+    {% assign the_title = videoid2 | split: '*' | first %}
+    {% assign the_id = videoid2 | split: '*' | last %}
+    {% if the_id == null %}
+      {% assign the_id = videoid %}
+    {% endif %}
+    {% comment %} {{ videoid }} {% endcomment %}
+  {% if the_title != null %}
+  <h3 class="twcss-text-2xl twcss-mb-8 twcss-text-gray-500">
+    {{ the_title }}
+  </h3> 
+   {% endif %}
+  <button
+    class="twcss-relative twcss-flex twcss-justify-center twcss-items-center focus:twcss-outline-none focus-visible:twcss-ring focus-visible:twcss-ring-indigo-300 twcss-rounded-3xl twcss-mb-10 twcss-group"
+    @click="modalOpen = true; showVideo('{{the_id}}')"
+    aria-controls="modal"
+    aria-label="Watch the video"
+> 
+{% # theme-check-disable %}
+    <img class="twcss-rounded-3xl twcss-shadow-2xl twcss-transition-shadow twcss-duration-300 twcss-ease-in-out vidThumnail" src="https://img.youtube.com/vi/{{ the_id }}/hqdefault.jpg" width="768" height="432" alt="Modal video thumbnail" />
+   {% # theme-check-enable %}
+    <!-- Play icon -->
+    <svg class="twcss-absolute twcss-pointer-events-none group-hover:twcss-scale-110 twcss-transition-transform twcss-duration-300 twcss-ease-in-out" xmlns="http://www.w3.org/2000/svg" width="72" height="72">
+        <circle class="twcss-fill-white" cx="36" cy="36" r="36" fill-opacity=".8" />
+        <path class="fill-indigo-500 drop-shadow-2xl" d="M44 36a.999.999 0 0 0-.427-.82l-10-7A1 1 0 0 0 32 29V43a.999.999 0 0 0 1.573.82l10-7A.995.995 0 0 0 44 36V36c0 .001 0 .001 0 0Z" />
+    </svg>
+</button>
+  {% endfor %} 
+
+<!-- 2. The backdrop layer --> 
+<div x-show="modalOpen" class="twcss-fixed twcss-inset-0 twcss-z-[99999] twcss-bg-black twcss-bg-opacity-50 twcss-transition-opacity">
+<!-- 3. The modal video -->
+<div id="modal" x-show="modalOpen"  class="twcss-fixed twcss-inset-0 twcss-z-[99999] twcss-flex twcss-p-6" role="dialog" aria-modal="true">
+    <div class=" twcss-mx-auto twcss-h-full twcss-flex twcss-items-center">
+        <div  @click.outside="modalOpen = false; hideVideo()"
+            @keydown.escape.window="modalOpen = false; hideVideo()" id="video-container" class="twcss-w-full twcss-max-h-full twcss-rounded-3xl twcss-shadow-2xl twcss-aspect-video twcss-bg-black twcss-overflow-hidden">
+        </div>
+    </div>
+</div>
+<!-- closing the modal backdrop div -->
+    </div>
+<!-- closing the x-data div -->
+    </div>
+<!-- end repeated video html - find a fix for this later, it's a huge waste -->
+          {% endif %}
