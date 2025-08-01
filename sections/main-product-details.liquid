@@ -90,7 +90,7 @@
       <a href="{{ routes.collections_url }}/{{part_collection}}" class="  twcss-bg-primaryGreen hover:twcss-bg-primaryGreenDark twcss-text-white twcss-p-10 twcss-flex twcss-items-center twcss-text-3xl twcss-mt-5 twcss-text-center">
       View All Parts</a>
      {% endif %}
-     {% else %}
+     {% comment %} {% else %}
      <h3 class="twcss-text-3xl twcss-mb-8 twcss-mt-5">Popular Products</h3>
      <ul role="list" class="divide-y divide-gray-300">
      {% for product in collections['all'].products  limit:3 %}
@@ -107,7 +107,7 @@
         </div>
       </li>
       {% endfor %}
-      </ul>
+      </ul> {% endcomment %}
     {% endif %}
 
     </div>
@@ -117,22 +117,20 @@
 </div>
 {% comment %} {% if char_count >= 1100 %} {% endcomment %}
 {% # theme-check-disable %}
-<div class="twcss-w-full twcss-px-10  twcss-bg-bgGray twcss-flex twcss-flex-col md:twcss-flex-row">
+<div class="twcss-w-full twcss-px-10  twcss-bg-bgGray ">
   {% # theme-check-enable %}
+ <div class=" twcss-w-full twcss-bg-white twcss-shadow sm:twcss-rounded-lg twcss-mt-8 twcss-flex twcss-flex-col md:twcss-flex-row">
+
   <div class="twcss-w-full md:twcss-w-3/5 twcss-py-5"> 
-  <div>
     <div class="twcss-px-4 md:twcss-px-0">
       <h3 class="twcss-text-3xl twcss-p-4 twcss-mb-3 twcss-font-semibold  twcss-text-primaryGreen">Specifications</h3>
     </div>
-    <div class="twcss-overflow-hidden twcss-bg-white twcss-shadow sm:twcss-rounded-lg twcss-mt-8">
       <!-- All Specs -->
      {% render 'specs-all' , product:product %}
-      </div>
-    </div>
   </div>
   <div class="twcss-w-full md:twcss-w-2/5" > 
   {% if product.metafields.custom.dhm_resources_pdf_files !=null %}
-    <ul class="twcss-ml-10 twcss-p-10">
+    <ul class=" twcss-ml-10 twcss-p-10">
       <h3 class=" twcss-mb-10 twcss-text-primaryGreen twcss-font-bold">PDF Resources</h3>
     {% for metavalue in product.metafields.custom.dhm_resources_pdf_files.value  %}
       <li class="twcss-mb-4">
@@ -145,11 +143,11 @@
       </a>
       </li>
       {% endfor %}
-      </ul>
+    </ul>
     {% endif %}
   
   {% if product.metafields.custom.dhm_resources_videos !=null %}
-<div class=" twcss-ml-10 twcss-p-10"  x-data="{ modalOpen: false , showVideos: false }">
+  <div class="twcss-ml-10 twcss-p-10"  x-data="{ modalOpen: false , showVideos: false }">
   {%  assign num_videos = product.metafields.custom.dhm_resources_videos.value.size %}
   <h3 class=" twcss-mb-10 twcss-text-primaryGreen twcss-font-bold">Video Resources ({{ num_videos  }} Total) </h3>
 <!-- 1. The button --> 
@@ -168,52 +166,54 @@
     {% endif %}
     {% comment %} {{ videoid }} {% endcomment %}
      <div class="video_thumbnail " {% if forloop.index > limit %} x-show="showVideos" {% endif %}>
-  {% if the_title != null %}
-  <h3 class="twcss-text-2xl twcss-mb-8 twcss-text-gray-500">
-    {{ the_title }}
-  </h3> 
-   {% endif %}
+      {% if the_title != null %}
+        <h3 class="twcss-text-2xl twcss-mb-8 twcss-text-gray-500">
+          {{ the_title }}
+        </h3> 
+      {% endif %}
    
-  <button
-    class="twcss-relative twcss-flex twcss-justify-center twcss-items-center focus:twcss-outline-none focus-visible:twcss-ring focus-visible:twcss-ring-indigo-300 twcss-rounded-3xl twcss-mb-10 twcss-group"
-    @click="modalOpen = true; showVideo('{{the_id}}')"
-    aria-controls="modal"
-    aria-label="Watch the video"
-> {% # theme-check-disable %}
-    <img class="twcss-rounded-3xl twcss-shadow-2xl twcss-transition-shadow twcss-duration-300 twcss-ease-in-out vidThumnail" src="https://img.youtube.com/vi/{{ the_id }}/hqdefault.jpg" width="768" height="432" alt="Modal video thumbnail" />
-   {% # theme-check-enable %}
-    <!-- Play icon -->
-    <svg class="twcss-absolute twcss-pointer-events-none group-hover:twcss-scale-110 twcss-transition-transform twcss-duration-300 twcss-ease-in-out" xmlns="http://www.w3.org/2000/svg" width="72" height="72">
-        <circle class="twcss-fill-white" cx="36" cy="36" r="36" fill-opacity=".8" />
-        <path class="fill-indigo-500 drop-shadow-2xl" d="M44 36a.999.999 0 0 0-.427-.82l-10-7A1 1 0 0 0 32 29V43a.999.999 0 0 0 1.573.82l10-7A.995.995 0 0 0 44 36V36c0 .001 0 .001 0 0Z" />
-    </svg>
-</button>
-   </div>
-    
+        <button
+          class="twcss-relative twcss-flex twcss-justify-center twcss-items-center focus:twcss-outline-none focus-visible:twcss-ring focus-visible:twcss-ring-indigo-300 twcss-rounded-3xl twcss-mb-10 twcss-group"
+          @click="modalOpen = true; showVideo('{{the_id}}')"
+          aria-controls="modal"
+          aria-label="Watch the video"
+      > {% # theme-check-disable %}
+          <img class="twcss-rounded-3xl twcss-shadow-2xl twcss-transition-shadow twcss-duration-300 twcss-ease-in-out vidThumnail" src="https://img.youtube.com/vi/{{ the_id }}/hqdefault.jpg" width="768" height="432" alt="Modal video thumbnail" />
+        {% # theme-check-enable %}
+          <!-- Play icon -->
+          <svg class="twcss-absolute twcss-pointer-events-none group-hover:twcss-scale-110 twcss-transition-transform twcss-duration-300 twcss-ease-in-out" xmlns="http://www.w3.org/2000/svg" width="72" height="72">
+              <circle class="twcss-fill-white" cx="36" cy="36" r="36" fill-opacity=".8" />
+              <path class="fill-indigo-500 drop-shadow-2xl" d="M44 36a.999.999 0 0 0-.427-.82l-10-7A1 1 0 0 0 32 29V43a.999.999 0 0 0 1.573.82l10-7A.995.995 0 0 0 44 36V36c0 .001 0 .001 0 0Z" />
+          </svg>
+      </button>
+    </div>
+
   {% endfor %} 
 {% if hidden_videos %}
     <button id="showAllVideosBtn" class="twcss-bg-primaryGreen hover:twcss-bg-primaryGreenDark twcss-text-white  twcss-p-10 twcss-flex  twcss-text-3xl twcss-mt-5  twcss-w-full" @click="showVideos = ! showVideos;" > <span x-text="showVideos ? 'Hide Videos' : 'Show All Videos'"></span></button>
-
  {% endif %}
-
 <!-- 2. The backdrop layer --> 
 <div x-show="modalOpen" class="twcss-fixed twcss-inset-0 twcss-z-[99999] twcss-bg-black twcss-bg-opacity-50 twcss-transition-opacity">
 <!-- 3. The modal video -->
-<div id="modal" x-show="modalOpen"  class="twcss-fixed twcss-inset-0 twcss-z-[99999] twcss-flex twcss-p-6" role="dialog" aria-modal="true">
+  <div id="modal" x-show="modalOpen"  class="twcss-fixed twcss-inset-0 twcss-z-[99999] twcss-flex twcss-p-6" role="dialog" aria-modal="true">
     <div class=" twcss-mx-auto twcss-h-full twcss-flex twcss-items-center">
         <div  @click.outside="modalOpen = false; hideVideo()"
             @keydown.escape.window="modalOpen = false; hideVideo()" id="video-container" class="twcss-w-full twcss-max-h-full twcss-rounded-3xl twcss-shadow-2xl twcss-aspect-video twcss-bg-black twcss-overflow-hidden">
         </div>
     </div>
-</div>
-<!-- closing the modal backdrop div -->
-    </div>
-<!-- closing the x-data div -->
-    </div>
-  {% endif %}
-
-    </div>
   </div>
+<!-- closing the modal backdrop div -->
+ </div>
+<!-- closing the x-data div -->
+</div>
+   
+  
+  {% endif %}
+    </div>
+        <!-- end 3/5 div above-->
+  </div>
+   </div>
+
 {% comment %}
 closes the check for the charater count
   {% endcomment %}
