@@ -20,14 +20,9 @@
 </style>
 
 
-    {% comment %}
-      We are using the charater count to make layout decisions.
-      If the description is less than 1100 characters, we show the specs below description... 
-      if it's bigger, we create a new row for specs that might also have videos and pdfs.
-     {% endcomment %}
-{% comment %} {% assign char_count = product.metafields.custom.dhm_shared_description.value | size %} {% endcomment %}
-<div class="page-width -twcss-mt-10">
-  <div id="the_acc" class="twcss-space-y-6 twcss-bg-bgGray">
+    
+<div class="page-width ">
+  <div id="the_acc" class="twcss-space-y-6 twcss-bg-bgGray -twcss-mt-20 twcss-pt-10">
     <div class="twcss-flex twcss-mx-auto  "> 
     <!--Former Accordion -->
       <div id="description_details"  role="region" class=" twcss-w-full twcss-px-10 twcss-pt-10 ">
@@ -90,24 +85,7 @@
       <a href="{{ routes.collections_url }}/{{part_collection}}" class="  twcss-bg-primaryGreen hover:twcss-bg-primaryGreenDark twcss-text-white twcss-p-10 twcss-flex twcss-items-center twcss-text-3xl twcss-mt-5 twcss-text-center">
       View All Parts</a>
      {% endif %}
-     {% comment %} {% else %}
-     <h3 class="twcss-text-3xl twcss-mb-8 twcss-mt-5">Popular Products</h3>
-     <ul role="list" class="divide-y divide-gray-300">
-     {% for product in collections['all'].products  limit:3 %}
-      <li class="twcss-flex twcss-gap-x-4 twcss-py-6 twcss-px-6  twcss-rounded-md twcss-shadow-sm twcss-bg-white twcss-mb-12">
-        <img class="twcss-size-48 twcss-flex-none twcss-border" width="200px"
-          height="200px" src="/cdn/shop/{{product.featured_image | image_url: 'small'}}" alt="{{product.featured_image.alt}}">
-        <div class="twcss-min-w-0">
-          <p class="twcss-text-3xl twcss-font-semibold twcss-text-gray-900 twcss-leading-[1.5]">
-            <a href="{{product.url}}" class=" twcss-text-primaryGreen hover:twcss-text-primaryGreenDark">{{product.title}}</a>
-          </p>
-          <p class="twcss-mt-1 twcss-text-2xl  twcss-text-primaryGreen">
-            {{product.price | money}}
-          </p>
-        </div>
-      </li>
-      {% endfor %}
-      </ul> {% endcomment %}
+
     {% endif %}
 
     </div>
