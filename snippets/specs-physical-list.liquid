@@ -7,6 +7,7 @@ Ingredients : dhm_physical_ingredients ,
 {% assign physical_specs_split = physical_specs | split: ',' %}
 {% assign path = product.metafields.custom %}
 
+{% if product.metafields.custom["dhm_physical_activator"] != blank %}
 <h3 class="twcss-px-6 twcss-py-4 twcss-font-semibold twcss-text-primaryGreen twcss-text-2xl ">
 PHYSICAL DETAILS
 </h3>
@@ -37,3 +38,5 @@ PHYSICAL DETAILS
 </div>
 
 <br />
+
+{% endif %}
