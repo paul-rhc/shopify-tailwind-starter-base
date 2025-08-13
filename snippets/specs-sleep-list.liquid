@@ -30,7 +30,7 @@ Therapy Data Viewing Options : dhm_shared_data_viewing ,
 MACHINE DETAILS
 </h3>
 
-<div style="font-size:90%; font-kerning: normal; font-family:verdana, sans-serif;" class="twcss-border-t twcss-border-b">
+<div style="font-size:90%; font-kerning: normal; font-family:montserrat, sans-serif;" class="twcss-border-t twcss-border-b">
 <dl class="twcss-px-6 twcss-divide-y twcss-divide-gray-100 ">
      
 {% for spec in pap_machine_specs_split %}
@@ -61,7 +61,7 @@ MACHINE DETAILS
 
 {% assign pap_mask_specs = "
 Mask Type : dhm_sleep_mask_type ,
-Recommended Pressure Range : dhm_sleep_pressure_range ,
+Maximum Recommended Pressure Range : dhm_sleep_pressure_range ,
 " %}
 
 {% assign pap_mask_specs_split = pap_mask_specs | split: ',' %}
