@@ -114,6 +114,14 @@ BATTERY POWER DETAILS
     {% endif %}
   
 {% endfor %}
+
+{% if product.metafields.custom["dhm_power_battery_shipping_notice"] != null %}
+    <div class="twcss-py-3 md:twcss-grid md:twcss-grid-cols-3 md:twcss-gap-4 ">
+        <dt>Battery Shipping Notice:</dt>
+        <dd class="md:twcss-mt-0">Hello There!</dd>
+      </div>
+{% endif %}
+
   </dl>
 </div>
 
