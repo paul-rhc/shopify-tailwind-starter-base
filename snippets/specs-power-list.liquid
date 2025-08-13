@@ -86,7 +86,6 @@ Battery Capacity : dhm_power_battery_capacity ,
 Battery Life Cycles : dhm_power_battery_life_cycles ,
 Battery Recharge Time : dhm_power_battery_recharge_time ,
 Battery Run Time : dhm_power_battery_run_time ,
-Battery Shipping Notice : dhm_power_battery_shipping_notice ,
 " %}
 
 {% assign power_battery_specs_split = power_battery_specs | split: ',' %}
@@ -117,8 +116,8 @@ BATTERY POWER DETAILS
 
 {% if product.metafields.custom["dhm_power_battery_shipping_notice"] != null %}
     <div class="twcss-py-3 md:twcss-grid md:twcss-grid-cols-3 md:twcss-gap-4 ">
-        <dt>Battery Shipping Notice:</dt>
-        <dd class="md:twcss-mt-0">Hello There!</dd>
+        <dt><strong><font color="c80000#">Shipping Notice:</font></strong></dt>
+        <dd class="md:twcss-mt-0">Due to Federal Regulations battery packs like this one cannot be sent via air shipping methods unless they are contained within a device, like a CPAP machine, nebulizer or oxygen concentrator.</dd>
       </div>
 {% endif %}
 
