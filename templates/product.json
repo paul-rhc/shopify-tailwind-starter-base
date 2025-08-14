@@ -38,6 +38,18 @@
           "type": "price",
           "settings": {}
         },
+        "smile_io_smile_points_on_product_page_aYyraL": {
+          "type": "shopify://apps/smile-io/blocks/smile-points-on-product-page/2fae4e25-1841-4ea2-bc02-bd548478c4f6",
+          "settings": {
+            "primary_colour": "#121212",
+            "secondary_colour": "#f8f8f8",
+            "preview_scenario": "customer_can_earn_points",
+            "should_show_icon": true,
+            "should_show_points_label": true,
+            "points_text_logged_in": "<p>Earn [points_amount] when you buy this item.</p>",
+            "points_text_logged_out": "<p>Members earn [points_amount] when they buy this item. <a href=\"/account/register/\">Sign up</a> or <a href=\"/account/login/\">log in</a>.</p>"
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -63,6 +75,7 @@
         "rating_MC4LUG",
         "caption",
         "price",
+        "smile_io_smile_points_on_product_page_aYyraL",
         "variant_picker",
         "quantity_selector",
         "buy_buttons"
@@ -70,10 +83,10 @@
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
-        "media_size": "medium",
+        "media_size": "small",
         "constrain_to_viewport": true,
         "media_fit": "contain",
-        "gallery_layout": "thumbnail_slider",
+        "gallery_layout": "thumbnail",
         "media_position": "left",
         "image_zoom": "lightbox",
         "mobile_thumbnails": "hide",
