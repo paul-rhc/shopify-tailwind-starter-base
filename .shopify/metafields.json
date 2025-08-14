@@ -1,6 +1,7 @@
 {
   "article": [],
   "blog": [],
+  "brand": [],
   "collection": [],
   "company": [],
   "company_location": [],
@@ -153,7 +154,7 @@
       "key": "dhm_general_compatibility",
       "namespace": "custom",
       "name": "DHM Gen - Compatibility",
-      "description": "",
+      "description": "ONLY use this when you want to minimize compatibility details (like every mask saying it's compatible with every machine except AirMini). Otherwise put compatibility information directly in the page copy.",
       "type": {
         "name": "single_line_text_field",
         "category": "TEXT"
@@ -1167,6 +1168,16 @@
       "type": {
         "name": "json",
         "category": "JSON"
+      }
+    },
+    {
+      "key": "nebulizer-design",
+      "namespace": "shopify",
+      "name": "Nebulizer design",
+      "description": "Defines the design and portability of a nebulizer, e.g. handheld, tabletop",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
       }
     }
   ],

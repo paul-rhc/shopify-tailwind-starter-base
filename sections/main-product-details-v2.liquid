@@ -1,0 +1,72 @@
+<style>
+  #desc_container p {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    line-height: 1.75;
+  }
+
+  #desc_container p strong,
+  #desc_container p b {
+    color: #416a38;
+  }
+
+  #desc_container ul.literaturelist {
+    display: none;
+  }
+  #desc_container div.youtube-responsive {
+    display: none;
+  }
+</style>
+{% comment %}
+  All comments for closing divs refer to the </div> below the comment
+{% endcomment %}
+<div id='details-root' class='page-width '>
+  <div id='the_acc' class='twcss-space-y-6 twcss-bg-bgGray -twcss-mt-20 twcss-pt-10'>
+    <div id='main-content-container' class='twcss-flex twcss-mx-auto'>
+      <div id='product_details' role='region' class=' twcss-w-full twcss-px-10 twcss-pt-10 '>
+        <div class='twcss-pb-4 twcss-pt-6  twcss-w-full twcss-flex twcss-flex-col md:twcss-flex-row'>
+          <div id='desc_container' class='lg:twcss-px-40 xl:twcss-px-60'>
+            <h2 class=' twcss-text-4xl twcss-leading-relaxed twcss-text-primaryGreen twcss-italic twcss-text-pretty'>
+              {{ product.description }}
+            </h2>
+            {{ product.metafields.custom.dhm_shared_description.value }}
+          </div>
+        </div>
+        {% comment %}
+          Loads the benefits, we pass in the product object in all these,
+          so snippets have access to metafields
+        {% endcomment %}
+        <div class='description-section'>
+          {% render 'simple-cards-grid', product: product %}
+        </div>
+
+        {% comment %} accordion container {% endcomment %}
+
+        <div class=' twcss-w-full twcss-bg-white twcss-shadow sm:twcss-rounded-lg twcss-mt-8 twcss-flex twcss-flex-col md:twcss-flex-row'>
+          <div class='twcss-w-full twcss-py-5 lg:twcss-px-40'>
+            <div class='twcss-px-4 '>
+              <h3 class='twcss-text-3xl twcss-p-4 twcss-mb-3 twcss-font-semibold  twcss-text-primaryGreen'>
+                Specifications
+              </h3>
+            </div>
+            <!-- All Specs -->
+            {% render 'specs-all', product: product %}
+          </div>
+        </div>
+        {% comment %}End accordion container {% endcomment %}
+
+        {% comment %}Checks for a collection of parts that include this product{% endcomment %}
+        {% if product.metafields.custom.dhm_promos_parts != blank %}
+          <div class='description-section'>
+            {% render 'product-related-parts', product: product %}
+          </div>
+        {% endif %}
+
+        {% comment %}Close product_details {% endcomment %}
+      </div>
+      {% comment %}Close main-content-container {% endcomment %}
+    </div>
+    {% comment %}the_acc{% endcomment %}
+  </div>
+  {% comment %}Close details-root {% endcomment %}
+</div>

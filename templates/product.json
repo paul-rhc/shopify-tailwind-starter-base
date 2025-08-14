@@ -87,8 +87,8 @@
     //   "type": "main-product-benefits",
     //   "settings": {}
     // },
-    "main-product-details": {
-      "type": "main-product-details",
+    "main-product-details-v2": {
+      "type": "main-product-details-v2",
       "settings": {}
     },
     "related-products": {
@@ -112,7 +112,7 @@
   },
   "order": [
     "main",
-    "main-product-details",
+    "main-product-details-v2",
     "related-products"
   ]
 }

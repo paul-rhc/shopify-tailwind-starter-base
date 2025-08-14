@@ -1,339 +1,378 @@
-
 <style>
-  #desc_container p{
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  line-height: 1.75
+  #desc_container p {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    line-height: 1.75;
   }
 
-  #desc_container p strong, #desc_container p b{
+  #desc_container p strong,
+  #desc_container p b {
     color: #416a38;
   }
 
-  #desc_container ul.literaturelist{
+  #desc_container ul.literaturelist {
     display: none;
   }
-  #desc_container div.youtube-responsive{
+  #desc_container div.youtube-responsive {
     display: none;
   }
-
 </style>
 
+<div class='page-width '>
+  <div id='the_acc' class='twcss-space-y-6 twcss-bg-bgGray -twcss-mt-20 twcss-pt-10'>
+    <div class='twcss-flex twcss-mx-auto  '>
+      <!-- Former Accordion -->
+      <div id='description_details' role='region' class=' twcss-w-full twcss-px-10 twcss-pt-10 '>
+        {% comment %}
+          {% if char_count >= 1100 %}
+             <h2 class=" twcss-text-4xl twcss-leading-relaxed twcss-text-primaryGreen twcss-italic twcss-mb-10">
+              {{product.description}}
+            </h2>
+          {% endif %}
+        {% endcomment %}
+        <div class='twcss-pb-4 twcss-pt-6  twcss-w-full twcss-flex twcss-flex-col md:twcss-flex-row'>
+          <div class='twcss-w-full md:twcss-w-3/5 twcss-py-5 twcss-pr-10'>
+            <div id='desc_container'>
+              <h2 class=' twcss-text-4xl twcss-leading-relaxed twcss-text-primaryGreen twcss-italic'>
+                {{ product.description }}
+              </h2>
 
-    
-<div class="page-width ">
-  <div id="the_acc" class="twcss-space-y-6 twcss-bg-bgGray -twcss-mt-20 twcss-pt-10">
-    <div class="twcss-flex twcss-mx-auto  "> 
-    <!--Former Accordion -->
-      <div id="description_details"  role="region" class=" twcss-w-full twcss-px-10 twcss-pt-10 ">
-        {% comment %} {% if char_count >= 1100 %}
-           <h2 class=" twcss-text-4xl twcss-leading-relaxed twcss-text-primaryGreen twcss-italic twcss-mb-10">
-            {{product.description}}
-          </h2>
-        {% endif %} {% endcomment %}
-      <div class="twcss-pb-4 twcss-pt-6  twcss-w-full twcss-flex twcss-flex-col md:twcss-flex-row" >
-        <div class="twcss-w-full md:twcss-w-3/5 twcss-py-5 twcss-pr-10"> 
-         <div id="desc_container">
-         
-           <h2 class=" twcss-text-4xl twcss-leading-relaxed twcss-text-primaryGreen twcss-italic">
-            {{product.description}}
-          </h2>
-       
-          {{ product.metafields.custom.dhm_shared_description.value }}
-           {% comment %}
-            This is where we put the description, and the specs if the character count is less than 1100
-          {% endcomment %}
-         
-    </div>
-  </div>
-  <div class="twcss-w-full md:twcss-w-2/5  md:twcss-pl-12 " > 
-  <div class=" twcss-p-5 twcss-mb-16">
- {% render "simple-cards-flex" product=product %}
-
-  </div>
-
-      {% if product.metafields["custom"]["dhm_promos_parts"] != blank %}
-      {% assign part_collection = product.metafields["custom"]["dhm_promos_parts"] %}
-      {% assign part_collection_len = collections[part_collection].all_products_count %}
-      <h3 class=" twcss-text-3xl twcss-mb-8">{{ collections[part_collection].title }}</h3>
-      {% comment %} <h4>Total Products in this Collection: {{ collections[part_collection].all_products_count }}</h4> {% endcomment %}
-      <ul role="list" class="">
-      {% for product in collections[part_collection].products  limit:3 %}
-        
-        <li class="twcss-flex twcss-gap-x-4 twcss-py-6 twcss-px-6  twcss-mb-6">
-          <img class="twcss-size-48 twcss-flex-none twcss-border" width="200px"
-            height="200px" src="/cdn/shop/{{product.featured_image | image_url: 'small'}}" alt="{{product.featured_image.alt}}">
-            
-          <div class="twcss-min-w-0">
-            <p class="twcss-text-3xl twcss-font-semibold twcss-text-gray-900 twcss-leading-[1.5]">
-              <a href="{{product.url}}" class=" twcss-text-primaryGreen hover:twcss-text-primaryGreenDark">{{product.title}}</a>
-            </p>
-            <p class="twcss-mt-1 twcss-text-2xl twcss-text-gray-500">
-              {{product.price | money}}
-            </p>
-          </div>
-        </li>
-        
-     {% endfor %}
-     </ul>
-     {% comment %}
-       using limit above to limit amount of parts that are retrieved from the collection
-     {% endcomment %}
-     {% assign max_prods = 3 %}
-     {% if max_prods <= part_collection_len %}
-     
-      <a href="{{ routes.collections_url }}/{{part_collection}}" class="  twcss-bg-primaryGreen hover:twcss-bg-primaryGreenDark twcss-text-white twcss-p-10 twcss-flex twcss-items-center twcss-text-3xl twcss-mt-5 twcss-text-center">
-      View All Parts</a>
-     {% endif %}
-
-    {% endif %}
-
-    </div>
-  </div>
-
-  </div>
-</div>
-{% comment %} {% if char_count >= 1100 %} {% endcomment %}
-{% # theme-check-disable %}
-<div class="twcss-w-full twcss-px-10  twcss-bg-bgGray ">
-  {% # theme-check-enable %}
- <div class=" twcss-w-full twcss-bg-white twcss-shadow sm:twcss-rounded-lg twcss-mt-8 twcss-flex twcss-flex-col md:twcss-flex-row">
-
-  <div class="twcss-w-full md:twcss-w-3/5 twcss-py-5"> 
-    <div class="twcss-px-4 md:twcss-px-0">
-      <h3 class="twcss-text-3xl twcss-p-4 twcss-mb-3 twcss-font-semibold  twcss-text-primaryGreen">Specifications</h3>
-    </div>
-      <!-- All Specs -->
-     {% render 'specs-all' , product:product %}
-  </div>
-  <div class="twcss-w-full md:twcss-w-2/5" > 
-  {% if product.metafields.custom.dhm_resources_pdf_files !=null %}
-    <ul class=" twcss-ml-10 twcss-p-10">
-      <h3 class=" twcss-mb-10 twcss-text-primaryGreen twcss-font-bold">PDF Resources</h3>
-    {% for metavalue in product.metafields.custom.dhm_resources_pdf_files.value  %}
-      <li class="twcss-mb-4">
-      <a href="{{metavalue.url}}" alt="{{metavalue.alt}}" class="twcss-text-primaryGreen hover:twcss-text-primaryGreenDark twcss-text-2xl" target="_blank" rel="noopener noreferrer">
-        {% if metavalue.alt !=null %}
-          {{metavalue.alt}}
-        {% else %}
-          No Name Given: Click Here
-        {% endif %}
-      </a>
-      </li>
-      {% endfor %}
-    </ul>
-    {% endif %}
-  
-  {% if product.metafields.custom.dhm_resources_videos !=null %}
-  <div class="twcss-ml-10 twcss-p-10"  x-data="{ modalOpen: false , showVideos: false }">
-  {%  assign num_videos = product.metafields.custom.dhm_resources_videos.value.size %}
-  <h3 class=" twcss-mb-10 twcss-text-primaryGreen twcss-font-bold">Video Resources ({{ num_videos  }} Total) </h3>
-<!-- 1. The button --> 
-  {% for videoid in product.metafields.custom.dhm_resources_videos.value %}
-    
-   {%  assign limit = 3 %}
-   {%  assign hidden_videos = false %}
-    {% assign videoid2 = videoid | replace_first: '_', '*' %}
-  {%  if forloop.index > limit %}
-    {% assign hidden_videos = true %}
-    {% endif %}
-    {% assign the_title = videoid2 | split: '*' | first %}
-    {% assign the_id = videoid2 | split: '*' | last %}
-    {% if the_id == null %}
-      {% assign the_id = videoid %}
-    {% endif %}
-    {% comment %} {{ videoid }} {% endcomment %}
-     <div class="video_thumbnail " {% if forloop.index > limit %} x-show="showVideos" {% endif %}>
-      {% if the_title != null %}
-        <h3 class="twcss-text-2xl twcss-mb-8 twcss-text-gray-500">
-          {{ the_title }}
-        </h3> 
-      {% endif %}
-   
-        <button
-          class="twcss-relative twcss-flex twcss-justify-center twcss-items-center focus:twcss-outline-none focus-visible:twcss-ring focus-visible:twcss-ring-indigo-300 twcss-rounded-3xl twcss-mb-10 twcss-group"
-          @click="modalOpen = true; showVideo('{{the_id}}')"
-          aria-controls="modal"
-          aria-label="Watch the video"
-      > {% # theme-check-disable %}
-          <img class="twcss-rounded-3xl twcss-shadow-2xl twcss-transition-shadow twcss-duration-300 twcss-ease-in-out vidThumnail" src="https://img.youtube.com/vi/{{ the_id }}/hqdefault.jpg" width="768" height="432" alt="Modal video thumbnail" />
-        {% # theme-check-enable %}
-          <!-- Play icon -->
-          <svg class="twcss-absolute twcss-pointer-events-none group-hover:twcss-scale-110 twcss-transition-transform twcss-duration-300 twcss-ease-in-out" xmlns="http://www.w3.org/2000/svg" width="72" height="72">
-              <circle class="twcss-fill-white" cx="36" cy="36" r="36" fill-opacity=".8" />
-              <path class="fill-indigo-500 drop-shadow-2xl" d="M44 36a.999.999 0 0 0-.427-.82l-10-7A1 1 0 0 0 32 29V43a.999.999 0 0 0 1.573.82l10-7A.995.995 0 0 0 44 36V36c0 .001 0 .001 0 0Z" />
-          </svg>
-      </button>
-    </div>
-
-  {% endfor %} 
-{% if hidden_videos %}
-    <button id="showAllVideosBtn" class="twcss-bg-primaryGreen hover:twcss-bg-primaryGreenDark twcss-text-white  twcss-p-10 twcss-flex  twcss-text-3xl twcss-mt-5  twcss-w-full" @click="showVideos = ! showVideos;" > <span x-text="showVideos ? 'Hide Videos' : 'Show All Videos'"></span></button>
- {% endif %}
-<!-- 2. The backdrop layer --> 
-<div x-show="modalOpen" class="twcss-fixed twcss-inset-0 twcss-z-[99999] twcss-bg-black twcss-bg-opacity-50 twcss-transition-opacity">
-<!-- 3. The modal video -->
-  <div id="modal" x-show="modalOpen"  class="twcss-fixed twcss-inset-0 twcss-z-[99999] twcss-flex twcss-p-6" role="dialog" aria-modal="true">
-    <div class=" twcss-mx-auto twcss-h-full twcss-flex twcss-items-center">
-        <div  @click.outside="modalOpen = false; hideVideo()"
-            @keydown.escape.window="modalOpen = false; hideVideo()" id="video-container" class="twcss-w-full twcss-max-h-full twcss-rounded-3xl twcss-shadow-2xl twcss-aspect-video twcss-bg-black twcss-overflow-hidden">
-        </div>
-    </div>
-  </div>
-<!-- closing the modal backdrop div -->
- </div>
-<!-- closing the x-data div -->
-</div>
-   
-  
-  {% endif %}
-    </div>
-        <!-- end 3/5 div above-->
-  </div>
-   </div>
-
-{% comment %}
-closes the check for the charater count
-  {% endcomment %}
-  {% comment %} {% endif %} {% endcomment %}
-
-  </div>
-      <!-- end #the_acc div above-->
-
-
-
-{% assign review_data = product.metafields.custom.reviewdata.value | default: product.metafields.custom.reviewdata %}
-
-{% if review_data %}
- 
-  <style>
-    .product-reviews-widget {
-      margin: 20px 0;
-      padding: 20px;
-      border: 1px solid #e0e0e0;
-      border-radius: 8px;
-    }
-    .review-summary {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 20px;
-      padding-bottom: 15px;
-      border-bottom: 1px solid #f0f0f0;
-    }
-    .star-rating {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-    .star {
-      color: rgb(65 106 56 / var(--tw-text-opacity, 1));
-      font-size: 26px;
-      letter-spacing: .6rem;
-    }
-    .star.empty {
-      color: #e0e0e0;
-    }
-    .rating-number {
-      font-size: 24px;
-      font-weight: bold;
-      color: #333;
-    }
-    .review-count {
-      color: #666;
-      font-size: 14px;
-    }
-    .review-item {
-      margin-bottom: 15px;
-      padding-bottom: 15px;
-      border-bottom: 1px solid #f5f5f5;
-    }
-    .review-item:last-child {
-      border-bottom: none;
-    }
-    .review-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 8px;
-    }
-    .review-rating {
-      color: #ffc107;
-    }
-    .review-meta {
-      font-size: 12px;
-      color: #666;
-    }
-    .review-title {
-      font-size: 16px;
-      font-weight: 600;
-      margin: 5px 0;
-      color: #333;
-    }
-    .review-text {
-      color: #555;
-      line-height: 1.5;
-    }
-    .recommend-badge {
-      background: #4caf50;
-      color: white;
-      padding: 2px 8px;
-      border-radius: 12px;
-      font-size: 11px;
-      margin-left: 10px;
-    }
-  </style>
-
-
-  <!-- Individual Reviews -->
-
- 
-<div class=" twcss-bg-bgGray">
-  {% if review_data.reviews.size > 0 %}
-   
-  <div class="twcss-mx-auto twcss-max-w-2xl twcss-px-4 twcss-py-16 sm:twcss-px-6 sm:twcss-py-6  lg:twcss-max-w-full lg:twcss-px-8">
-    <h3 class="twcss-text-3xl twcss-p-4 twcss-mb-3 twcss-font-semibold  twcss-text-primaryGreen">Recent reviews</h3>
-     {% for review in review_data.reviews limit: 25 %}
-    <div class="twcss-mt-6 twcss-divide-y twcss-divide-gray-200 twcss-border-b ">
-      <div class="twcss-py-10 lg:twcss-grid lg:twcss-grid-cols-12 lg:twcss-gap-x-8">
-        <div class="lg:twcss-col-span-8 lg:twcss-col-start-5 xl:twcss-col-span-9 xl:twcss-col-start-4 xl:twcss-grid xl:twcss-grid-cols-3 xl:twcss-items-start xl:twcss-gap-x-8">
-          <div class="twcss-flex twcss-items-center xl:twcss-col-span-1">
-            <div class="twcss-flex twcss-items-center review-rating">
-             
-              {% for i in (1..5) %}
-                <span class="star{% unless i <= review.score %} empty{% endunless %}">✪</span>
-              {% endfor %}
-            </div>
-            <p class="twcss-ml-3 twcss-text-sm twcss-text-gray-700"><span class="twcss-sr-only">{{ review.score }} out of 5 stars</span></p>
-          </div>
-
-          <div class="twcss-mt-4 lg:twcss-mt-6 xl:twcss-col-span-2 xl:twcss-mt-0">
-            <h3 class=" twcss-font-medium twcss-text-3xl twcss-text-primaryGreenDark">{{ review.title }}</h3>
-
-            <div class="twcss-mt-3 twcss-space-y-6 twcss-text-2xl twcss-text-gray-500 twcss-leading-loose">
-              <p>{{ review.text | strip_html | truncate: 1000 }}</p>
+              {{ product.metafields.custom.dhm_shared_description.value }}
+              {% comment %}
+                This is where we put the description, and the specs if the character count is less than 1100
+              {% endcomment %}
             </div>
           </div>
-        </div>
+          <div class='twcss-w-full md:twcss-w-2/5  md:twcss-pl-12 '>
+            <div class=' twcss-p-5 twcss-mb-16'>
+              {% render "simple-cards-flex" product=product %}
+            </div>
 
-        <div class="twcss-mt-6 twcss-flex twcss-items-center twcss-text-sm lg:twcss-col-span-4  lg:twcss-pl-5 lg:twcss-col-start-1 lg:twcss-row-start-1 lg:twcss-mt-0 lg:twcss-flex-col lg:twcss-items-start xl:twcss-col-span-3">
-          <p class="twcss-font-medium twcss-text-2xl twcss-text-gray-900 ">{{ review.author }}</p>
-          <time datetime="{{review.date}}" class="twcss-ml-4 twcss-border-l twcss-border-gray-200 twcss-pl-4 twcss-text-2xl twcss-text-gray-500 lg:twcss-ml-0 lg:twcss-mt-2 lg:twcss-border-0 lg:twcss-pl-0"> {{ review.date | date: "%b %d, %Y" }}</time>
+            {% if product.metafields.custom.dhm_promos_parts != blank %}
+              {% assign part_collection = product.metafields.custom.dhm_promos_parts %}
+              {% assign part_collection_len = collections[part_collection].all_products_count %}
+              <h3 class=' twcss-text-3xl twcss-mb-8'>{{ collections[part_collection].title }}</h3>
+              {% comment %} <h4>Total Products in this Collection: {{ collections[part_collection].all_products_count }}</h4> {% endcomment %}
+              <ul role='list' class=''>
+                {% for product in collections[part_collection].products limit: 4 %}
+                  <li class='twcss-flex twcss-gap-x-4 twcss-py-6 twcss-px-6  twcss-mb-6'>
+                    <img
+                      class='twcss-size-48 twcss-flex-none twcss-border'
+                      width='200px'
+                      height='200px'
+                      src='/cdn/shop/{{product.featured_image | image_url: 'small'}}'
+                      alt='{{product.featured_image.alt}}'
+                    >
+
+                    <div class='twcss-min-w-0'>
+                      <p class='twcss-text-3xl twcss-font-semibold twcss-text-gray-900 twcss-leading-[1.5]'>
+                        <a href='{{product.url}}' class=' twcss-text-primaryGreen hover:twcss-text-primaryGreenDark'>
+                          {{- product.title -}}
+                        </a>
+                      </p>
+                      <p class='twcss-mt-1 twcss-text-2xl twcss-text-gray-500'>
+                        {{ product.price | money }}
+                      </p>
+                    </div>
+                  </li>
+                {% endfor %}
+              </ul>
+              {% comment %}
+                using limit above to limit amount of parts that are retrieved from the collection
+              {% endcomment %}
+              {% assign max_prods = 3 %}
+              {% if max_prods <= part_collection_len %}
+                <a
+                  href='{{ routes.collections_url }}/{{part_collection}}'
+                  class='  twcss-bg-primaryGreen hover:twcss-bg-primaryGreenDark twcss-text-white twcss-p-10 twcss-flex twcss-items-center twcss-text-3xl twcss-mt-5 twcss-text-center'
+                >
+                  View All Parts</a
+                >
+              {% endif %}
+            {% endif %}
+          </div>
         </div>
       </div>
     </div>
-    {% endfor %}
+    {% comment %} {% if char_count >= 1100 %} {% endcomment %}
+    {% # theme-check-disable %}
+    <div class='twcss-w-full twcss-px-10  twcss-bg-bgGray '>
+      {% # theme-check-enable %}
+      <div class=' twcss-w-full twcss-bg-white twcss-shadow sm:twcss-rounded-lg twcss-mt-8 twcss-flex twcss-flex-col md:twcss-flex-row'>
+        <div class='twcss-w-full md:twcss-w-3/5 twcss-py-5'>
+          <div class='twcss-px-4 md:twcss-px-0'>
+            <h3 class='twcss-text-3xl twcss-p-4 twcss-mb-3 twcss-font-semibold  twcss-text-primaryGreen'>
+              Specifications
+            </h3>
+          </div>
+          <!-- All Specs -->
+          {% render 'specs-all', product: product %}
+        </div>
+        <div class='twcss-w-full md:twcss-w-2/5'>
+          {% if product.metafields.custom.dhm_resources_pdf_files != null %}
+            <ul class=' twcss-ml-10 twcss-p-10'>
+              <h3 class=' twcss-mb-10 twcss-text-primaryGreen twcss-font-bold'>PDF Resources</h3>
+              {% for metavalue in product.metafields.custom.dhm_resources_pdf_files.value %}
+                <li class='twcss-mb-4'>
+                  <a
+                    href='{{metavalue.url}}'
+                    alt='{{metavalue.alt}}'
+                    class='twcss-text-primaryGreen hover:twcss-text-primaryGreenDark twcss-text-2xl'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                  >
+                    {% if metavalue.alt != null %}
+                      {{ metavalue.alt }}
+                    {% else %}
+                      No Name Given: Click Here
+                    {% endif %}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+
+          {% if product.metafields.custom.dhm_resources_videos != null %}
+            <div class='twcss-ml-10 twcss-p-10' x-data='{ modalOpen: false , showVideos: false }'>
+              {% assign num_videos = product.metafields.custom.dhm_resources_videos.value.size %}
+              <h3 class=' twcss-mb-10 twcss-text-primaryGreen twcss-font-bold'>
+                Video Resources ({{ num_videos }} Total)
+              </h3>
+              <!-- 1. The button -->
+              {% for videoid in product.metafields.custom.dhm_resources_videos.value %}
+                {% assign limit = 3 %}
+                {% assign hidden_videos = false %}
+                {% assign videoid2 = videoid | replace_first: '_', '*' %}
+                {% if forloop.index > limit %}
+                  {% assign hidden_videos = true %}
+                {% endif %}
+                {% assign the_title = videoid2 | split: '*' | first %}
+                {% assign the_id = videoid2 | split: '*' | last %}
+                {% if the_id == null %}
+                  {% assign the_id = videoid %}
+                {% endif %}
+                {% comment %} {{ videoid }} {% endcomment %}
+                <div
+                  class='video_thumbnail '
+                  {% if forloop.index > limit %}
+                    x-show='showVideos'
+                  {% endif %}
+                >
+                  {% if the_title != null %}
+                    <h3 class='twcss-text-2xl twcss-mb-8 twcss-text-gray-500'>
+                      {{ the_title }}
+                    </h3>
+                  {% endif %}
+
+                  <button
+                    class='twcss-relative twcss-flex twcss-justify-center twcss-items-center focus:twcss-outline-none focus-visible:twcss-ring focus-visible:twcss-ring-indigo-300 twcss-rounded-3xl twcss-mb-10 twcss-group'
+                    @click="modalOpen = true; showVideo('{{the_id}}')"
+                    aria-controls='modal'
+                    aria-label='Watch the video'
+                  >
+                    {% # theme-check-disable %}
+                    <img
+                      class='twcss-rounded-3xl twcss-shadow-2xl twcss-transition-shadow twcss-duration-300 twcss-ease-in-out vidThumnail'
+                      src='https://img.youtube.com/vi/{{ the_id }}/hqdefault.jpg'
+                      width='768'
+                      height='432'
+                      alt='Modal video thumbnail'
+                    >
+                    {% # theme-check-enable %}
+                    <!-- Play icon -->
+                    <svg
+                      class='twcss-absolute twcss-pointer-events-none group-hover:twcss-scale-110 twcss-transition-transform twcss-duration-300 twcss-ease-in-out'
+                      xmlns='http://www.w3.org/2000/svg'
+                      width='72'
+                      height='72'
+                    >
+                      <circle class="twcss-fill-white" cx="36" cy="36" r="36" fill-opacity=".8" />
+                      <path class="fill-indigo-500 drop-shadow-2xl" d="M44 36a.999.999 0 0 0-.427-.82l-10-7A1 1 0 0 0 32 29V43a.999.999 0 0 0 1.573.82l10-7A.995.995 0 0 0 44 36V36c0 .001 0 .001 0 0Z" />
+                    </svg>
+                  </button>
+                </div>
+              {% endfor %}
+              {% if hidden_videos %}
+                <button
+                  id='showAllVideosBtn'
+                  class='twcss-bg-primaryGreen hover:twcss-bg-primaryGreenDark twcss-text-white  twcss-p-10 twcss-flex  twcss-text-3xl twcss-mt-5  twcss-w-full'
+                  @click='showVideos = ! showVideos;'
+                >
+                  <span x-text="showVideos ? 'Hide Videos' : 'Show All Videos'"></span>
+                </button>
+              {% endif %}
+              <!-- 2. The backdrop layer -->
+              <div
+                x-show='modalOpen'
+                class='twcss-fixed twcss-inset-0 twcss-z-[99999] twcss-bg-black twcss-bg-opacity-50 twcss-transition-opacity'
+              >
+                <!-- 3. The modal video -->
+                <div
+                  id='modal'
+                  x-show='modalOpen'
+                  class='twcss-fixed twcss-inset-0 twcss-z-[99999] twcss-flex twcss-p-6'
+                  role='dialog'
+                  aria-modal='true'
+                >
+                  <div class=' twcss-mx-auto twcss-h-full twcss-flex twcss-items-center'>
+                    <div
+                      @click.outside='modalOpen = false; hideVideo()'
+                      @keydown.escape.window='modalOpen = false; hideVideo()'
+                      id='video-container'
+                      class='twcss-w-full twcss-max-h-full twcss-rounded-3xl twcss-shadow-2xl twcss-aspect-video twcss-bg-black twcss-overflow-hidden'
+                    ></div>
+                  </div>
+                </div>
+                <!-- closing the modal backdrop div -->
+              </div>
+              <!-- closing the x-data div -->
+            </div>
+          {% endif %}
+        </div>
+        <!-- end 3/5 div above -->
+      </div>
+    </div>
+
+    {% comment %}
+      closes the check for the charater count
+    {% endcomment %}
+    {% comment %} {% endif %} {% endcomment %}
   </div>
-  
+  <!-- end #the_acc div above -->
+
+  {% assign review_data = product.metafields.custom.reviewdata.value | default: product.metafields.custom.reviewdata %}
+
+  {% if review_data %}
+    <style>
+      .product-reviews-widget {
+        margin: 20px 0;
+        padding: 20px;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+      }
+      .review-summary {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #f0f0f0;
+      }
+      .star-rating {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .star {
+        color: rgb(65 106 56 / var(--tw-text-opacity, 1));
+        font-size: 26px;
+        letter-spacing: 0.6rem;
+      }
+      .star.empty {
+        color: #e0e0e0;
+      }
+      .rating-number {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+      }
+      .review-count {
+        color: #666;
+        font-size: 14px;
+      }
+      .review-item {
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #f5f5f5;
+      }
+      .review-item:last-child {
+        border-bottom: none;
+      }
+      .review-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+      .review-rating {
+        color: #ffc107;
+      }
+      .review-meta {
+        font-size: 12px;
+        color: #666;
+      }
+      .review-title {
+        font-size: 16px;
+        font-weight: 600;
+        margin: 5px 0;
+        color: #333;
+      }
+      .review-text {
+        color: #555;
+        line-height: 1.5;
+      }
+      .recommend-badge {
+        background: #4caf50;
+        color: white;
+        padding: 2px 8px;
+        border-radius: 12px;
+        font-size: 11px;
+        margin-left: 10px;
+      }
+    </style>
+
+    <!-- Individual Reviews -->
+
+    <div class=' twcss-bg-bgGray'>
+      {% if review_data.reviews.size > 0 %}
+        <div class='twcss-mx-auto twcss-max-w-2xl twcss-px-4 twcss-py-16 sm:twcss-px-6 sm:twcss-py-6  lg:twcss-max-w-full lg:twcss-px-8'>
+          <h3 class='twcss-text-3xl twcss-p-4 twcss-mb-3 twcss-font-semibold  twcss-text-primaryGreen'>
+            Recent reviews
+          </h3>
+          {% for review in review_data.reviews limit: 25 %}
+            <div class='twcss-mt-6 twcss-divide-y twcss-divide-gray-200 twcss-border-b '>
+              <div class='twcss-py-10 lg:twcss-grid lg:twcss-grid-cols-12 lg:twcss-gap-x-8'>
+                <div class='lg:twcss-col-span-8 lg:twcss-col-start-5 xl:twcss-col-span-9 xl:twcss-col-start-4 xl:twcss-grid xl:twcss-grid-cols-3 xl:twcss-items-start xl:twcss-gap-x-8'>
+                  <div class='twcss-flex twcss-items-center xl:twcss-col-span-1'>
+                    <div class='twcss-flex twcss-items-center review-rating'>
+                      {% for i in (1..5) %}
+                        <span class='star{% unless i <= review.score %} empty{% endunless %}'>✪</span>
+                      {% endfor %}
+                    </div>
+                    <p class='twcss-ml-3 twcss-text-sm twcss-text-gray-700'>
+                      <span class='twcss-sr-only'>{{ review.score }} out of 5 stars</span>
+                    </p>
+                  </div>
+
+                  <div class='twcss-mt-4 lg:twcss-mt-6 xl:twcss-col-span-2 xl:twcss-mt-0'>
+                    <h3 class=' twcss-font-medium twcss-text-3xl twcss-text-primaryGreenDark'>{{ review.title }}</h3>
+
+                    <div class='twcss-mt-3 twcss-space-y-6 twcss-text-2xl twcss-text-gray-500 twcss-leading-loose'>
+                      <p>{{ review.text | strip_html | truncate: 1000 }}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class='twcss-mt-6 twcss-flex twcss-items-center twcss-text-sm lg:twcss-col-span-4  lg:twcss-pl-5 lg:twcss-col-start-1 lg:twcss-row-start-1 lg:twcss-mt-0 lg:twcss-flex-col lg:twcss-items-start xl:twcss-col-span-3'>
+                  <p class='twcss-font-medium twcss-text-2xl twcss-text-gray-900 '>{{ review.author }}</p>
+                  <time
+                    datetime='{{review.date}}'
+                    class='twcss-ml-4 twcss-border-l twcss-border-gray-200 twcss-pl-4 twcss-text-2xl twcss-text-gray-500 lg:twcss-ml-0 lg:twcss-mt-2 lg:twcss-border-0 lg:twcss-pl-0'
+                  >
+                    {{ review.date | date: '%b %d, %Y' -}}
+                  </time>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
   {% endif %}
 </div>
-
-
-{% endif %}
-</div>
 <!-- end  .page-width div -->
-  
-  <script>
+
+<script>
 
 
 
@@ -384,5 +423,5 @@ closes the check for the charater count
         thumbnailsContainer.appendChild(img);
       });
     })(); {% endcomment %}
-      </script>
-  <!-- end all acccordion above -->
+</script>
+<!-- end all acccordion above -->
