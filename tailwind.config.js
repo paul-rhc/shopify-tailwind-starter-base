@@ -25,6 +25,7 @@ module.exports = {
         primaryGreen: '#416a38',
         primaryGreenDark: '#294634',
         highlightGreen: '#d9e8d9',
+        pigGreen: '#b2cc36',
       },
     },
   },
