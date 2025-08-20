@@ -744,6 +744,14 @@ video {
   margin-top: 2rem;
 }
 
+.-twcss-mr-10 {
+  margin-right: -2.5rem;
+}
+
+.-twcss-mr-20 {
+  margin-right: -5rem;
+}
+
 .twcss-block {
   display: block;
 }
@@ -1353,6 +1361,11 @@ video {
   padding-bottom: 1.5rem;
 }
 
+.twcss-px-40 {
+  padding-left: 10rem;
+  padding-right: 10rem;
+}
+
 .twcss-pb-10 {
   padding-bottom: 2.5rem;
 }
@@ -1880,6 +1893,11 @@ video {
     margin-right: 0px;
   }
 
+  .lg\:twcss-mx-40 {
+    margin-left: 10rem;
+    margin-right: 10rem;
+  }
+
   .lg\:twcss-ml-0 {
     margin-left: 0px;
   }
@@ -1894,6 +1912,26 @@ video {
 
   .lg\:twcss-mt-6 {
     margin-top: 1.5rem;
+  }
+
+  .lg\:twcss-ml-40 {
+    margin-left: 10rem;
+  }
+
+  .lg\:twcss-ml-20 {
+    margin-left: 5rem;
+  }
+
+  .lg\:twcss-ml-32 {
+    margin-left: 8rem;
+  }
+
+  .lg\:twcss-mr-40 {
+    margin-right: 10rem;
+  }
+
+  .lg\:twcss-ml-48 {
+    margin-left: 12rem;
   }
 
   .lg\:twcss-table-cell {
@@ -1944,6 +1982,10 @@ video {
     gap: 1.5rem;
   }
 
+  .lg\:twcss-gap-20 {
+    gap: 5rem;
+  }
+
   .lg\:twcss-gap-x-8 {
     -moz-column-gap: 2rem;
          column-gap: 2rem;
@@ -1977,6 +2019,10 @@ video {
 
   .lg\:twcss-pt-20 {
     padding-top: 5rem;
+  }
+
+  .lg\:twcss-pl-10 {
+    padding-left: 2.5rem;
   }
 }
 
