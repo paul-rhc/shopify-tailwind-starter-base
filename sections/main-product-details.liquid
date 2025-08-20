@@ -325,48 +325,51 @@
 
     <div class=' twcss-bg-bgGray'>
       {% if review_data.reviews.size > 0 %}
-        <div class='twcss-mx-auto twcss-max-w-2xl twcss-px-4 twcss-py-16 sm:twcss-px-6 sm:twcss-py-6  lg:twcss-max-w-full lg:twcss-px-8'>
-          <h3 class='twcss-text-3xl twcss-p-4 twcss-mb-3 twcss-font-semibold  twcss-text-primaryGreen'>
-            Recent reviews
-          </h3>
-          {% for review in review_data.reviews limit: 25 %}
-            <div class='twcss-mt-6 twcss-divide-y twcss-divide-gray-200 twcss-border-b '>
-              <div class='twcss-py-10 lg:twcss-grid lg:twcss-grid-cols-12 lg:twcss-gap-x-8'>
-                <div class='lg:twcss-col-span-8 lg:twcss-col-start-5 xl:twcss-col-span-9 xl:twcss-col-start-4 xl:twcss-grid xl:twcss-grid-cols-3 xl:twcss-items-start xl:twcss-gap-x-8'>
-                  <div class='twcss-flex twcss-items-center xl:twcss-col-span-1'>
-                    <div class='twcss-flex twcss-items-center review-rating'>
-                      {% for i in (1..5) %}
-                        <span class='star{% unless i <= review.score %} empty{% endunless %}'>✪</span>
-                      {% endfor %}
+        {% paginate review_data.reviews by 5 %}
+          <div class='twcss-mx-auto twcss-max-w-2xl twcss-px-4 twcss-py-16 sm:twcss-px-6 sm:twcss-py-6  lg:twcss-max-w-full lg:twcss-px-8'>
+            <h3 class='twcss-text-3xl twcss-p-4 twcss-mb-3 twcss-font-semibold  twcss-text-primaryGreen'>
+              Recent reviews
+            </h3>
+            {% for review in review_data.reviews limit: 25 %}
+              <div class='twcss-mt-6 twcss-divide-y twcss-divide-gray-200 twcss-border-b '>
+                <div class='twcss-py-10 lg:twcss-grid lg:twcss-grid-cols-12 lg:twcss-gap-x-8'>
+                  <div class='lg:twcss-col-span-8 lg:twcss-col-start-5 xl:twcss-col-span-9 xl:twcss-col-start-4 xl:twcss-grid xl:twcss-grid-cols-3 xl:twcss-items-start xl:twcss-gap-x-8'>
+                    <div class='twcss-flex twcss-items-center xl:twcss-col-span-1'>
+                      <div class='twcss-flex twcss-items-center review-rating'>
+                        {% for i in (1..5) %}
+                          <span class='star{% unless i <= review.score %} empty{% endunless %}'>✪</span>
+                        {% endfor %}
+                      </div>
+                      <p class='twcss-ml-3 twcss-text-sm twcss-text-gray-700'>
+                        <span class='twcss-sr-only'>{{ review.score }} out of 5 stars</span>
+                      </p>
                     </div>
-                    <p class='twcss-ml-3 twcss-text-sm twcss-text-gray-700'>
-                      <span class='twcss-sr-only'>{{ review.score }} out of 5 stars</span>
-                    </p>
+
+                    <div class='twcss-mt-4 lg:twcss-mt-6 xl:twcss-col-span-2 xl:twcss-mt-0'>
+                      <h3 class=' twcss-font-medium twcss-text-3xl twcss-text-primaryGreenDark'>{{ review.title }}</h3>
+
+                      <div class='twcss-mt-3 twcss-space-y-6 twcss-text-2xl twcss-text-gray-500 twcss-leading-loose'>
+                        <p>{{ review.text | strip_html | truncate: 1000 }}</p>
+                      </div>
+                    </div>
                   </div>
 
-                  <div class='twcss-mt-4 lg:twcss-mt-6 xl:twcss-col-span-2 xl:twcss-mt-0'>
-                    <h3 class=' twcss-font-medium twcss-text-3xl twcss-text-primaryGreenDark'>{{ review.title }}</h3>
-
-                    <div class='twcss-mt-3 twcss-space-y-6 twcss-text-2xl twcss-text-gray-500 twcss-leading-loose'>
-                      <p>{{ review.text | strip_html | truncate: 1000 }}</p>
-                    </div>
+                  <div class='twcss-mt-6 twcss-flex twcss-items-center twcss-text-sm lg:twcss-col-span-4  lg:twcss-pl-5 lg:twcss-col-start-1 lg:twcss-row-start-1 lg:twcss-mt-0 lg:twcss-flex-col lg:twcss-items-start xl:twcss-col-span-3'>
+                    <p class='twcss-font-medium twcss-text-2xl twcss-text-gray-900 '>{{ review.author }}</p>
+                    <time
+                      datetime='{{review.date}}'
+                      class='twcss-ml-4 twcss-border-l twcss-border-gray-200 twcss-pl-4 twcss-text-2xl twcss-text-gray-500 lg:twcss-ml-0 lg:twcss-mt-2 lg:twcss-border-0 lg:twcss-pl-0'
+                    >
+                      {{ review.date | date: '%b %d, %Y' -}}
+                    </time>
                   </div>
-                </div>
-
-                <div class='twcss-mt-6 twcss-flex twcss-items-center twcss-text-sm lg:twcss-col-span-4  lg:twcss-pl-5 lg:twcss-col-start-1 lg:twcss-row-start-1 lg:twcss-mt-0 lg:twcss-flex-col lg:twcss-items-start xl:twcss-col-span-3'>
-                  <p class='twcss-font-medium twcss-text-2xl twcss-text-gray-900 '>{{ review.author }}</p>
-                  <time
-                    datetime='{{review.date}}'
-                    class='twcss-ml-4 twcss-border-l twcss-border-gray-200 twcss-pl-4 twcss-text-2xl twcss-text-gray-500 lg:twcss-ml-0 lg:twcss-mt-2 lg:twcss-border-0 lg:twcss-pl-0'
-                  >
-                    {{ review.date | date: '%b %d, %Y' -}}
-                  </time>
                 </div>
               </div>
-            </div>
-          {% endfor %}
-        </div>
+            {% endfor %}
+          </div>
+        {% endpaginate %}
       {% endif %}
+      {{- paginate | default_pagination }}
     </div>
   {% endif %}
 </div>

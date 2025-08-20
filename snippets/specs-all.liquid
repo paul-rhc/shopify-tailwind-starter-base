@@ -1,16 +1,13 @@
-<div class="twcss-overflow-hidden twcss-bg-white twcss-shadow sm:twcss-rounded-lg twcss-mt-8">
+<div class='twcss-overflow-hidden twcss-bg-white twcss-shadow twcss-rounded-b-lg twcss-pt-10 lg:twcss-pt-20 lg:twcss-px-40'>
+  {% render 'specs-general-list', product: product %}
 
-{% render "specs-general-list", product:product %}
+  {% render 'specs-physical-list', product: product %}
 
-{% render "specs-physical-list", product:product %}
+  {% render 'specs-sleep-list', product: product %}
 
-{% render "specs-sleep-list", product:product %}
+  {% render 'specs-oxygen-list', product: product %}
 
-{% render "specs-oxygen-list", product:product %}
+  {% render 'specs-power-list', product: product %}
 
-{% render "specs-power-list", product:product %}
-
-{% render "specs-nebulizer-list", product:product %}
-
-
+  {% render 'specs-nebulizer-list', product: product %}
 </div>

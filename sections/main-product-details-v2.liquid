@@ -36,28 +36,69 @@
           Loads the benefits, we pass in the product object in all these,
           so snippets have access to metafields
         {% endcomment %}
-        <div class='description-section'>
+        <div class='description-section '>
           {% render 'simple-cards-grid', product: product %}
         </div>
 
-        {% comment %} accordion container {% endcomment %}
+        {% comment %} accordion containers {% endcomment %}
 
-        <div class=' twcss-w-full twcss-bg-white twcss-shadow sm:twcss-rounded-lg twcss-mt-8 twcss-flex twcss-flex-col md:twcss-flex-row'>
-          <div class='twcss-w-full twcss-py-5 lg:twcss-px-40'>
-            <div class='twcss-px-4 '>
-              <h3 class='twcss-text-3xl twcss-p-4 twcss-mb-3 twcss-font-semibold  twcss-text-primaryGreen'>
-                Specifications
-              </h3>
-            </div>
-            <!-- All Specs -->
+        {% comment %}End accordion container {% endcomment %}
+        <div x-data='{ expanded: false }' id='specs_accordion' class='twcss-mt-10'>
+          <button
+            @click='expanded = ! expanded'
+            class='twcss-flex twcss-w-full twcss-bg-primaryGreen  twcss-text-white twcss-items-center twcss-justify-between twcss-px-10 twcss-py-10 twcss-text-4xl twcss-font-bold hover:twcss-bg-primaryGreenDark'
+            :class="expanded ? 'twcss-rounded-t-lg' : 'twcss-rounded-lg'"
+          >
+            Specifications
+            <span
+              x-show='expanded'
+              aria-hidden='true'
+              class='twcss-ml-4 twcss-text-5xl'
+              >&minus;</span
+            >
+
+            <span
+              x-show='!expanded'
+              aria-hidden='true'
+              class='twcss-ml-4 twcss-text-5xl'
+              >&plus;</span
+            >
+          </button>
+
+          <div x-show='expanded' x-collapse>
             {% render 'specs-all', product: product %}
           </div>
         </div>
-        {% comment %}End accordion container {% endcomment %}
 
+        <div x-data='{ expanded: false }' id='resources_accordion' class='twcss-mt-10'>
+          <button
+            @click='expanded = ! expanded'
+            class='twcss-flex twcss-w-full twcss-bg-primaryGreen  twcss-text-white twcss-items-center twcss-justify-between twcss-px-10 twcss-py-10 twcss-text-4xl twcss-font-bold hover:twcss-bg-primaryGreenDark'
+            :class="expanded ? 'twcss-rounded-t-lg' : 'twcss-rounded-lg'"
+          >
+            Media andResources
+            <span
+              x-show='expanded'
+              aria-hidden='true'
+              class='twcss-ml-4 twcss-text-5xl'
+              >&minus;</span
+            >
+
+            <span
+              x-show='!expanded'
+              aria-hidden='true'
+              class='twcss-ml-4 twcss-text-5xl'
+              >&plus;</span
+            >
+          </button>
+
+          <div x-show='expanded' x-collapse>
+            {% render 'resources-video', product: product %}
+          </div>
+        </div>
         {% comment %}Checks for a collection of parts that include this product{% endcomment %}
         {% if product.metafields.custom.dhm_promos_parts != blank %}
-          <div class='description-section'>
+          <div class='description-section twcss-mt-10 twcss-mb-10'>
             {% render 'product-related-parts', product: product %}
           </div>
         {% endif %}
@@ -70,3 +111,55 @@
   </div>
   {% comment %}Close details-root {% endcomment %}
 </div>
+<script>
+
+
+
+    function showVideo(videoId) {
+      console.log(videoId);
+      
+      const videoContainer = document.getElementById('video-container');
+      videoContainer.innerHTML = `
+        <iframe width="1280" height="720"
+          src="https://www.youtube.com/embed/${videoId}?autoplay=1"
+          frameborder="0"
+          allow="autoplay; encrypted-media"
+          allowfullscreen>
+        </iframe>
+      `;
+    }
+
+    function hideVideo() {
+      const videoContainer = document.getElementById('video-container');
+      videoContainer.innerHTML = '';
+    }
+
+    {% comment %} (async() => {
+       Code to be executed - the json filter lets you use liquid in javascript
+      const videoIds = {{ product.metafields.custom.dhm_resources_videos.value | json }};
+      console.log(videoIds);
+      const thumbnailsContainer = document.getElementById('video-thumbnails');
+      const videoContainer = document.getElementById('video-container');
+    
+      await videoIds.forEach(id => {
+        const img = document.createElement('img');
+        img.src = `https://img.youtube.com/vi/${id}/0.jpg`;
+        img.className = 'yt-thumbnail';
+        img.width = 200;
+        img.onclick = () => {
+          modalOpen = true;
+          showVideo(id)
+           videoContainer.innerHTML = `
+            <iframe width="560" height="315"
+              src="https://www.youtube.com/embed/${id}?autoplay=1"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen>
+            </iframe>
+          `; 
+        };
+        console.log(img);
+        thumbnailsContainer.appendChild(img);
+      });
+    })(); {% endcomment %}
+</script>

@@ -1179,6 +1179,46 @@
         "name": "list.metaobject_reference",
         "category": "REFERENCE"
       }
+    },
+    {
+      "key": "suitable-space",
+      "namespace": "shopify",
+      "name": "Suitable space",
+      "description": "Defines the ideal location for product use, e.g. indoors, above ground",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "battery-type",
+      "namespace": "shopify",
+      "name": "Battery type",
+      "description": "Distinguishes between types of batteries, such as disposable or rechargeable ",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "battery-technology",
+      "namespace": "shopify",
+      "name": "Battery technology",
+      "description": "Specifies the type of battery used in electronics, such as alkaline or lithium-ion",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "battery-features",
+      "namespace": "shopify",
+      "name": "Battery features",
+      "description": "Describes special characteristics of a battery, like fast charge or heat resistant",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
     }
   ],
   "variant": [
