@@ -23,21 +23,23 @@
             x-show='showVideos'
           {% endif %}
         >
-          {% if the_title != null %}
-            <h3 class='twcss-text-2xl twcss-mb-8 twcss-text-gray-500'>
-              {{ the_title }}
-            </h3>
-          {% endif %}
-
           <button
             class='twcss-relative twcss-flex twcss-justify-center twcss-items-center focus:twcss-outline-none focus-visible:twcss-ring focus-visible:twcss-ring-indigo-300 twcss-rounded-3xl twcss-mb-10 twcss-group'
             @click="modalOpen = true; showVideo('{{the_id}}')"
             aria-controls='modal'
             aria-label='Watch the video'
           >
+            <div
+              class='twcss-absolute twcss-inset-0 twcss-bg-gradient-to-b twcss-from-transparent twcss-to-black twcss-rounded-3xl'
+            >
+              &nbsp;
+            </div>
+            <h3 class='twcss-text-2xl twcss-absolute twcss-bottom-10 twcss-left-10 twcss-text-left twcss-text-pretty twcss-text-white'>
+              {{ the_title }}
+            </h3>
             {% # theme-check-disable %}
             <img
-              class='twcss-rounded-3xl twcss-shadow-2xl twcss-transition-shadow twcss-duration-300 twcss-ease-in-out vidThumnail'
+              class='twcss-rounded-3xl  twcss-ease-in-out vidThumnail'
               src='https://img.youtube.com/vi/{{ the_id }}/hqdefault.jpg'
               width='768'
               height='432'
