@@ -1640,6 +1640,11 @@ video {
   background-color: rgb(41 70 52 / var(--tw-bg-opacity, 1));
 }
 
+.hover\:twcss-bg-bgGray:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(245 245 245 / var(--tw-bg-opacity, 1));
+}
+
 .hover\:twcss-text-gray-500:hover {
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity, 1));
@@ -1663,6 +1668,11 @@ video {
 .hover\:twcss-text-primaryGreenDark:hover {
   --tw-text-opacity: 1;
   color: rgb(41 70 52 / var(--tw-text-opacity, 1));
+}
+
+.hover\:twcss-text-pigGreen:hover {
+  --tw-text-opacity: 1;
+  color: rgb(178 204 54 / var(--tw-text-opacity, 1));
 }
 
 .hover\:twcss-underline:hover {

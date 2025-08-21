@@ -42,7 +42,6 @@
 
         {% comment %} accordion containers {% endcomment %}
 
-        {% comment %}End accordion container {% endcomment %}
         <div x-data='{ expanded: false }' id='specs_accordion' class='twcss-mt-10'>
           <button
             @click='expanded = ! expanded'
@@ -101,10 +100,18 @@
             </div>
           </div>
         {% endif %}
+        {% comment %}End accordion containers {% endcomment %}
+
         {% comment %}Checks for a collection of parts that include this product{% endcomment %}
         {% if product.metafields.custom.dhm_promos_parts != blank %}
           <div class='description-section twcss-mt-10 twcss-mb-10'>
             {% render 'product-related-parts', product: product %}
+          </div>
+        {% endif %}
+
+        {% if product.metafields.custom.reviewdata != blank %}
+          <div class='description-section twcss-mt-10 twcss-mb-10'>
+            {% render 'product-reviews', product: product %}
           </div>
         {% endif %}
 
@@ -117,8 +124,6 @@
   {% comment %}Close details-root {% endcomment %}
 </div>
 <script>
-
-
 
     function showVideo(videoId) {
       console.log(videoId);

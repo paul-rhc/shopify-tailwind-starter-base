@@ -1,0 +1,127 @@
+{% assign review_data = product.metafields.custom.reviewdata.value | default: product.metafields.custom.reviewdata %}
+
+{% if review_data %}
+  <style>
+    .product-reviews-widget {
+      margin: 20px 0;
+      padding: 20px;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+    }
+    .review-summary {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .star-rating {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .star {
+      color: rgb(65 106 56 / var(--tw-text-opacity, 1));
+      font-size: 26px;
+      letter-spacing: 0.6rem;
+    }
+    .star.empty {
+      color: #e0e0e0;
+    }
+    .rating-number {
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+    }
+    .review-count {
+      color: #666;
+      font-size: 14px;
+    }
+    .review-item {
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #f5f5f5;
+    }
+    .review-item:last-child {
+      border-bottom: none;
+    }
+    .review-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .review-rating {
+      color: #ffc107;
+    }
+    .review-meta {
+      font-size: 12px;
+      color: #666;
+    }
+    .review-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 5px 0;
+      color: #333;
+    }
+    .review-text {
+      color: #555;
+      line-height: 1.5;
+    }
+    .recommend-badge {
+      background: #4caf50;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 11px;
+      margin-left: 10px;
+    }
+  </style>
+
+  <!-- Individual Reviews -->
+
+  <div class=' twcss-bg-bgGray'>
+    {% if review_data.reviews.size > 0 %}
+      <div class='twcss-mx-auto twcss-max-w-2xl twcss-px-4 twcss-py-16 sm:twcss-px-6 sm:twcss-py-6  lg:twcss-max-w-full lg:twcss-px-8'>
+        <h3 class='twcss-text-4xl twcss-p-4 twcss-mb-3 twcss-font-bold  twcss-text-primaryGreen'>Recent Reviews</h3>
+        {% for review in review_data.reviews limit: 25 %}
+          <div class='twcss-mt-6 twcss-divide-y twcss-divide-gray-200 twcss-border-b lg:twcss-px-40'>
+            <div class='twcss-py-10 lg:twcss-grid lg:twcss-grid-cols-12 lg:twcss-gap-x-8'>
+              <div class='lg:twcss-col-span-8 lg:twcss-col-start-5 xl:twcss-col-span-9 xl:twcss-col-start-4 xl:twcss-grid xl:twcss-grid-cols-3 xl:twcss-items-start xl:twcss-gap-x-8'>
+                <div class='twcss-flex twcss-items-center xl:twcss-col-span-1'>
+                  <div class='twcss-flex twcss-items-center review-rating'>
+                    {% for i in (1..5) %}
+                      <span class='star{% unless i <= review.score %} empty{% endunless %}'>✪</span>
+                    {% endfor %}
+                  </div>
+                  <p class='twcss-ml-3 twcss-text-sm twcss-text-gray-700'>
+                    <span class='twcss-sr-only'>{{ review.score }} out of 5 stars</span>
+                  </p>
+                </div>
+
+                <div class='twcss-mt-4 lg:twcss-mt-6 xl:twcss-col-span-2 xl:twcss-mt-0'>
+                  <h3 class=' twcss-font-medium twcss-text-3xl twcss-text-primaryGreenDark'>{{ review.title }}</h3>
+
+                  <div class='twcss-mt-3 twcss-space-y-6 twcss-text-2xl twcss-text-gray-500 twcss-leading-loose'>
+                    <p>{{ review.text | strip_html | truncate: 1000 }}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class='twcss-mt-6 twcss-flex twcss-items-center twcss-text-sm lg:twcss-col-span-4  lg:twcss-pl-5 lg:twcss-col-start-1 lg:twcss-row-start-1 lg:twcss-mt-0 lg:twcss-flex-col lg:twcss-items-start xl:twcss-col-span-3'>
+                <p class='twcss-font-medium twcss-text-2xl twcss-text-gray-900 '>{{ review.author }}</p>
+                <time
+                  datetime='{{review.date}}'
+                  class='twcss-ml-4 twcss-border-l twcss-border-gray-200 twcss-pl-4 twcss-text-2xl twcss-text-gray-500 lg:twcss-ml-0 lg:twcss-mt-2 lg:twcss-border-0 lg:twcss-pl-0'
+                >
+                  {{ review.date | date: '%b %d, %Y' -}}
+                </time>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+{% endif %}

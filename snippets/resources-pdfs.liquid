@@ -4,36 +4,36 @@
     {% comment %} {{ product.metafields.custom.dhm_resources_pdf_files.value }} {% endcomment %}
 
     {% for metavalue in product.metafields.custom.dhm_resources_pdf_files.value %}
-      <li class='twcss-col-span-1 twcss-flex twcss-rounded-md twcss-shadow-sm dark:twcss-shadow-none'>
-        <div class='twcss-flex twcss-items-center twcss-justify-center twcss-rounded-l-md  twcss-bg-pigGreen twcss-text-2xl twcss-font-medium twcss-text-primaryGreen'>
-          <span class='twcss-block twcss-rounded-lg  twcss-p-4 twcss-text-primaryGreen '>
-            <svg
-              viewBox='0 0 640 640'
-              class='twcss-h-10 twcss-w-10 md:twcss-h-20 md:twcss-w-20'
-              fill='currentColor'
-            >
-              <path d="M304 112L192 112C183.2 112 176 119.2 176 128L176 512C176 520.8 183.2 528 192 528L448 528C456.8 528 464 520.8 464 512L464 272L376 272C336.2 272 304 239.8 304 200L304 112zM444.1 224L352 131.9L352 200C352 213.3 362.7 224 376 224L444.1 224zM128 128C128 92.7 156.7 64 192 64L325.5 64C342.5 64 358.8 70.7 370.8 82.7L493.3 205.3C505.3 217.3 512 233.6 512 250.6L512 512C512 547.3 483.3 576 448 576L192 576C156.7 576 128 547.3 128 512L128 128z"/>
-            </svg>
-          </span>
-        </div>
-        <div class='twcss-flex twcss-flex-1 twcss-items-center twcss-justify-between twcss-truncate twcss-rounded-r-md twcss-border-b twcss-border-r twcss-border-t twcss-border-gray-200 twcss-bg-white dark:border-white/10 dark:bg-gray-800/50'>
-          <div class='twcss-flex-1 twcss-truncate twcss-px-4 twcss-py-2 twcss-text-2xl'>
-            <a
-              href='{{metavalue.url}}'
-              alt='{{metavalue.alt}}'
-              class='twcss-text-primaryGreen hover:twcss-text-primaryGreenDark twcss-text-2xl'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
+      <a
+        href='{{metavalue.url}}'
+        alt='{{metavalue.alt}}'
+        class='twcss-text-primaryGreen hover:twcss-text-pigGreen hover:twcss-bg-bgGray twcss-text-2xl '
+        target='_blank'
+        rel='noopener noreferrer'
+      >
+        <li class='twcss-col-span-1 twcss-flex twcss-rounded-md twcss-shadow-sm dark:twcss-shadow-none '>
+          <div class='twcss-flex twcss-items-center twcss-justify-center twcss-rounded-l-md  twcss-bg-pigGreen twcss-text-2xl twcss-font-medium twcss-text-primaryGreen'>
+            <span class='twcss-block twcss-rounded-lg  twcss-p-4 twcss-text-primaryGreen '>
+              <svg
+                viewBox='0 0 640 640'
+                class='twcss-h-10 twcss-w-10 md:twcss-h-20 md:twcss-w-20'
+                fill='currentColor'
+              >
+                <path d="M304 112L192 112C183.2 112 176 119.2 176 128L176 512C176 520.8 183.2 528 192 528L448 528C456.8 528 464 520.8 464 512L464 272L376 272C336.2 272 304 239.8 304 200L304 112zM444.1 224L352 131.9L352 200C352 213.3 362.7 224 376 224L444.1 224zM128 128C128 92.7 156.7 64 192 64L325.5 64C342.5 64 358.8 70.7 370.8 82.7L493.3 205.3C505.3 217.3 512 233.6 512 250.6L512 512C512 547.3 483.3 576 448 576L192 576C156.7 576 128 547.3 128 512L128 128z"/>
+              </svg>
+            </span>
+          </div>
+          <div class='twcss-flex twcss-flex-1 twcss-items-center twcss-justify-between twcss-truncate twcss-rounded-r-md twcss-border-b twcss-border-r twcss-border-t twcss-border-gray-200 twcss-bg-white dark:border-white/10 dark:bg-gray-800/50'>
+            <div class='twcss-flex-1 twcss-truncate twcss-px-4 twcss-py-2 twcss-text-2xl'>
               {% if metavalue.alt != null %}
                 {{ metavalue.alt }}
               {% else %}
                 No Name Given: Click Here
               {% endif %}
-            </a>
+            </div>
           </div>
-        </div>
-      </li>
+        </li>
+      </a>
     {% endfor %}
   </ul>
 {% endif %}
