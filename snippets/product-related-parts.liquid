@@ -1,9 +1,10 @@
 {% assign part_collection = product.metafields.custom.dhm_promos_parts %}
 {% assign part_collection_len = collections[part_collection].all_products_count %}
-{% comment %} 
-<h3 class=' twcss-text-3xl twcss-mb-8 t twcss-ml-10 '>{{ collections[part_collection].title }}</h3>
+{% comment %}
+  <h3 class=' twcss-text-3xl twcss-mb-8 t twcss-ml-10 '>{{ collections[part_collection].title }}</h3>
 
-<h4>Total Products in this Collection: {{ collections[part_collection].all_products_count }}</h4> {% endcomment %}
+  <h4>Total Products in this Collection: {{ collections[part_collection].all_products_count }}</h4>
+{% endcomment %}
 <ul
   role='list'
   class=' twcss-grid twcss-grid-cols-1 lg:twcss-grid-cols-4 twcss-gap-x-10 twcss-gap-y-8 twcss-px-10'
@@ -44,7 +45,7 @@
   <p class='twcss-text-center'>
     <a
       href='{{ routes.collections_url }}/{{part_collection}}'
-      class='  twcss-bg-primaryGreen hover:twcss-bg-primaryGreenDark twcss-text-white twcss-p-12 twcss-block twcss-rounded-b-lg' twcss-rounded-lg twcss-text-3xl twcss-mt-5 twcss-text-center'
+      class='   twcss-bg-gray-200 hover:twcss-bg-gray-400 twcss-text-primaryGreen hover:twcss-text-white twcss-p-12 twcss-block twcss-rounded-b-lg  twcss-text-3xl twcss-mt-5 twcss-text-center'
     >
       View {{ collections[part_collection].title -}}
     </a>
