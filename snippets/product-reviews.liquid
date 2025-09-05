@@ -81,10 +81,9 @@
 
   <!-- Individual Reviews -->
 
-  <div class=' twcss-bg-bgGray'>
+  <div class=' '>
     {% if review_data.reviews.size > 0 %}
       <div class='twcss-mx-auto twcss-max-w-2xl twcss-px-4 twcss-py-16 sm:twcss-px-6 sm:twcss-py-6  lg:twcss-max-w-full lg:twcss-px-8'>
-        <h3 class='twcss-text-4xl twcss-p-4 twcss-mb-3 twcss-font-bold  twcss-text-primaryGreen'>Recent Reviews</h3>
         {% for review in review_data.reviews limit: 25 %}
           <div class='twcss-mt-6 twcss-divide-y twcss-divide-gray-200 twcss-border-b lg:twcss-px-40'>
             <div class='twcss-py-10 lg:twcss-grid lg:twcss-grid-cols-12 lg:twcss-gap-x-8'>

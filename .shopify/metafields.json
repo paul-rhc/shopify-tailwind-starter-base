@@ -1,13 +1,25 @@
 {
   "article": [],
   "blog": [],
+  "brand": [],
   "collection": [],
   "company": [],
   "company_location": [],
   "location": [],
   "market": [],
   "order": [],
-  "page": [],
+  "page": [
+    {
+      "key": "dhm_pages_description",
+      "namespace": "custom",
+      "name": "DHM Pages - Description",
+      "description": "",
+      "type": {
+        "name": "rich_text_field",
+        "category": "TEXT"
+      }
+    }
+  ],
   "product": [
     {
       "key": "dhm_promos",
@@ -682,7 +694,7 @@
     {
       "key": "dhm_general_product_model",
       "namespace": "custom",
-      "name": "DHM Gen - Model Sleep",
+      "name": "DHM Gen - Product Model",
       "description": "",
       "type": {
         "name": "list.single_line_text_field",
