@@ -41,12 +41,6 @@ PRODUCT DETAILS
 {% if product.metafields.custom["dhm_general_product_model"] != null %}
   <a href="{{ routes.search_url }}?q={{product.metafields.custom.dhm_general_product_model | metafield_text | url_encode}}">{{ product.metafields.custom["dhm_general_product_model" ] | metafield_tag }}</a>
 {% endif %}
-{% if product.metafields.custom["dhm_general_product_model_oxygen"] != null %}
-  <a href="{{ routes.search_url }}?q={{product.metafields.custom.dhm_general_product_model_oxygen | metafield_text | url_encode}}">{{ product.metafields.custom["dhm_general_product_model_oxygen" ] | metafield_tag }}</a>
-{% endif %}
-{% if product.metafields.custom["dhm_general_product_model_asthma"] != null %}
-  <a href="{{ routes.search_url }}?q={{product.metafields.custom.dhm_general_product_model_asthma | metafield_text | url_encode}}">{{ product.metafields.custom["dhm_general_product_model_asthma" ] | metafield_tag }}</a>
-{% endif %}
    </dd>
  </div>
 
