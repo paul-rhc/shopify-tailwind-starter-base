@@ -1,4 +1,18 @@
-<div class='   twcss-bg-pigGreen twcss-rounded-xl twcss-mt-10 twcss-mb-10'>
+{% liquid
+  assign has_subscriptions = false
+  assign has_trial = false
+  assign points_earned = product.price | times: 3
+
+  if product.selling_plan_groups != empty
+    assign has_subscriptions = true
+  endif
+
+  if product.metafields.custom.dhm_promos_risk_free_trial != null
+    assign has_trial = true
+  endif
+%}
+
+<div class='twcss-rounded-xl twcss-mt-10 twcss-mb-10 twcss-border twcss-border-slate-300 '>
   <div class='twcss-mx-auto twcss-max-w-2xl twcss-px-4 twcss-py-24 sm:twcss-px-6 sm:twcss-py-34 lg:twcss-max-w-full lg:twcss-px-8'>
     <div class='twcss-grid twcss-grid-cols-1 twcss-gap-y-12 sm:twcss-grid-cols-1 sm:twcss-gap-x-6 lg:twcss-grid-cols-4 lg:twcss-gap-x-8'>
       <div>
@@ -20,7 +34,7 @@
           Loyalty Rewards Save Money
         </h3>
         <p class='twcss-mt-2 twcss-text-2xl twcss-text-primaryGreenDark twcss-text-center '>
-          Earn points toward your next order.
+          Earn {{ points_earned }} points toward your next order.
         </p>
       </div>
       <div>

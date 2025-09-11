@@ -16,6 +16,10 @@
   #desc_container div.youtube-responsive {
     display: none;
   }
+
+  #specs_accordion dt {
+    font-weight: bold;
+  }
 </style>
 {% comment %}
   All comments for closing divs refer to the </div> below the comment
@@ -68,6 +72,37 @@
             {% render 'specs-all', product: product %}
           </div>
         </div>
+
+        {% if product.metafields.custom.dhm_res_faq != null %}
+          <div x-data='{ expanded: false }' id='faq_accordion' class='twcss-mt-10'>
+            <button
+              @click='expanded = ! expanded'
+              class='twcss-flex twcss-w-full twcss-bg-primaryGreen  twcss-text-white twcss-items-center twcss-justify-between twcss-px-10 twcss-py-10 twcss-text-4xl twcss-font-bold hover:twcss-bg-primaryGreenDark'
+              :class="expanded ? 'twcss-rounded-t-lg' : 'twcss-rounded-lg'"
+            >
+              Frequently Asked Questions
+              <span
+                x-show='expanded'
+                aria-hidden='true'
+                class='twcss-ml-4 twcss-text-5xl'
+                >&minus;</span
+              >
+
+              <span
+                x-show='!expanded'
+                aria-hidden='true'
+                class='twcss-ml-4 twcss-text-5xl'
+                >&plus;</span
+              >
+            </button>
+
+            <div x-show='expanded' x-collapse>
+              {{ product.metafields.custom.dhm_res_faq.value }}
+            </div>
+          </div>
+        {% endif %}
+
+        {% comment %}Checks for resources to show{% endcomment %}
         {% if product.metafields.custom.dhm_resources_pdf_files != null
           or product.metafields.custom.dhm_resources_videos != null
         %}
