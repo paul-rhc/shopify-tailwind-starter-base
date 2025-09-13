@@ -829,6 +829,14 @@ video {
   width: 100%;
 }
 
+.twcss-w-24 {
+  width: 6rem;
+}
+
+.twcss-w-12 {
+  width: 3rem;
+}
+
 .twcss-min-w-0 {
   min-width: 0px;
 }
@@ -1681,6 +1689,11 @@ video {
 .hover\:twcss-bg-primaryGreenDark:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(41 70 52 / var(--tw-bg-opacity, 1));
+}
+
+.hover\:twcss-bg-primaryGreen:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(65 106 56 / var(--tw-bg-opacity, 1));
 }
 
 .hover\:twcss-text-gray-500:hover {
