@@ -37,9 +37,11 @@
             Orders Over $49.00 Ship Free!
           {% endif %}
         </h3>
-        <!-- <p class='twcss-mt-2 twcss-text-2xl twcss-text-primaryGreenDark twcss-text-center'>
-          Fast free shipping offered on orders over $49
-        </p> -->
+        <!--
+          <p class='twcss-mt-2 twcss-text-2xl twcss-text-primaryGreenDark twcss-text-center'>
+            Fast free shipping offered on orders over $49
+          </p>
+        -->
       </div>
       <div>
         <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center  twcss-mx-auto'>
@@ -48,9 +50,11 @@
         <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
           EARN {{ points_earned }} DISCOUNT POINTS
         </h3>
-        <!-- <p class='twcss-mt-2 twcss-text-2xl twcss-text-primaryGreenDark twcss-text-center '>
-          Earn {{ points_earned }} points toward your next order
-        </p> -->
+        <!--
+          <p class='twcss-mt-2 twcss-text-2xl twcss-text-primaryGreenDark twcss-text-center '>
+            Earn {{ points_earned }} points toward your next order
+          </p>
+        -->
       </div>
       <div>
         {% if has_trial %}
@@ -60,9 +64,11 @@
           <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
             {{ product.metafields.custom.dhm_promos_risk_free_trial | metafield_text }}
           </h3>
-          <!-- <p class='twcss-mt-2 twcss-text-2xl twcss-text-primaryGreenDark  twcss-text-center'>
-            Not Happy? Return it for a full refund.
-          </p> -->
+          <!--
+            <p class='twcss-mt-2 twcss-text-2xl twcss-text-primaryGreenDark  twcss-text-center'>
+              Not Happy? Return it for a full refund.
+            </p>
+          -->
         {% else %}
           <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center twcss-rounded-l-md  twcss-text-sm twcss-font-medium twcss-text-primaryGreenDark twcss-mx-auto'>
             {% render 'icon-fsa-hsa' %}
@@ -70,22 +76,26 @@
           <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
             HSA & FSA Cards Accepted
           </h3>
-          <!-- <p class='twcss-mt-2 twcss-text-2xl twcss-text-primaryGreenDark  twcss-text-center'>
-            Use your funds for eligible products
-          </p> -->
+          <!--
+            <p class='twcss-mt-2 twcss-text-2xl twcss-text-primaryGreenDark  twcss-text-center'>
+              Use your funds for eligible products
+            </p>
+          -->
         {% endif %}
       </div>
       <div>
         {% if faa_cleared %}
-          <div class='twcss-flex twcss-w-24 shrink-0 twcss-items-center twcss-justify-center  twcss-mx-auto'>
+          <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center  twcss-mx-auto'>
             {% render 'icon-faa-cleared' %}
           </div>
           <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
             FAA Approved
           </h3>
-          <!-- <p class='twcss-mt-2 twcss-text-2xl twcss-text-primaryGreenDark  twcss-text-center'>
-            Meets FAA regulations for use on flights
-          </p> -->
+          <!--
+            <p class='twcss-mt-2 twcss-text-2xl twcss-text-primaryGreenDark  twcss-text-center'>
+              Meets FAA regulations for use on flights
+            </p>
+          -->
         {% elsif has_subscriptions %}
           <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center  twcss-mx-auto'>
             {% render 'icon-subscribe' %}
@@ -93,9 +103,11 @@
           <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
             Subscribe and Save 15%
           </h3>
-          <!-- <p class='twcss-mt-2 twcss-text-2xl twcss-text-primaryGreenDark  twcss-text-center'>
-            Save on every order, cancel any time
-          </p> -->
+          <!--
+            <p class='twcss-mt-2 twcss-text-2xl twcss-text-primaryGreenDark  twcss-text-center'>
+              Save on every order, cancel any time
+            </p>
+          -->
         {% else %}
           <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center  twcss-mx-auto'>
             {% render 'icon-best-prices' %}
@@ -103,9 +115,11 @@
           <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
             Best Prices Guaranteed
           </h3>
-          <!-- <p class='twcss-mt-2 twcss-text-2xl twcss-text-primaryGreenDark  twcss-text-center'>
-            We'll match or beat any legitimate competitor
-          </p> -->
+          <!--
+            <p class='twcss-mt-2 twcss-text-2xl twcss-text-primaryGreenDark  twcss-text-center'>
+              We'll match or beat any legitimate competitor
+            </p>
+          -->
         {% endif %}
       </div>
     </div>
