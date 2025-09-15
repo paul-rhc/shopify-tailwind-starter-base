@@ -16,32 +16,32 @@
         "padding_bottom": 28
       }
     },
-    "rich_text_nED6fC": {
+    "rich_text_JDEpGi": {
       "type": "rich-text",
       "blocks": {
-        "text_jUBEVG": {
+        "text_VqxgWh": {
           "type": "text",
           "settings": {
-            "text": "<p>{{ page.metafields.custom.dhm_pages_description_html | metafield_tag }}</p>"
+            "text": ""
           }
         }
       },
       "block_order": [
-        "text_jUBEVG"
+        "text_VqxgWh"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
-        "desktop_content_position": "left",
-        "content_alignment": "left",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 0,
-        "padding_bottom": 0
+        "padding_top": 40,
+        "padding_bottom": 52
       }
     }
   },
   "order": [
     "main",
-    "rich_text_nED6fC"
+    "rich_text_JDEpGi"
   ]
 }
