@@ -22,7 +22,7 @@
         "text_jUBEVG": {
           "type": "text",
           "settings": {
-            "text": "{{ page.metafields.custom.dhm_pages_description | metafield_tag }}"
+            "text": "<p>{{ page.metafields.custom.dhm_pages_description_html | metafield_tag }}</p>"
           }
         }
       },
