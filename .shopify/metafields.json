@@ -9,12 +9,12 @@
   "order": [],
   "page": [
     {
-      "key": "dhm_pages_description",
+      "key": "dhm_pages_description_html",
       "namespace": "custom",
-      "name": "DHM Pages - Description",
+      "name": "DHM Pages Description HTML",
       "description": "",
       "type": {
-        "name": "rich_text_field",
+        "name": "multi_line_text_field",
         "category": "TEXT"
       }
     }
@@ -921,26 +921,6 @@
       }
     },
     {
-      "key": "dhm_general_product_model_oxygen",
-      "namespace": "custom",
-      "name": "DHM Gen - Model Oxygen",
-      "description": "",
-      "type": {
-        "name": "list.single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "dhm_general_product_model_asthma",
-      "namespace": "custom",
-      "name": "DHM Gen - Model Asthma",
-      "description": "",
-      "type": {
-        "name": "list.single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
       "key": "collection_reference",
       "namespace": "custom",
       "name": "Collection Reference",
@@ -1228,6 +1208,26 @@
       "type": {
         "name": "list.metaobject_reference",
         "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "suitable-for-skin-type",
+      "namespace": "shopify",
+      "name": "Suitable for skin type",
+      "description": "Specifies products for specific skin conditions, such as dry, aging, or sensitive",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "dhm_res_faq",
+      "namespace": "custom",
+      "name": "DHM Res - FAQ",
+      "description": "",
+      "type": {
+        "name": "multi_line_text_field",
+        "category": "TEXT"
       }
     }
   ],
