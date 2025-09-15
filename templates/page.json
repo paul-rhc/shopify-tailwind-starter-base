@@ -22,7 +22,7 @@
         "text_VqxgWh": {
           "type": "text",
           "settings": {
-            "text": ""
+            "text": "<p>{{ page.metafields.custom.dhm_pages_description_html | metafield_tag }}</p>"
           }
         }
       },
