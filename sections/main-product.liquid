@@ -479,7 +479,6 @@
               {%- when 'rating' -%}
                 {% assign product.metafields.custom.product_rating.scale_max = 5 %}
                 {% assign my_max = 5 %}
-
                 {%- if product.metafields.custom.product_rating.value != blank -%}
                   <div class='rating-wrapper'>
                     {% liquid
@@ -675,6 +674,25 @@
             {{ 'products.product.view_full_details' | t }}
             {{- 'icon-arrow.svg' | inline_asset_content -}}
           </a>
+          {% liquid
+            assign prescription_item_tag = product.tags | where: 'contains', 'Prescription'
+            assign prescription_item = false
+            assign has_trial = false
+            if product.metafields.custom.dhm_promos_risk_free_trial != null
+              assign has_trial = true
+            endif
+            if product.metafields.custom.dhm_general_rx_required
+              assign prescription_item = true
+            endif
+          %}
+          <ul>
+            {% if prescription_item %}
+              <li>This is a Prescription Item</li>
+            {% endif %}
+            {% if has_trial %}
+              <li>Includes {{ product.metafields.custom.dhm_promos_risk_free_trial }}</li>
+            {% endif %}
+          </ul>
         </section>
       </div>
     </div>
