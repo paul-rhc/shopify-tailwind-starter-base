@@ -34,35 +34,21 @@
           <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
             FAA Approved
           </h3>
-          <!--
-            <p class='twcss-mt-2 twcss-text-2xl twcss-text-primaryGreenDark  twcss-text-center'>
-              Meets FAA regulations for use on flights
-            </p>
-          -->
         {% elsif has_subscriptions %}
-          <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center  twcss-mx-auto'>
+          <a href="https://directhomemedical.myshopify.com/collections/subscribe-save-on-hundreds-of-products">
+            <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center  twcss-mx-auto'>
             {% render 'icon-subscribe' %}
           </div>
           <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
             Subscribe and Save 15%
-          </h3>
-          <!--
-            <p class='twcss-mt-2 twcss-text-2xl twcss-text-primaryGreenDark  twcss-text-center'>
-              Save on every order, cancel any time
-            </p>
-          -->
+          </h3></a>
         {% else %}
           <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center  twcss-mx-auto'>
             {% render 'icon-best-prices' %}
           </div>
           <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
-            Best Prices Guarantee
+            Best Price Guarantee
           </h3>
-          <!--
-            <p class='twcss-mt-2 twcss-text-2xl twcss-text-primaryGreenDark  twcss-text-center'>
-              We'll match or beat any legitimate competitor
-            </p>
-          -->
         {% endif %}
       </div>
       
