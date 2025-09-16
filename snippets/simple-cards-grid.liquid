@@ -19,7 +19,7 @@
     assign faa_cleared = true
   endif
 
-  if product.name.does.not.include.preowned != null
+  if product.name.does.not.include.pre-owned != null
     assign has_preowned = true
   endif
 %}
@@ -44,11 +44,11 @@
             Subscribe and Save 15%
           </h3></a>
         {% else %}
-           <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center twcss-rounded-l-md  twcss-text-sm twcss-font-medium twcss-text-primaryGreenDark twcss-mx-auto'>
-            {% render 'icon-fsa-hsa' %}
+          <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center  twcss-mx-auto'>
+            {% render 'icon-best-prices' %}
           </div>
           <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
-            HSA & FSA Cards Accepted
+            Best Price Guarantee
           </h3>
         {% endif %}
       </div>
@@ -63,15 +63,14 @@
             {{ product.metafields.custom.dhm_promos_risk_free_trial | metafield_text }}
           </h3></a>
         {% else %}
-                   <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center  twcss-mx-auto'>
-            {% render 'icon-best-prices' %}
+          <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center twcss-rounded-l-md  twcss-text-sm twcss-font-medium twcss-text-primaryGreenDark twcss-mx-auto'>
+            {% render 'icon-fsa-hsa' %}
           </div>
           <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
-            Best Price Guarantee
+            HSA & FSA Cards Accepted
           </h3>
         {% endif %}
       </div>
-
       <div>
         <div class='twcss-flex twcss-w-28 twcss-shrink-1 twcss-items-center twcss-justify-center  twcss-mx-auto'>
           {% render 'icon-instock' %}
@@ -84,14 +83,13 @@
           {% endif %}
         </h3>
       </div>
-
       <div>
         {% if has_refurb %}
          <div class='twcss-flex twcss-w-28 twcss-shrink-1 twcss-items-center twcss-justify-center  twcss-mx-auto'>
           {% render 'icon-preowned' %}
         </div>
                   <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
-            QUALITY CHECKED CERTIFIED PRE-OWNED
+            QUALITY CHECKED CERTIFIED
         </h3>
         {% else %}
         <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center  twcss-mx-auto'>
