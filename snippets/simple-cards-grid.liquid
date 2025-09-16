@@ -5,6 +5,7 @@
   assign faa_cleared = false
   assign points_earned = product.price | times: 0.01 | round
   assign price_check = product.price | money_without_currency | remove: ',' | plus: 0
+  assign has_preowned = false
 
   if price_check >= 49.00
     assign ships_free = true
@@ -18,8 +19,8 @@
     assign faa_cleared = true
   endif
 
-  if product.metafields.custom.dhm_promos_risk_free_trial != null
-    assign has_trial = true
+  if product.name.does.not.include.pre-owned != null
+    assign has_preowned = true
   endif
 %}
 
@@ -83,6 +84,14 @@
         </h3>
       </div>
       <div>
+        {% if has_refurb %}
+         <div class='twcss-flex twcss-w-28 twcss-shrink-1 twcss-items-center twcss-justify-center  twcss-mx-auto'>
+          {% render 'icon-preowned' %}
+        </div>
+                  <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
+            QUALITY CHECKED CERTIFIED PRE-OWNED
+        </h3>
+        {% else %}
         <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center  twcss-mx-auto'>
           {% render 'icon-rewards' %}
         </div>
@@ -90,6 +99,7 @@
           EARN {{ points_earned }} DISCOUNT POINTS
         </h3>
       </div>
+    {% endif %}
       
     </div>
   </div>
