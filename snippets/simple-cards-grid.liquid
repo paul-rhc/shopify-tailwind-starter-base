@@ -52,12 +52,13 @@
             Subscribe and Save 15%
           </h3>
         {% else %}
-          <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center  twcss-mx-auto'>
-            {% render 'icon-best-prices' %}
+                    <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center twcss-rounded-l-md  twcss-text-sm twcss-font-medium twcss-text-primaryGreenDark twcss-mx-auto'>
+            {% render 'icon-fsa-hsa' %}
           </div>
           <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
-            Best Prices Guaranteed
+            HSA & FSA Cards Accepted
           </h3>
+
         {% endif %}
       </div>
       <div>
@@ -69,11 +70,17 @@
             {{ product.metafields.custom.dhm_promos_risk_free_trial | metafield_text }}
           </h3>
         {% else %}
-          <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center twcss-rounded-l-md  twcss-text-sm twcss-font-medium twcss-text-primaryGreenDark twcss-mx-auto'>
-            {% render 'icon-fsa-hsa' %}
+          <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center  twcss-mx-auto'>
+            {% render 'icon-best-prices' %}
           </div>
           <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
-            HSA & FSA Cards Accepted
+            Best Prices Guaranteed
+          </h3>
+                    <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center  twcss-mx-auto'>
+            {% render 'icon-support-team' %}
+          </div>
+          <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
+            Award-Winning Customer Support
           </h3>
         {% endif %}
 
