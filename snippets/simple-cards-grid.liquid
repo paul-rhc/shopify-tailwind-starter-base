@@ -19,6 +19,10 @@
     assign faa_cleared = true
   endif
 
+  if product.custom.dhm_promos_risk_free_trial != null
+    assign has_trial = true
+  endif
+
   if product.metafields.custom.dhm_promos_preowned != null
     assign has_preowned = true
   endif
