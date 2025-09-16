@@ -1,3 +1,6 @@
+{% comment %}
+  NOTE: the limit varaible is an old idea where we used to hide videos. I'm keeping it just in case we want to use it again.
+{% endcomment %}
 {% if product.metafields.custom.dhm_resources_videos != null %}
   <div class='twcss-p-10' x-data='{ modalOpen: false , showVideos: false }'>
     {% assign num_videos = product.metafields.custom.dhm_resources_videos.value.size %}
@@ -5,7 +8,7 @@
     <div class=' twcss-grid twcss-grid-cols-1 md:twcss-grid-cols-3 md:twcss-gap-10'>
       <!-- 1. The button -->
       {% for videoid in product.metafields.custom.dhm_resources_videos.value %}
-        {% assign limit = 10 %}
+        {% assign limit = 20 %}
         {% assign hidden_videos = false %}
         {% assign videoid2 = videoid | replace_first: '_', '*' %}
         {% if forloop.index > limit %}

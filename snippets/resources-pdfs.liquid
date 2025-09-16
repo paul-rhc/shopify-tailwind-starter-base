@@ -1,5 +1,15 @@
-{% if product.metafields.custom.dhm_resources_pdf_files != null %}
-  <h3 class=' twcss-mb-10 twcss-ml-10 twcss-text-primaryGreen twcss-font-bold'>PDF Resources</h3>
+{% liquid
+  if product.metafields.custom.dhm_resources_pdf_files != null
+    assign pdf_count = product.metafields.custom.dhm_resources_pdf_files.value | size
+  else
+    assign pdf_count = 0
+  endif
+%}
+
+{% if pdf_count > 0 %}
+  <h3 class=' twcss-mb-10 twcss-ml-10 twcss-text-primaryGreen twcss-font-bold'>
+    PDF Resources ({{ pdf_count }} Total)
+  </h3>
   <ul class='  twcss-p-10 twcss-grid twcss-gap-10 twcss-grid-cols-1 md:twcss-grid-cols-3'>
     {% comment %} {{ product.metafields.custom.dhm_resources_pdf_files.value }} {% endcomment %}
 
