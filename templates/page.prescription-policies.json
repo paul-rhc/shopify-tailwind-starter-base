@@ -16,29 +16,6 @@
         "padding_bottom": 28
       }
     },
-    "rich_text_JiVfGK": {
-      "type": "rich-text",
-      "blocks": {
-        "text_KchrJy": {
-          "type": "text",
-          "settings": {
-            "text": "<p>{{ page.metafields.custom.dhm_info_page_content.value }}</p>"
-          }
-        }
-      },
-      "block_order": [
-        "text_KchrJy"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "left",
-        "color_scheme": "",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52
-      }
-    },
     "multicolumn_zfDT9y": {
       "type": "multicolumn",
       "blocks": {
@@ -46,7 +23,7 @@
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/promo-badge-clipboard.png",
-            "title": "Secure File Upload",
+            "title": "Secure Prescription Upload",
             "text": "",
             "link_label": "",
             "link": ""
@@ -80,7 +57,7 @@
       ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
-        "title": "Send Us Your Prescription",
+        "title": "",
         "heading_size": "h1",
         "image_width": "third",
         "image_ratio": "square",
@@ -95,11 +72,34 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "rich_text_JiVfGK": {
+      "type": "rich-text",
+      "blocks": {
+        "text_KchrJy": {
+          "type": "text",
+          "settings": {
+            "text": "<p>{{ page.metafields.custom.dhm_info_page_content.value }}</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_KchrJy"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
     "main",
-    "rich_text_JiVfGK",
-    "multicolumn_zfDT9y"
+    "multicolumn_zfDT9y",
+    "rich_text_JiVfGK"
   ]
 }
