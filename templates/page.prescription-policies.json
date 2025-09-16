@@ -23,7 +23,7 @@
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/promo-badge-clipboard.png",
-            "title": "Secure Prescription Upload",
+            "title": "<a href=\"https://www.directhomemedical.com\" title=\"https://www.directhomemedical.com\">Secure Prescription Upload</a>",
             "text": "",
             "link_label": "",
             "link": ""
