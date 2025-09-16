@@ -84,6 +84,7 @@
           {% endif %}
         </h3>
       </div>
+                {% if ships_free %}
             <div>
         <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center  twcss-mx-auto'>
           {% render 'icon-rewards' %}
@@ -92,6 +93,16 @@
           Earn {{ points_earned }} Reward Points
         </h3>
       </div>
+                {% else %}
+      <div>
+        <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center  twcss-mx-auto'>
+          {% render 'icon-rewards' %}
+        </div>
+        <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
+          Earn {{ points_earned }} Reward Points
+        </h3>
+      </div>
+                {% endif %}
     </div>
   </div>
 </div>
