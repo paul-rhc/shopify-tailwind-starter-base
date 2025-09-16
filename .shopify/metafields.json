@@ -17,6 +17,16 @@
         "name": "multi_line_text_field",
         "category": "TEXT"
       }
+    },
+    {
+      "key": "dhm_info_page_content",
+      "namespace": "custom",
+      "name": "DHM Info Page Content",
+      "description": "html content",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
     }
   ],
   "product": [
