@@ -5,7 +5,6 @@
   assign faa_cleared = false
   assign points_earned = product.price | times: 0.01 | round
   assign price_check = product.price | money_without_currency | remove: ',' | plus: 0
-  assign has_preowned = false
 
   if price_check >= 49.00
     assign ships_free = true
@@ -19,15 +18,15 @@
     assign faa_cleared = true
   endif
 
-  if product.metafields.custom.dhm_promos_preowned != null
-    assign has_preowned = true
+  if product.metafields.custom.dhm_promos_risk_free_trial != null
+    assign has_trial = true
   endif
 %}
 
 <div class=' twcss-bg-white twcss-rounded-xl twcss-mt-10 twcss-mb-10 twcss-border twcss-border-slate-300 '>
   <div class='twcss-mx-auto twcss-max-w-2xl twcss-px-4 twcss-py-24 sm:twcss-px-6 sm:twcss-py-34 lg:twcss-max-w-full lg:twcss-px-8'>
     <div class='twcss-grid twcss-grid-cols-1 twcss-gap-y-12 sm:twcss-grid-cols-1 sm:twcss-gap-x-6 lg:twcss-grid-cols-4 lg:twcss-gap-x-8'>
-    <div>
+            <div>
         {% if faa_cleared %}
           <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center  twcss-mx-auto'>
             {% render 'icon-faa-cleared' %}
@@ -36,32 +35,29 @@
             FAA Approved
           </h3>
         {% elsif has_subscriptions %}
-          <a href="https://directhomemedical.myshopify.com/collections/subscribe-save-on-hundreds-of-products">
-            <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center  twcss-mx-auto'>
+          <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center  twcss-mx-auto'>
             {% render 'icon-subscribe' %}
           </div>
           <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
             Subscribe and Save 15%
-          </h3></a>
+          </h3>
         {% else %}
           <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center  twcss-mx-auto'>
             {% render 'icon-best-prices' %}
           </div>
           <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
-            Best Price Guarantee
+            Best Prices Guaranteed
           </h3>
         {% endif %}
       </div>
-      
       <div>
         {% if has_trial %}
-          <a href="https://directhomemedical.myshopify.com/collections/exclusive-satisfaction-guarantee-on-many-popular-products">
           <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center twcss-rounded-l-md  twcss-text-sm twcss-font-medium twcss-text-primaryGreenDark twcss-mx-auto'>
             {% render 'icon-warranty' %}
           </div>
           <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
             {{ product.metafields.custom.dhm_promos_risk_free_trial | metafield_text }}
-          </h3></a>
+          </h3>
         {% else %}
           <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center twcss-rounded-l-md  twcss-text-sm twcss-font-medium twcss-text-primaryGreenDark twcss-mx-auto'>
             {% render 'icon-fsa-hsa' %}
@@ -71,36 +67,26 @@
           </h3>
         {% endif %}
       </div>
-      <div>
+            <div>
         <div class='twcss-flex twcss-w-28 twcss-shrink-1 twcss-items-center twcss-justify-center  twcss-mx-auto'>
-          {% render 'icon-instock' %}
+          {% render 'icon-freeshipping' %}
         </div>
         <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
           {% if ships_free %}
             This Item Ships Free!
           {% else %}
-            Orders Over $49.00 Ship Free!
+            Orders Over $49 Ship Free!
           {% endif %}
         </h3>
       </div>
-      <div>
-        {% if has_refurb %}
-         <div class='twcss-flex twcss-w-28 twcss-shrink-1 twcss-items-center twcss-justify-center  twcss-mx-auto'>
-          {% render 'icon-preowned' %}
-        </div>
-                  <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
-            QUALITY CHECKED CERTIFIED PREOWNED
-        </h3>
-        {% else %}
+            <div>
         <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center  twcss-mx-auto'>
           {% render 'icon-rewards' %}
         </div>
         <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
-          EARN {{ points_earned }} DISCOUNT POINTS
+          Earn {{ points_earned }} Reward Points
         </h3>
       </div>
-    {% endif %}
-      
     </div>
   </div>
 </div>
