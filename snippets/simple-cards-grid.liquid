@@ -7,6 +7,9 @@
   assign made_in_usa = false
   assign points_earned = product.price | times: 0.01 | round
   assign price_check = product.price | money_without_currency | remove: ',' | plus: 0
+  assign the_time = 'now' | date: '%N' | modulo: 100
+  assign the_time = the_time | to_i
+  assign the_time = the_time | modulo: 2
 
   if price_check >= 49.00
     assign ships_free = true
@@ -20,11 +23,11 @@
     assign faa_cleared = true
   endif
 
-    if product.metafields.custom.dhm_promos_usa != null
+  if product.metafields.custom.dhm_promos_usa != null
     assign made_in_usa = true
   endif
 
-    if product.metafields.custom.dhm_promos_refurb != null
+  if product.metafields.custom.dhm_promos_refurb != null
     assign refurb = true
   endif
 
@@ -36,7 +39,7 @@
 <div class=' twcss-bg-white twcss-rounded-xl twcss-mt-10 twcss-mb-10 twcss-border twcss-border-slate-300 '>
   <div class='twcss-mx-auto twcss-max-w-2xl twcss-px-4 twcss-py-24 sm:twcss-px-6 sm:twcss-py-34 lg:twcss-max-w-full lg:twcss-px-8'>
     <div class='twcss-grid twcss-grid-cols-1 twcss-gap-y-12 sm:twcss-grid-cols-1 sm:twcss-gap-x-6 lg:twcss-grid-cols-4 lg:twcss-gap-x-8'>
-            <div>
+      <div>
         {% if faa_cleared %}
           <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center  twcss-mx-auto'>
             {% render 'icon-faa-cleared' %}
@@ -52,13 +55,12 @@
             Subscribe and Save 15%
           </h3>
         {% else %}
-                    <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center twcss-rounded-l-md  twcss-text-sm twcss-font-medium twcss-text-primaryGreenDark twcss-mx-auto'>
+          <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center twcss-rounded-l-md  twcss-text-sm twcss-font-medium twcss-text-primaryGreenDark twcss-mx-auto'>
             {% render 'icon-fsa-hsa' %}
           </div>
           <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
             HSA & FSA Cards Accepted
           </h3>
-
         {% endif %}
       </div>
       <div>
@@ -70,62 +72,65 @@
             {{ product.metafields.custom.dhm_promos_risk_free_trial | metafield_text }}
           </h3>
         {% else %}
-          <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center  twcss-mx-auto'>
-            {% render 'icon-best-prices' %}
+          {% comment %} {{ the_time | modulo: 2 }} {% endcomment %}
+          {% if the_time == 0 %}
+            <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center  twcss-mx-auto'>
+              {% render 'icon-best-prices' %}
+            </div>
+            <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
+              Best Prices Guaranteed
+            </h3>
+          {% else %}
+            <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center  twcss-mx-auto'>
+              {% render 'icon-support-team' %}
+            </div>
+            <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
+              #1 Customer Care Team
+            </h3>
+          {% endif %}
+        {% endif %}
+      </div>
+      <div>
+        {% if made_in_usa %}
+          <div class='twcss-flex twcss-w-28 twcss-shrink-1 twcss-items-center twcss-justify-center  twcss-mx-auto'>
+            {% render 'icon-madeinusa' %}
           </div>
           <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
-            Best Prices Guaranteed
+            Made in the USA
           </h3>
-                    <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center  twcss-mx-auto'>
-            {% render 'icon-support-team' %}
+        {% else %}
+          <div class='twcss-flex twcss-w-28 twcss-shrink-1 twcss-items-center twcss-justify-center  twcss-mx-auto'>
+            {% render 'icon-freeshipping' %}
           </div>
           <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
-            #1 Customer Care Team
+            {% if ships_free %}
+              This Item Ships Free!
+            {% else %}
+              Orders Over $49 Ship Free!
+            {% endif %}
           </h3>
         {% endif %}
-
-      </div>
-      <div>
-      {% if made_in_usa %}
-        <div class='twcss-flex twcss-w-28 twcss-shrink-1 twcss-items-center twcss-justify-center  twcss-mx-auto'>
-          {% render 'icon-madeinusa' %}
-        </div>
-        <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
-            Made in the USA
-        </h3>
-              {% else %}
-        <div class='twcss-flex twcss-w-28 twcss-shrink-1 twcss-items-center twcss-justify-center  twcss-mx-auto'>
-          {% render 'icon-freeshipping' %}
-        </div>
-        <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
-          {% if ships_free %}
-            This Item Ships Free!
-          {% else %}
-            Orders Over $49 Ship Free!
-          {% endif %}
-        </h3>
-    {% endif %}
       </div>
 
-    {% if refurb %}
-            <div>
-        <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center  twcss-mx-auto'>
-          {% render 'icon-refurbished' %}
+      {% if refurb %}
+        <div>
+          <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center  twcss-mx-auto'>
+            {% render 'icon-refurbished' %}
+          </div>
+          <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
+            Certified Refurbished
+          </h3>
         </div>
-        <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
-          Certified Refurbished
-        </h3>
-      </div>
-                {% else %}
-      <div>
-        <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center  twcss-mx-auto'>
-          {% render 'icon-rewards' %}
+      {% else %}
+        <div>
+          <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center  twcss-mx-auto'>
+            {% render 'icon-rewards' %}
+          </div>
+          <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
+            Earn {{ points_earned }} Reward Points
+          </h3>
         </div>
-        <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
-          Earn {{ points_earned }} Reward Points
-        </h3>
-      </div>
-                {% endif %}
+      {% endif %}
     </div>
   </div>
 </div>
