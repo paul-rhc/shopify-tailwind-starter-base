@@ -3,7 +3,7 @@
   assign has_trial = false
   assign ships_free = false
   assign faa_cleared = false
-  assign points_earned = product.price | times: 0.03 | round
+  assign points_earned = product.price | times: 0.01 | round
   assign price_check = product.price | money_without_currency | remove: ',' | plus: 0
 
   if price_check >= 49.00
