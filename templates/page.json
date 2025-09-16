@@ -38,68 +38,10 @@
         "padding_top": 40,
         "padding_bottom": 52
       }
-    },
-    "multicolumn_zfDT9y": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_eqwLPG": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/promo-badge-clipboard.png",
-            "title": "Secure File Upload",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_6dBJ9G": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/promo-badge-made-in-usa.png",
-            "title": "Email rx@directhomemedical.com",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_3ACGic": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/promo-badge-customer-service.png",
-            "title": "Fax",
-            "text": "<p>603-250-2982</p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column_eqwLPG",
-        "column_6dBJ9G",
-        "column_3ACGic"
-      ],
-      "name": "t:sections.multicolumn.presets.name",
-      "settings": {
-        "title": "Send Us Your Prescription",
-        "heading_size": "h1",
-        "image_width": "third",
-        "image_ratio": "square",
-        "columns_desktop": 4,
-        "column_alignment": "center",
-        "background_style": "primary",
-        "button_label": "Button label",
-        "button_link": "",
-        "color_scheme": "",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
     }
   },
   "order": [
     "main",
-    "rich_text_JiVfGK",
-    "multicolumn_zfDT9y"
+    "rich_text_JiVfGK"
   ]
 }
