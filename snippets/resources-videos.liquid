@@ -4,7 +4,7 @@
 {% if product.metafields.custom.dhm_resources_videos != null %}
   <div class='twcss-p-10' x-data='{ modalOpen: false , showVideos: false }'>
     {% assign num_videos = product.metafields.custom.dhm_resources_videos.value.size %}
-    <h3 class=' twcss-mb-10 twcss-text-primaryGreen twcss-font-bold'>Video Resources ({{ num_videos }} Total)</h3>
+    <h3 class=' twcss-mb-10 twcss-text-primaryGreen twcss-font-bold'>Video Resources</h3>
     <div class=' twcss-grid twcss-grid-cols-1 md:twcss-grid-cols-3 md:twcss-gap-10'>
       <!-- 1. The button -->
       {% for videoid in product.metafields.custom.dhm_resources_videos.value %}
