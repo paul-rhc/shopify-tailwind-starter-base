@@ -3,6 +3,7 @@
   assign has_trial = false
   assign ships_free = false
   assign faa_cleared = false
+  assign refurb = false
   assign points_earned = product.price | times: 0.01 | round
   assign price_check = product.price | money_without_currency | remove: ',' | plus: 0
 
@@ -16,6 +17,10 @@
 
   if product.metafields.custom.dhm_promos_faa != null
     assign faa_cleared = true
+  endif
+
+    if product.metafields.custom.dhm_promos_refurb != null
+    assign refurb = true
   endif
 
   if product.metafields.custom.dhm_promos_risk_free_trial != null
