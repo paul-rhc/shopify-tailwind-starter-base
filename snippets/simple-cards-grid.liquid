@@ -54,12 +54,13 @@
       
       <div>
         {% if has_trial %}
+          <a href="https://directhomemedical.myshopify.com/collections/exclusive-satisfaction-guarantee-on-many-popular-products">
           <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center twcss-rounded-l-md  twcss-text-sm twcss-font-medium twcss-text-primaryGreenDark twcss-mx-auto'>
             {% render 'icon-warranty' %}
           </div>
           <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
             {{ product.metafields.custom.dhm_promos_risk_free_trial | metafield_text }}
-          </h3>
+          </h3></a>
         {% else %}
           <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center twcss-rounded-l-md  twcss-text-sm twcss-font-medium twcss-text-primaryGreenDark twcss-mx-auto'>
             {% render 'icon-fsa-hsa' %}
