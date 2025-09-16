@@ -46,8 +46,8 @@
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/promo-badge-clipboard.png",
-            "title": "Upload",
-            "text": "<p>Click Here for Our Secure Prescription Upload</p>",
+            "title": "Secure File Upload",
+            "text": "",
             "link_label": "",
             "link": ""
           }
@@ -56,8 +56,8 @@
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/promo-badge-made-in-usa.png",
-            "title": "Email",
-            "text": "<p>rx@directhomemedical.com</p>",
+            "title": "Email rx@directhomemedical.com",
+            "text": "",
             "link_label": "",
             "link": ""
           }
