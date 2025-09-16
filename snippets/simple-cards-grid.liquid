@@ -4,6 +4,7 @@
   assign ships_free = false
   assign faa_cleared = false
   assign refurb = false
+  assign made_in_usa = false
   assign points_earned = product.price | times: 0.01 | round
   assign price_check = product.price | money_without_currency | remove: ',' | plus: 0
 
@@ -17,6 +18,10 @@
 
   if product.metafields.custom.dhm_promos_faa != null
     assign faa_cleared = true
+  endif
+
+    if product.metafields.custom.dhm_promos_usa != null
+    assign made_in_usa = true
   endif
 
     if product.metafields.custom.dhm_promos_refurb != null
@@ -47,12 +52,13 @@
             Subscribe and Save 15%
           </h3>
         {% else %}
-          <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center  twcss-mx-auto'>
-            {% render 'icon-best-prices' %}
+                    <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center twcss-rounded-l-md  twcss-text-sm twcss-font-medium twcss-text-primaryGreenDark twcss-mx-auto'>
+            {% render 'icon-fsa-hsa' %}
           </div>
           <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
-            Best Prices Guaranteed
+            HSA & FSA Cards Accepted
           </h3>
+
         {% endif %}
       </div>
       <div>
@@ -64,15 +70,30 @@
             {{ product.metafields.custom.dhm_promos_risk_free_trial | metafield_text }}
           </h3>
         {% else %}
-          <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center twcss-rounded-l-md  twcss-text-sm twcss-font-medium twcss-text-primaryGreenDark twcss-mx-auto'>
-            {% render 'icon-fsa-hsa' %}
+          <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center  twcss-mx-auto'>
+            {% render 'icon-best-prices' %}
           </div>
           <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
-            HSA & FSA Cards Accepted
+            Best Prices Guaranteed
+          </h3>
+                    <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center  twcss-mx-auto'>
+            {% render 'icon-support-team' %}
+          </div>
+          <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
+            #1 Customer Care Team
           </h3>
         {% endif %}
+
       </div>
-            <div>
+      <div>
+      {% if made_in_usa %}
+        <div class='twcss-flex twcss-w-28 twcss-shrink-1 twcss-items-center twcss-justify-center  twcss-mx-auto'>
+          {% render 'icon-madeinusa' %}
+        </div>
+        <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
+            Made in the USA
+        </h3>
+              {% else %}
         <div class='twcss-flex twcss-w-28 twcss-shrink-1 twcss-items-center twcss-justify-center  twcss-mx-auto'>
           {% render 'icon-freeshipping' %}
         </div>
@@ -83,14 +104,16 @@
             Orders Over $49 Ship Free!
           {% endif %}
         </h3>
+    {% endif %}
       </div>
-                {% if refurb %}
+
+    {% if refurb %}
             <div>
         <div class='twcss-flex twcss-w-28 shrink-0 twcss-items-center twcss-justify-center  twcss-mx-auto'>
           {% render 'icon-refurbished' %}
         </div>
         <h3 class='twcss-mt-6 twcss-text-2xl twcss-font-bold twcss-text-primaryGreenDark twcss-uppercase twcss-text-center'>
-          Quality Certified Refurbished
+          Certified Refurbished
         </h3>
       </div>
                 {% else %}
