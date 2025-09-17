@@ -33,7 +33,7 @@
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/promo-badge-made-in-usa.png",
-            "title": "Email rx@directhomemedical.com",
+            "title": "Email Your Prescription",
             "text": "",
             "link_label": "",
             "link": ""
@@ -61,7 +61,7 @@
         "heading_size": "h1",
         "image_width": "third",
         "image_ratio": "square",
-        "columns_desktop": 4,
+        "columns_desktop": 3,
         "column_alignment": "center",
         "background_style": "primary",
         "button_label": "Button label",
